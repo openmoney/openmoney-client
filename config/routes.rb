@@ -1,5 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
+
+
+  account_regex = /[^\/]*/
+  currency_regex = /[^\/]*/
+  #TODO at some point accounts and currency portions of the URLs should have a real regexp match intstead of /.*/ (which is currently there because periods are not valid by default)
+  map.connect 'clients/:client/:account/input_form', :controller => 'clients', :action => 'input_form',:conditions => {:method => :post}, :requirements => { :account =>account_regex }
+  map.connect 'clients/:client/:account/history', :controller => 'clients', :action => 'history',:conditions => {:method => :post}, :requirements => { :account =>account_regex }
+  map.connect 'clients/:client/:account/:currency', :controller => 'clients', :action => 'show',:conditions => {:method => :get}, :defaults => { :account => nil, :currency => nil }, :requirements => { :account => account_regex, :currency => currency_regex }
+  map.connect 'clients/:client/:account/:currency', :controller => 'clients', :action => 'ack',:conditions => {:method => :post}, :requirements => { :account => account_regex, :currency => currency_regex }
+
   
   # Sample of regular route:
   # map.connect 'products/:id', :controller => 'catalog', :action => 'view'

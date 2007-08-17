@@ -319,3 +319,496 @@ Processing InfoController#properties (for 127.0.0.1 at 2007-08-17 10:12:27) [GET
   Parameters: {"action"=>"properties", "controller"=>"rails/info"}
   [4;36;1mSQL (0.002994)[0m   [0;1mSELECT version FROM schema_info[0m
 Completed in 0.17948 (5 reqs/sec) | Rendering: 0.00117 (0%) | DB: 0.00299 (1%) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-17 12:03:13) [GET]
+  Session ID: 06b8b8257b4900b07ab893e87097f406
+  Parameters: {"account"=>"zippy^us", "action"=>"show", "client"=>"zippy", "controller"=>"clients", "currency"=>"bucks~us"}
+
+
+NameError (uninitialized constant ClientsController::Entity):
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:477:in `const_missing'
+    /app/controllers/clients_controller.rb:26:in `setup_currency'
+    /app/controllers/clients_controller.rb:4:in `show'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:695:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:687:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:133:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:668:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:105:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:667:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-17 12:03:44) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"show", "client"=>"zippy", "controller"=>"clients", "currency"=>"bucks~us"}
+
+
+NoMethodError (undefined method `find_by_omrl' for Entity:Class):
+    /app/controllers/clients_controller.rb:26:in `setup_currency'
+    /app/controllers/clients_controller.rb:4:in `show'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:695:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:687:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:133:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:668:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:105:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:667:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-17 12:04:15) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"show", "client"=>"zippy", "controller"=>"clients", "currency"=>"bucks~us"}
+Rendering template within layouts/application
+Rendering clients/show
+Rendered clients/_input_form (0.01333)
+Rendered clients/_history (3.43642)
+Completed in 4.95686 (0 reqs/sec) | Rendering: 3.49489 (70%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy^us/bucks~us]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-08-17 12:04:22) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/tabsRight.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-08-17 12:04:22) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/loading.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-08-17 12:04:22) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/tabsLeft.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ClientsController#input_form (for 127.0.0.1 at 2007-08-17 12:04:47) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"input_form", "client"=>"zippy", "controller"=>"clients", "currency"=>"rate~us"}
+Rendered clients/_input_form (0.00421)
+Completed in 1.02211 (0 reqs/sec) | Rendering: 0.00593 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy%5Eus/input_form]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-08-17 12:04:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/loading.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ClientsController#history (for 127.0.0.1 at 2007-08-17 12:04:50) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"history", "client"=>"zippy", "controller"=>"clients", "currency"=>"rate~us"}
+Rendered clients/_history (2.56504)
+Completed in 4.08656 (0 reqs/sec) | Rendering: 2.57011 (62%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy%5Eus/history]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-08-17 12:04:54) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/loading.gif" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-17 12:05:50) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"show", "client"=>"zippy", "controller"=>"clients", "currency"=>"bucks~us"}
+Rendering template within layouts/application
+Rendering clients/show
+Rendered clients/_input_form (0.00340)
+Rendered clients/_history (3.12018)
+Completed in 4.79947 (0 reqs/sec) | Rendering: 3.16375 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy^us/bucks~us]
+
+
+Processing ClientsController#input_form (for 127.0.0.1 at 2007-08-17 12:06:11) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"input_form", "client"=>"zippy", "controller"=>"clients", "currency"=>"rate~us"}
+Rendered clients/_input_form (0.00450)
+Completed in 1.08896 (0 reqs/sec) | Rendering: 0.00879 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy%5Eus/input_form]
+
+
+Processing ClientsController#history (for 127.0.0.1 at 2007-08-17 12:06:13) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"history", "client"=>"zippy", "controller"=>"clients", "currency"=>"rate~us"}
+Rendered clients/_history (2.56118)
+Completed in 4.33595 (0 reqs/sec) | Rendering: 2.56548 (59%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy%5Eus/history]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-17 12:06:20) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"show", "client"=>"zippy", "controller"=>"clients", "currency"=>"bucks~us"}
+Rendering template within layouts/application
+Rendering clients/show
+Rendered clients/_input_form (0.01475)
+Rendered clients/_history (3.47587)
+Completed in 5.22866 (0 reqs/sec) | Rendering: 3.58103 (68%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy^us/bucks~us]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-17 12:07:25) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"show", "client"=>"zippy", "controller"=>"clients"}
+Rendering template within layouts/application
+Rendering clients/show
+Rendered clients/_input_form (0.00402)
+Rendered clients/_history (3.35863)
+Completed in 4.49628 (0 reqs/sec) | Rendering: 3.38924 (75%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy^us]
+
+
+Processing ClientsController#input_form (for 127.0.0.1 at 2007-08-17 12:07:34) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"input_form", "client"=>"zippy", "controller"=>"clients", "currency"=>"rate~us"}
+Rendered clients/_input_form (0.00522)
+Completed in 1.20269 (0 reqs/sec) | Rendering: 0.00732 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy%5Eus/input_form]
+
+
+Processing ClientsController#history (for 127.0.0.1 at 2007-08-17 12:07:36) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"history", "client"=>"zippy", "controller"=>"clients", "currency"=>"rate~us"}
+Rendered clients/_history (4.90744)
+Completed in 7.22196 (0 reqs/sec) | Rendering: 4.91102 (68%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy%5Eus/history]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-08-17 12:09:32) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-17 12:17:07) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"account"=>"zippy^us", "action"=>"show", "client"=>"zippy", "controller"=>"clients", "currency"=>"bucks~us"}
+Rendering template within layouts/application
+Rendering clients/show
+Rendered clients/_input_form (0.00590)
+Rendered clients/_history (2.97450)
+Completed in 4.57120 (0 reqs/sec) | Rendering: 3.01598 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/clients/zippy/zippy^us/bucks~us]
