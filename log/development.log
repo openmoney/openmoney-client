@@ -1,0 +1,321 @@
+DISPATCHER FAILSAFE RESPONSE (has cgi) Fri Aug 17 09:55:51 -0400 2007
+  Status: 500 Internal Server Error
+  A session_key is required to write a cookie containing the session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase" } in config/environment.rb
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:49:in `initialize'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_ext/session.rb:29:in `initialize'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `new'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:156:in `stale_session_check!'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:111:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:1117:in `assign_shortcuts_without_flash'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/flash.rb:174:in `assign_shortcuts'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:488:in `process_without_filters'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+DISPATCHER FAILSAFE RESPONSE (has cgi) Fri Aug 17 09:58:17 -0400 2007
+  Status: 500 Internal Server Error
+  A session_key is required to write a cookie containing the session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase" } in config/environment.rb
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:49:in `initialize'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_ext/session.rb:29:in `initialize'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `new'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:156:in `stale_session_check!'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:111:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:1117:in `assign_shortcuts_without_flash'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/flash.rb:174:in `assign_shortcuts'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:488:in `process_without_filters'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+  [4;36;1mSQL (0.000716)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.173872)[0m   [0mCREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.070484)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: #42S01Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.001634)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.001786)[0m   [0mSHOW TABLES[0m
+DISPATCHER FAILSAFE RESPONSE (has cgi) Fri Aug 17 09:58:45 -0400 2007
+  Status: 500 Internal Server Error
+  A session_key is required to write a cookie containing the session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase" } in config/environment.rb
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:49:in `initialize'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_ext/session.rb:29:in `initialize'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `new'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:156:in `stale_session_check!'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:111:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:1117:in `assign_shortcuts_without_flash'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/flash.rb:174:in `assign_shortcuts'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:488:in `process_without_filters'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+DISPATCHER FAILSAFE RESPONSE (has cgi) Fri Aug 17 09:59:24 -0400 2007
+  Status: 500 Internal Server Error
+  A session_key is required to write a cookie containing the session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase" } in config/environment.rb
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:49:in `initialize'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_ext/session.rb:29:in `initialize'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `new'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:156:in `stale_session_check!'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:111:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:1117:in `assign_shortcuts_without_flash'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/flash.rb:174:in `assign_shortcuts'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:488:in `process_without_filters'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+DISPATCHER FAILSAFE RESPONSE (has cgi) Fri Aug 17 10:02:26 -0400 2007
+  Status: 500 Internal Server Error
+  A session_key is required to write a cookie containing the session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase" } in config/environment.rb
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:49:in `initialize'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_ext/session.rb:29:in `initialize'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `new'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:156:in `stale_session_check!'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:111:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:1117:in `assign_shortcuts_without_flash'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/flash.rb:174:in `assign_shortcuts'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:488:in `process_without_filters'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+DISPATCHER FAILSAFE RESPONSE (has cgi) Fri Aug 17 10:09:33 -0400 2007
+  Status: 500 Internal Server Error
+  A session_key is required to write a cookie containing the session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase" } in config/environment.rb
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:49:in `initialize'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /usr/local/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_ext/session.rb:29:in `initialize'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `new'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:156:in `stale_session_check!'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:111:in `session'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:1117:in `assign_shortcuts_without_flash'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/flash.rb:174:in `assign_shortcuts'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:488:in `process_without_filters'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2007-08-17 10:12:09) [GET]
+  Session ID: 67043202786ad53bbf98da70033cdfaf
+  Parameters: {"action"=>"properties", "controller"=>"rails/info"}
+  [4;36;1mSQL (0.000801)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003726)[0m   [0mSELECT version FROM schema_info[0m
+Completed in 1.16772 (0 reqs/sec) | Rendering: 0.00576 (0%) | DB: 0.00453 (0%) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2007-08-17 10:12:27) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"properties", "controller"=>"rails/info"}
+  [4;36;1mSQL (0.002994)[0m   [0;1mSELECT version FROM schema_info[0m
+Completed in 0.17948 (5 reqs/sec) | Rendering: 0.00117 (0%) | DB: 0.00299 (1%) | 200 OK [http://localhost/rails/info/properties]
