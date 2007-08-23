@@ -1,5 +1,12 @@
+######################################################################################
+# Copyright (C) 2007 Eric Harris-Braun (eric -at- harris-braun.com), et al
+# This software is distributed according to the license at 
+# http://openmoney.info/licenses/rubycc
+######################################################################################
+
 class UsersController < ApplicationController
-  require_authorization(:manage_users, :except => [:show,:update,:edit]) 
+  require_authorization(:manage_users, :except => [:show,:update,:edit,:new,:create]) 
+  require_authentication(:except => [:new,:create])
   # GET /users
   # GET /users.xml
   def index
@@ -44,7 +51,7 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    if params[:user][:role_id]
+    if logged_in? && current_user.can?(:manage_users) && params[:user][:role_id]
       @user.role_id = params[:user][:role_id]
     else
       @user.role_id = Role.find_by_name('user').id
@@ -54,7 +61,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       if Rauth::Bridge.create_account(@user, :user_name => @user.username, :password => params[:password], :confirmation => params[:password_confirm])
         flash[:notice] = 'User was successfully created.'
-        format.html { redirect_to(@user) }
+        current_user = @user if !logged_in?
+        format.html { redirect_to(home_url) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -72,7 +80,7 @@ class UsersController < ApplicationController
       respond_to do |format|
         if @user.update_attributes(params[:user])
           flash[:notice] = 'User was successfully updated.'
-          format.html { redirect_to(@user) }
+          format.html { redirect_to(users_url) }
           format.xml  { head :ok }
         else
           format.html { render :action => "edit" }
@@ -90,6 +98,15 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(users_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  def login_as
+    @user = User.find(params[:id])
+    current_user = @user
+    respond_to do |format|
+      format.html { redirect_to(home_url) }
       format.xml  { head :ok }
     end
   end

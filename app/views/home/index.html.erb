@@ -1,1 +1,36 @@
-This is the home page
+<% @header = 'Welcome to rubycc'; @subhead = 'the reference open money client' %>
+
+<% if logged_in? && !current_user.om_accounts.empty? %>
+<%= link_to "Your accounts",url_for (:controller => 'clients', :action => 'show', :client => current_user.username) %>
+<% else %>
+        
+ <div id="getting-started">
+   <h1>Two steps to get started:</h1>
+   
+   <ol>
+     <li>
+       <h2>
+		<% if logged_in? %>
+			Completed: Create a profile
+		<% else %>
+			<a href="/users/new">Create a profile</a> or <%= link_to('login', login_url)%>
+		<% end %>
+		</h2>
+       <p>
+Your profile allows you to log into the open money client web-site.
+<br>
+</p>
+     </li>
+   
+     <li>
+       <h2>
+			<%= link_to('Configure accounts', new_om_account_url)%>
+	   </h2>
+       <p>
+Add your open money accounts to your profile.
+       </p>
+     </li>
+
+   </ol>
+ </div>
+<% end %>

@@ -1,8 +1,5 @@
 <% @header="Accounts: #{@client}" %>
 
-<div id="toobar" style="text-align: right">
-	<%= link_to "Configure Accounts",om_accounts_url%>
-</div>
 <% if @accounts.empty?%>
 	<p>Welcome to the open money reference client.</p>
 	<%= link_to "Add an open money account",new_om_account_url%>

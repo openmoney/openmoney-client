@@ -19,6 +19,9 @@
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if current_user.can?(:manage_users)%>
+	<td><%= link_to 'Log in as', login_as_user_url(user) %></td>
+	<% end %>
   </tr>
 <% end %>
 </table>

@@ -17,7 +17,7 @@
 </p>
 
 <p>
-  <% if current_user.can? :manage_users%>
+  <% if logged_in? && current_user.can?(:manage_users)%>
   <b>Role</b><br />
   <%= f.collection_select(:role_id, Role.find(:all), :id, :name) %>
   </p>
