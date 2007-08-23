@@ -1,0 +1,18 @@
+<p>
+  <b>Omrl:</b>
+  <%=h @om_account.omrl %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @om_account.password %>
+</p>
+
+<p>
+  <b>Currencies cache:</b>
+  <%=h @om_account.currencies_cache %>
+</p>
+
+
+<%= link_to 'Edit', edit_om_account_path(@om_account) %> |
+<%= link_to 'Back', om_accounts_path %>

@@ -1,0 +1,27 @@
+<h1>Editing om_account</h1>
+
+<%= error_messages_for :om_account %>
+
+<% form_for(@om_account) do |f| %>
+  <p>
+    <b>Omrl</b><br />
+    <%= f.text_field :omrl %>
+  </p>
+
+  <p>
+    <b>Password</b><br />
+    <%= f.text_field :password %>
+  </p>
+
+  <p>
+    <b>Currencies cache</b><br />
+    <%= f.text_area :currencies_cache %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @om_account %> |
+<%= link_to 'Back', om_accounts_path %>

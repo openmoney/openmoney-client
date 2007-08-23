@@ -29,9 +29,10 @@ class ClientsController < ApplicationController
 
     @client = params[:client]
     @account = params[:account]
-    @account ||= 'zippy^us'
-    @accounts = ['zippy^us','eric^cc.ny.us']
-    @currencies = ['bucks~us','rate~us']
+    @accounts = current_user.om_accounts
+    @account ||= @accounts[0].omrl if !@accounts.empty?
+    currencies = Currency.find(:all, :params => { :used_by => @account })
+    @currencies = currencies.collect {|c| c.omrl}
   end
   
 end

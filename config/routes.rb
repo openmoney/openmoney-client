@@ -1,7 +1,23 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :om_accounts
+
+
+  # Named routes
+  map.home('', :controller => 'home', :action => 'index')
+
+  map.resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
 
+  ####################################################################################
+  #rauth routes
+  map.resources(:sessions)
+  map.login('/login',   :controller => 'sessions', :action => 'new')
+  map.logout('/logout', :controller => 'sessions', :action => 'destroy')
 
+
+  ####################################################################################
+  # Routes for the rubycc
   account_regex = /[^\/]*/
   currency_regex = /[^\/]*/
   #TODO at some point accounts and currency portions of the URLs should have a real regexp match intstead of /.*/ (which is currently there because periods are not valid by default)

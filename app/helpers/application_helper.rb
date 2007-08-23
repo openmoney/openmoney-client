@@ -111,7 +111,7 @@ module ApplicationHelper
 #    a = OMRL.new(account)
 #    links = Link.find(:all,{:conditions => "link_type in ('accepts','declares') && omrl regexp '^#{a.entity}#[0-9]+\\\\^#{a.context}'"})
 #   flows = links.collect {|l| e = Entity.find_by_omrl(l.omrl); (e && OMRL.new(e.specification_attribute('currency')).to_s == currency_omrl) ? e : nil }.reject {|e| e == nil}
-    flows = Flow.find(:all)
+    flows = Flow.find(:all, :params => { :with => account, :in_currency => currency_omrl })
     fields = currency.specification_attribute('fields')
     fields ||= DefaultCurrencyFields
     f = {}

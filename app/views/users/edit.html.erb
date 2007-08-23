@@ -1,0 +1,36 @@
+<h1>Editing user</h1>
+
+<%= error_messages_for :user %>
+
+<% form_for(@user) do |f| %>
+
+  <% if current_user.can? :manage_users%>
+  <p>
+  <b>Role</b><br />
+  <%= f.collection_select(:role_id, Role.find(:all), :id, :name) %>
+  </p>
+  <% end%>
+
+  <p>
+    <b>First name</b><br />
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <b>Last name</b><br />
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <b>Email</b><br />
+    <%= f.text_field :email %>
+  </p>
+
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>

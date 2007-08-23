@@ -2,6 +2,64 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 4) do
+
+  create_table "allowances", :force => true do |t|
+    t.integer "role_id"
+    t.integer "permission_id"
+    t.integer "allowance",     :default => 1
+  end
+
+  add_index "allowances", ["role_id"], :name => "index_allowances_on_role_id"
+
+  create_table "om_accounts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "omrl"
+    t.string   "password"
+    t.text     "currencies_cache"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.string "name"
+    t.string "description"
+  end
+
+  add_index "permissions", ["name"], :name => "index_permissions_on_name", :unique => true
+
+  create_table "rauth_native_accounts", :force => true do |t|
+    t.string   "user_name"
+    t.string   "openid_url"
+    t.string   "password_salt"
+    t.string   "password_hash"
+    t.string   "activation_code"
+    t.string   "reset_code"
+    t.datetime "created_at"
+    t.boolean  "enabled",         :default => true
+  end
+
+  add_index "rauth_native_accounts", ["user_name"], :name => "index_rauth_native_accounts_on_user_name", :unique => true
+  add_index "rauth_native_accounts", ["activation_code"], :name => "index_rauth_native_accounts_on_activation_code"
+  add_index "rauth_native_accounts", ["reset_code"], :name => "index_rauth_native_accounts_on_reset_code"
+
+  create_table "roles", :force => true do |t|
+    t.string "name"
+    t.string "description"
+  end
+
+  add_index "roles", ["name"], :name => "index_roles_on_name", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "role_id"
+    t.string   "username"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "last_login"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
