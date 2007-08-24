@@ -16641,3 +16641,1178 @@ Rendered clients/_history (1.26286)
   [4;36;1mAllowance Load (0.002570)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
   [4;35;1mPermission Load (0.002891)[0m   [0mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
 Completed in 3.62692 (0 reqs/sec) | Rendering: 1.59381 (43%) | DB: 0.03982 (1%) | 200 OK [http://localhost/clients/show]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2007-08-23 16:46:25) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 0.00347 (288 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 16:46:25) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.01369 (73 reqs/sec) | Rendering: 0.01039 (75%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2007-08-23 16:46:41) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (0.011305)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 0.08327 (12 reqs/sec) | Rendering: 0.05905 (70%) | DB: 0.01130 (13%) | 200 OK [http://localhost/users/new]
+
+
+Processing OmAccountsController#new (for 127.0.0.1 at 2007-08-23 16:47:08) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"new", "controller"=>"om_accounts"}
+Redirected to http://localhost:3000/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x33a525c @filter=:authenticate>] returned_false.
+Completed in 0.00215 (464 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/om_accounts/new]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2007-08-23 16:47:08) [GET]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iFS9vbV9hY2NvdW50cy9uZXciCmZs%0AYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6%0ACkB1c2VkewA%3D--9da1ebbe706a17c74ce8b1f310528c5e70f3cfd3
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.01424 (70 reqs/sec) | Rendering: 0.01381 (97%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2007-08-23 16:51:19) [GET]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iFS9vbV9hY2NvdW50cy9uZXciCmZs%0AYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6%0ACkB1c2VkewA%3D--9da1ebbe706a17c74ce8b1f310528c5e70f3cfd3
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.01440 (69 reqs/sec) | Rendering: 0.01389 (96%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2007-08-23 16:51:24) [POST]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iFS9vbV9hY2NvdW50cy9uZXciCmZs%0AYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6%0ACkB1c2VkewA%3D--9da1ebbe706a17c74ce8b1f310528c5e70f3cfd3
+  Parameters: {"commit"=>"Login", "action"=>"create", "controller"=>"sessions", "password"=>"[FILTERED]", "login"=>"zippy"}
+  [4;35;1mRauth::Source::Native Load (0.003577)[0m   [0mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.`user_name` = 'zippy') LIMIT 1[0m
+  [4;36;1mUser Load (0.003395)[0m   [0;1mSELECT * FROM users WHERE (users.`account_id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/om_accounts/new
+Completed in 0.01240 (80 reqs/sec) | DB: 0.00697 (56%) | 302 Found [http://localhost/sessions]
+
+
+Processing OmAccountsController#new (for 127.0.0.1 at 2007-08-23 16:51:24) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"new", "controller"=>"om_accounts"}
+  [4;35;1mUser Columns (0.008269)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.011169)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mOmAccount Columns (0.017719)[0m   [0mSHOW FIELDS FROM om_accounts[0m
+Rendering template within layouts/application
+Rendering om_accounts/new
+  [4;36;1mRole Load (0.002521)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002255)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002996)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+Completed in 0.52411 (1 reqs/sec) | Rendering: 0.10618 (20%) | DB: 0.04493 (8%) | 200 OK [http://localhost/om_accounts/new]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2007-08-23 16:51:34) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+  [4;35;1mUser Load (0.004808)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+
+
+ActionView::TemplateError (undefined method `full_name' for #<User:0x3384d54>) on line #17 of app/views/layouts/application.rhtml:
+14:     <div id="page">
+15: 		<div id="loginout">
+16: 			<% if logged_in?%>
+17: 				<%= current_user.full_name %>.  <%= link_to "logout",logout_url%>
+18: 			<% else %>
+19: 				<%= link_to "login",login_url%>
+20: 			<% end %>
+
+    vendor/rails/activerecord/lib/active_record/attribute_methods.rb:173:in `method_missing'
+    app/views/layouts/application.rhtml:17:in `_run_rhtml_47app47views47layouts47application46rhtml'
+    vendor/rails/actionpack/lib/action_view/base.rb:360:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:360:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:336:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:286:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:256:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1141:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:695:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:687:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:133:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:668:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:105:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching.rb:667:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:494:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:494:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 16:51:39) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.027336)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.005493)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.002084)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002788)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002013)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.005047)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.13790 (7 reqs/sec) | Rendering: 0.03475 (25%) | DB: 0.04957 (35%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#login_as (for 127.0.0.1 at 2007-08-23 16:51:43) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"login_as", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Columns (0.007963)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.048170)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.002007)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002537)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.001859)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003726)[0m   [0mSELECT * FROM users WHERE (users.`id` = 3) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 3) [0m
+Rendering template within layouts/application
+
+
+ActionController::MissingTemplate (Missing template users/login_as.html.erb in view path /Users/eric/Community Currency/open money/coding/rubycc/app/views):
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1251:in `assert_existence_of_template_file'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:881:in `render_file'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:815:in `render_with_no_layout'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:940:in `render_without_layout'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:875:in `render_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:825:in `render_with_no_layout'
+    /vendor/rails/activesupport/lib/active_support/deprecation.rb:44:in `silence'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:824:in `render_with_no_layout'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:246:in `render_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:139:in `send'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:139:in `custom'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:165:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:165:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:159:in `each'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:159:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:105:in `respond_to'
+    /app/controllers/users_controller.rb:27:in `show'
+    /app/controllers/users_controller.rb:109:in `login_as'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:133:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:133:in `custom'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:165:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:165:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:159:in `each'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:159:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:105:in `respond_to'
+    /app/controllers/users_controller.rb:108:in `login_as'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:695:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:687:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:133:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:668:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:105:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:667:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#login_as (for 127.0.0.1 at 2007-08-23 16:52:26) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"login_as", "id"=>"3", "controller"=>"users"}
+  [4;35;1mUser Columns (0.008062)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.052614)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mRole Load (0.002096)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;36;1mAllowance Load (0.002197)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;35;1mPermission Load (0.002652)[0m   [0mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;36;1mUser Load (0.003570)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 3) [0m
+Rendering template within layouts/application
+DEPRECATION WARNING: You called render('show'), which is a deprecated API call. Instead you use render :file => show. Calling render with just a string will be removed from Rails 2.0.  See http://www.rubyonrails.org/deprecation for details. (called from render_without_benchmark at /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/layout.rb:249)
+
+
+NoMethodError (private method `sub' called for :show:Symbol):
+    /vendor/rails/actionpack/lib/action_view/base.rb:460:in `path_and_extension'
+    /vendor/rails/actionpack/lib/action_view/base.rb:421:in `file_exists?'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1233:in `template_exists?'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1247:in `assert_existence_of_template_file'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:881:in `render_file'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:797:in `render_with_no_layout'
+    /vendor/rails/actionpack/lib/action_controller/layout.rb:249:in `render_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    /app/controllers/users_controller.rb:109:in `login_as'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:133:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:133:in `custom'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:165:in `call'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:165:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:159:in `each'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:159:in `respond'
+    /vendor/rails/actionpack/lib/action_controller/mime_responds.rb:105:in `respond_to'
+    /app/controllers/users_controller.rb:108:in `login_as'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:695:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:687:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:133:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:668:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:105:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:667:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#login_as (for 127.0.0.1 at 2007-08-23 16:52:44) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"login_as", "id"=>"3", "controller"=>"users"}
+  [4;35;1mUser Columns (0.025819)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.012007)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mRole Load (0.002048)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;36;1mAllowance Load (0.003882)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;35;1mPermission Load (0.001892)[0m   [0mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;36;1mUser Load (0.003765)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mRole Load (0.002182)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 2) [0m
+Completed in 0.13926 (7 reqs/sec) | Rendering: 0.02722 (19%) | DB: 0.05160 (37%) | 200 OK [http://localhost/users/3/login_as]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 16:52:51) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.026723)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.046577)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.012518)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002373)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.003307)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.004019)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.20717 (4 reqs/sec) | Rendering: 0.04407 (21%) | DB: 0.09552 (46%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#login_as (for 127.0.0.1 at 2007-08-23 16:52:54) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"login_as", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Columns (0.009501)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.006657)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.002403)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.003373)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002148)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003230)[0m   [0mSELECT * FROM users WHERE (users.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mRole Load (0.001987)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 2) [0m
+Completed in 0.12944 (7 reqs/sec) | Rendering: 0.02745 (21%) | DB: 0.02930 (22%) | 200 OK [http://localhost/users/2/login_as]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2007-08-23 21:48:56) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 0.00355 (281 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 21:48:56) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.02521 (39 reqs/sec) | Rendering: 0.02271 (90%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2007-08-23 21:48:59) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (0.049365)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 0.12087 (8 reqs/sec) | Rendering: 0.06012 (49%) | DB: 0.04937 (40%) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2007-08-23 21:49:17) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"user"=>{"username"=>"frtiz", "first_name"=>"Fritz", "last_name"=>"Schum", "email"=>"fritz@boink.com"}, "commit"=>"Create", "action"=>"create", "controller"=>"users", "password"=>"fishfish", "password_confirm"=>"fishfish"}
+  [4;36;1mUser Columns (0.006851)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mRole Load (0.006330)[0m   [0mSELECT * FROM roles WHERE (roles.`name` = 'user') LIMIT 1[0m
+  [4;36;1mSQL (0.000618)[0m   [0;1mBEGIN[0m
+  [4;35;1mRauth::Source::Native Load (0.003123)[0m   [0mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.user_name = 'frtiz') LIMIT 1[0m
+  [4;36;1mSQL (0.001377)[0m   [0;1mINSERT INTO rauth_native_accounts (`openid_url`, `activation_code`, `password_salt`, `enabled`, `password_hash`, `reset_code`, `user_name`, `created_at`) VALUES(NULL, NULL, 'MER5tfk9', 1, 'a8ffef7889a9a4422238f119249a545a932e9165f4e7fe012df6e4803d195920', NULL, 'frtiz', '2007-08-23 21:49:17')[0m
+  [4;35;1mSQL (0.001050)[0m   [0mINSERT INTO users (`last_login`, `updated_at`, `account_id`, `role_id`, `username`, `first_name`, `last_name`, `created_at`, `email`) VALUES(NULL, '2007-08-23 21:49:18', 5, 2, 'frtiz', 'Fritz', 'Schum', '2007-08-23 21:49:18', 'fritz@boink.com')[0m
+  [4;36;1mSQL (0.058385)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 0.18179 (5 reqs/sec) | DB: 0.07773 (42%) | 302 Found [http://localhost/users]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 21:49:18) [GET]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iBi8iCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIiNVc2VyIHdh%0AcyBzdWNjZXNzZnVsbHkgY3JlYXRlZC4GOgpAdXNlZHsGOwdU--a6cce205a70753f90abade27129ba53755381877
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.01358 (73 reqs/sec) | Rendering: 0.01042 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 21:50:08) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkHOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7BjoLbm90aWNl%0AIhFOb3QgYWxsb3dlZCEGOgpAdXNlZHsGOwhU--60d4fdb25a4dd757b0c89df8c08b3c08d642534b
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Columns (0.007864)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.009314)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 2) [0m
+  [4;35;1mRole Load (0.001834)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 2) [0m
+  [4;36;1mAllowance Load (0.007748)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 2) [0m
+Redirected to http://localhost:3000/
+Filter chain halted as [#<ActionController::Filters::ClassMethods::ProcFilter:0x33dcec8 @filter=#<Proc:0x0340cf60@(eval):3>>] returned_false.
+Completed in 0.07862 (12 reqs/sec) | DB: 0.02676 (34%) | 302 Found [http://localhost/users/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 21:50:08) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkHOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--da81cc6277a077e49eef9b44e858cad7571008c9
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;35;1mUser Columns (0.006773)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.005756)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 2) [0m
+  [4;35;1mOmAccount Columns (0.011098)[0m   [0mSHOW FIELDS FROM om_accounts[0m
+  [4;36;1mSQL (0.001462)[0m   [0;1mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 2) [0m
+Redirected to http://localhost:3000/clients/show
+Completed in 0.08512 (11 reqs/sec) | DB: 0.02509 (29%) | 302 Found [http://localhost/]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-23 21:50:09) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkHOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--da81cc6277a077e49eef9b44e858cad7571008c9
+  Parameters: {"action"=>"show", "client"=>"show", "controller"=>"clients"}
+  [4;35;1mUser Columns (0.006947)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.016455)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 2) [0m
+  [4;35;1mOmAccount Columns (0.006152)[0m   [0mSHOW FIELDS FROM om_accounts[0m
+  [4;36;1mSQL (0.019360)[0m   [0;1mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 2) [0m
+  [4;35;1mOmAccount Load (0.002419)[0m   [0mSELECT * FROM om_accounts WHERE (om_accounts.user_id = 2) [0m
+Rendering template within layouts/application
+Rendering clients/show
+Rendered clients/_input_form (0.00311)
+Rendered clients/_history (1.53325)
+  [4;36;1mRole Load (0.006317)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 2) [0m
+  [4;35;1mAllowance Load (0.003640)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 2) [0m
+Completed in 4.41865 (0 reqs/sec) | Rendering: 1.56665 (35%) | DB: 0.06129 (1%) | 200 OK [http://localhost/clients/show]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2007-08-23 21:50:21) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkHOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--da81cc6277a077e49eef9b44e858cad7571008c9
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 0.00459 (217 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 21:50:21) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.01434 (69 reqs/sec) | Rendering: 0.01159 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2007-08-23 21:50:25) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.01237 (80 reqs/sec) | Rendering: 0.01195 (96%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2007-08-23 21:50:36) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"commit"=>"Login", "action"=>"create", "controller"=>"sessions", "password"=>"[FILTERED]", "login"=>"zippy"}
+  [4;36;1mRauth::Source::Native Load (0.007614)[0m   [0;1mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.`user_name` = 'zippy') LIMIT 1[0m
+  [4;35;1mUser Load (0.004586)[0m   [0mSELECT * FROM users WHERE (users.`account_id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.01694 (59 reqs/sec) | DB: 0.01220 (72%) | 302 Found [http://localhost/sessions]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 21:50:37) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mUser Columns (0.014595)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.047405)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mOmAccount Columns (0.027972)[0m   [0;1mSHOW FIELDS FROM om_accounts[0m
+  [4;35;1mSQL (0.036633)[0m   [0mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 1) [0m
+Redirected to http://localhost:3000/clients/show
+Completed in 0.16351 (6 reqs/sec) | DB: 0.12661 (77%) | 302 Found [http://localhost/]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-23 21:50:38) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"show", "client"=>"show", "controller"=>"clients"}
+  [4;36;1mUser Columns (0.026527)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.322680)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mOmAccount Columns (0.007940)[0m   [0;1mSHOW FIELDS FROM om_accounts[0m
+  [4;35;1mSQL (0.010631)[0m   [0mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 1) [0m
+  [4;36;1mOmAccount Load (0.002652)[0m   [0;1mSELECT * FROM om_accounts WHERE (om_accounts.user_id = 1) [0m
+Rendering template within layouts/application
+Rendering clients/show
+Rendered clients/_input_form (0.00442)
+Rendered clients/_history (1.98345)
+  [4;35;1mRole Load (0.003025)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;36;1mAllowance Load (0.002235)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;35;1mPermission Load (0.002183)[0m   [0mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+Completed in 4.41973 (0 reqs/sec) | Rendering: 2.08506 (47%) | DB: 0.37787 (8%) | 200 OK [http://localhost/clients/show]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 21:50:47) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.012463)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.024763)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.002802)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.006374)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002577)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.004125)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.14994 (6 reqs/sec) | Rendering: 0.03848 (25%) | DB: 0.05310 (35%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2007-08-23 21:50:57) [DELETE]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Columns (0.050041)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.007054)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.009754)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002429)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.001819)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003848)[0m   [0mSELECT * FROM users WHERE (users.`id` = 3) [0m
+  [4;36;1mSQL (0.002042)[0m   [0;1mBEGIN[0m
+  [4;35;1mOmAccount Load (0.002816)[0m   [0mSELECT * FROM om_accounts WHERE (om_accounts.user_id = 3) [0m
+  [4;36;1mOmAccount Columns (0.036849)[0m   [0;1mSHOW FIELDS FROM om_accounts[0m
+  [4;35;1mOmAccount Destroy (0.079908)[0m   [0m DELETE FROM om_accounts
+ WHERE `id` = 5
+[0m
+  [4;36;1mUser Destroy (0.001063)[0m   [0;1m DELETE FROM users
+ WHERE `id` = 3
+[0m
+  [4;35;1mSQL (0.063557)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed in 0.40970 (2 reqs/sec) | DB: 0.26118 (63%) | 302 Found [http://localhost/users/3]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 21:50:57) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.025583)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.004699)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.001848)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002412)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.006837)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.005621)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.28722 (3 reqs/sec) | Rendering: 0.18457 (64%) | DB: 0.04700 (16%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2007-08-23 21:51:03) [DELETE]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"4", "controller"=>"users"}
+  [4;36;1mUser Columns (0.007962)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.010405)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.002391)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002318)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002442)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003301)[0m   [0mSELECT * FROM users WHERE (users.`id` = 4) [0m
+  [4;36;1mSQL (0.000542)[0m   [0;1mBEGIN[0m
+  [4;35;1mOmAccount Load (0.002499)[0m   [0mSELECT * FROM om_accounts WHERE (om_accounts.user_id = 4) [0m
+  [4;36;1mUser Destroy (0.001037)[0m   [0;1m DELETE FROM users
+ WHERE `id` = 4
+[0m
+  [4;35;1mSQL (0.001620)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed in 0.17584 (5 reqs/sec) | DB: 0.03452 (19%) | 302 Found [http://localhost/users/4]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 21:51:03) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.007510)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.013399)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.001995)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002258)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002657)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.049993)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.16515 (6 reqs/sec) | Rendering: 0.02679 (16%) | DB: 0.07781 (47%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2007-08-23 21:51:10) [DELETE]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"5", "controller"=>"users"}
+  [4;36;1mUser Columns (0.010274)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.012142)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.013358)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002245)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.003383)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003231)[0m   [0mSELECT * FROM users WHERE (users.`id` = 5) [0m
+  [4;36;1mSQL (0.000579)[0m   [0;1mBEGIN[0m
+  [4;35;1mOmAccount Load (0.002574)[0m   [0mSELECT * FROM om_accounts WHERE (om_accounts.user_id = 5) [0m
+  [4;36;1mUser Destroy (0.001049)[0m   [0;1m DELETE FROM users
+ WHERE `id` = 5
+[0m
+  [4;35;1mSQL (0.001394)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed in 0.18457 (5 reqs/sec) | DB: 0.05023 (27%) | 302 Found [http://localhost/users/5]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 21:51:10) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.010818)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.006083)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.002454)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002878)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002633)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.008569)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.11178 (8 reqs/sec) | Rendering: 0.02762 (24%) | DB: 0.03343 (29%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2007-08-23 21:51:13) [GET]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iBi8iCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--ddec4b6422545974b172ee54c48c26c778cb2b2e
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (0.894251)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 1.10994 (0 reqs/sec) | Rendering: 0.20597 (18%) | DB: 0.89425 (80%) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2007-08-23 21:51:21) [POST]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iBi8iCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--ddec4b6422545974b172ee54c48c26c778cb2b2e
+  Parameters: {"user"=>{"username"=>"frtiz", "first_name"=>"Fritz", "last_name"=>"Schum", "email"=>"fritz@boink.com"}, "commit"=>"Create", "action"=>"create", "controller"=>"users", "password"=>"fishfish", "password_confirm"=>"fishfish"}
+  [4;35;1mUser Columns (0.009883)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mRole Load (0.003738)[0m   [0;1mSELECT * FROM roles WHERE (roles.`name` = 'user') LIMIT 1[0m
+  [4;35;1mSQL (0.000852)[0m   [0mBEGIN[0m
+  [4;36;1mRauth::Source::Native Load (0.003624)[0m   [0;1mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.user_name = 'frtiz') LIMIT 1[0m
+  [4;35;1mSQL (0.000727)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 0.14264 (7 reqs/sec) | Rendering: 0.01646 (11%) | DB: 0.01882 (13%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2007-08-23 21:51:27) [GET]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iBi8iCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--ddec4b6422545974b172ee54c48c26c778cb2b2e
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (0.006441)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 0.38215 (2 reqs/sec) | Rendering: 0.36825 (96%) | DB: 0.00644 (1%) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2007-08-23 22:08:55) [POST]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iBi8iCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--ddec4b6422545974b172ee54c48c26c778cb2b2e
+  Parameters: {"user"=>{"username"=>"frtiz", "first_name"=>"Fritz", "last_name"=>"Schum", "email"=>"fritz@boink.com"}, "commit"=>"Create", "action"=>"create", "controller"=>"users", "password"=>"", "password_confirm"=>""}
+  [4;35;1mUser Columns (0.007456)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mRole Load (0.061969)[0m   [0;1mSELECT * FROM roles WHERE (roles.`name` = 'user') LIMIT 1[0m
+  [4;35;1mSQL (0.000596)[0m   [0mBEGIN[0m
+  [4;36;1mRauth::Source::Native Load (0.006995)[0m   [0;1mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.user_name = 'frtiz') LIMIT 1[0m
+  [4;35;1mSQL (0.000929)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 0.26537 (3 reqs/sec) | Rendering: 0.01682 (6%) | DB: 0.07794 (29%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2007-08-23 22:08:59) [GET]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iBi8iCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--ddec4b6422545974b172ee54c48c26c778cb2b2e
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (0.007984)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 0.43522 (2 reqs/sec) | Rendering: 0.41953 (96%) | DB: 0.00798 (1%) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2007-08-23 22:09:04) [POST]
+  Session ID: BAh7BzoWcmF1dGhfYWZ0ZXJfbG9naW4iBi8iCmZsYXNoSUM6J0FjdGlvbkNv%0AbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--ddec4b6422545974b172ee54c48c26c778cb2b2e
+  Parameters: {"user"=>{"username"=>"frtiz", "first_name"=>"Fritz", "last_name"=>"Schum", "email"=>"fritz@boink.com"}, "commit"=>"Create", "action"=>"create", "controller"=>"users", "password"=>"fishfish", "password_confirm"=>"fishfish"}
+  [4;35;1mUser Columns (0.007648)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mRole Load (0.002076)[0m   [0;1mSELECT * FROM roles WHERE (roles.`name` = 'user') LIMIT 1[0m
+  [4;35;1mSQL (0.000619)[0m   [0mBEGIN[0m
+  [4;36;1mRauth::Source::Native Load (0.006739)[0m   [0;1mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.user_name = 'frtiz') LIMIT 1[0m
+  [4;35;1mSQL (0.001081)[0m   [0mINSERT INTO rauth_native_accounts (`openid_url`, `activation_code`, `password_salt`, `enabled`, `password_hash`, `reset_code`, `user_name`, `created_at`) VALUES(NULL, NULL, 'xEgTVJNw', 1, 'c029bed070f1621910e89ef528659343c3690a6affc06962fe6d7a0ad7d5012d', NULL, 'frtiz', '2007-08-23 22:09:05')[0m
+  [4;36;1mSQL (0.001077)[0m   [0;1mINSERT INTO users (`last_login`, `updated_at`, `account_id`, `role_id`, `username`, `first_name`, `last_name`, `created_at`, `email`) VALUES(NULL, '2007-08-23 22:09:05', 6, 2, 'frtiz', 'Fritz', 'Schum', '2007-08-23 22:09:05', 'fritz@boink.com')[0m
+  [4;35;1mSQL (0.001561)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 0.17432 (5 reqs/sec) | DB: 0.02080 (11%) | 302 Found [http://localhost/users]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 22:09:05) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkLOhZyYXV0aF9hZnRlcl9sb2dpbiIGLyIKZmxhc2hJ%0AQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3Rp%0AY2UiI1VzZXIgd2FzIHN1Y2Nlc3NmdWxseSBjcmVhdGVkLgY6CkB1c2VkewY7%0ACFQ%3D--708bdddc1c9ec1156bc6d855814cfe23a6486ddb
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mUser Columns (0.010277)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.003035)[0m   [0mSELECT * FROM users WHERE (users.`id` = 6) [0m
+  [4;36;1mOmAccount Columns (0.005629)[0m   [0;1mSHOW FIELDS FROM om_accounts[0m
+  [4;35;1mSQL (0.005274)[0m   [0mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 6) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;36;1mRole Load (0.002708)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 2) [0m
+  [4;35;1mAllowance Load (0.002137)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 2) [0m
+Completed in 0.11857 (8 reqs/sec) | Rendering: 0.05261 (44%) | DB: 0.02906 (24%) | 200 OK [http://localhost/]
+
+
+Processing OmAccountsController#new (for 127.0.0.1 at 2007-08-23 22:09:21) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkLOhZyYXV0aF9hZnRlcl9sb2dpbiIGLyIKZmxhc2hJ%0AQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVz%0AZWR7AA%3D%3D--493a79d891c36157841bd58606b1c460ee5ca59c
+  Parameters: {"action"=>"new", "controller"=>"om_accounts"}
+  [4;36;1mUser Columns (0.007618)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.015750)[0m   [0mSELECT * FROM users WHERE (users.`id` = 6) [0m
+  [4;36;1mOmAccount Columns (0.006047)[0m   [0;1mSHOW FIELDS FROM om_accounts[0m
+Rendering template within layouts/application
+Rendering om_accounts/new
+  [4;35;1mRole Load (0.001935)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 2) [0m
+  [4;36;1mAllowance Load (0.002175)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 2) [0m
+Completed in 0.15083 (6 reqs/sec) | Rendering: 0.04948 (32%) | DB: 0.03353 (22%) | 200 OK [http://localhost/om_accounts/new]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2007-08-23 22:09:31) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkLOhZyYXV0aF9hZnRlcl9sb2dpbiIGLyIKZmxhc2hJ%0AQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVz%0AZWR7AA%3D%3D--493a79d891c36157841bd58606b1c460ee5ca59c
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 0.00355 (282 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 22:09:31) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.06988 (14 reqs/sec) | Rendering: 0.04360 (62%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2007-08-23 22:09:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.01379 (72 reqs/sec) | Rendering: 0.01336 (96%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2007-08-23 22:09:38) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"commit"=>"Login", "action"=>"create", "controller"=>"sessions", "password"=>"[FILTERED]", "login"=>"zippy"}
+  [4;35;1mRauth::Source::Native Load (0.003289)[0m   [0mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.`user_name` = 'zippy') LIMIT 1[0m
+  [4;36;1mUser Load (0.007733)[0m   [0;1mSELECT * FROM users WHERE (users.`account_id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.02730 (36 reqs/sec) | DB: 0.01102 (40%) | 302 Found [http://localhost/sessions]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 22:09:39) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;35;1mUser Columns (0.007500)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.045706)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mOmAccount Columns (0.013218)[0m   [0mSHOW FIELDS FROM om_accounts[0m
+  [4;36;1mSQL (0.004730)[0m   [0;1mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 1) [0m
+Redirected to http://localhost:3000/clients/show
+Completed in 0.11108 (9 reqs/sec) | DB: 0.07115 (64%) | 302 Found [http://localhost/]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-23 22:09:40) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"show", "client"=>"show", "controller"=>"clients"}
+  [4;35;1mUser Columns (0.006766)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.008797)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mOmAccount Columns (0.010659)[0m   [0mSHOW FIELDS FROM om_accounts[0m
+  [4;36;1mSQL (0.003329)[0m   [0;1mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 1) [0m
+  [4;35;1mOmAccount Load (0.003094)[0m   [0mSELECT * FROM om_accounts WHERE (om_accounts.user_id = 1) [0m
+Rendering template within layouts/application
+Rendering clients/show
+Rendered clients/_input_form (0.00374)
+Rendered clients/_history (1.18282)
+  [4;36;1mRole Load (0.002270)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002441)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.003280)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+Completed in 3.26918 (0 reqs/sec) | Rendering: 1.22080 (37%) | DB: 0.04064 (1%) | 200 OK [http://localhost/clients/show]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 22:09:46) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Columns (0.010286)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.009599)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mRole Load (0.003554)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;36;1mAllowance Load (0.003670)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;35;1mPermission Load (0.002238)[0m   [0mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;36;1mUser Load (0.004060)[0m   [0;1mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.45257 (2 reqs/sec) | Rendering: 0.03487 (7%) | DB: 0.03341 (7%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2007-08-23 22:09:51) [DELETE]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"6", "controller"=>"users"}
+  [4;35;1mUser Columns (0.009671)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.007906)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mRole Load (0.001816)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;36;1mAllowance Load (0.002152)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;35;1mPermission Load (0.001768)[0m   [0mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;36;1mUser Load (0.003157)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 6) [0m
+  [4;35;1mRauth::Source::Native Load (0.003380)[0m   [0mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.`user_name` = 'frtiz') LIMIT 1[0m
+  [4;36;1mSQL (0.001003)[0m   [0;1mBEGIN[0m
+  [4;35;1mRauth::Source::Native Destroy (0.002144)[0m   [0m DELETE FROM rauth_native_accounts
+ WHERE `id` = 6
+[0m
+  [4;36;1mSQL (0.023630)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000503)[0m   [0mBEGIN[0m
+  [4;36;1mOmAccount Load (0.002485)[0m   [0;1mSELECT * FROM om_accounts WHERE (om_accounts.user_id = 6) [0m
+  [4;35;1mUser Destroy (0.001193)[0m   [0m DELETE FROM users
+ WHERE `id` = 6
+[0m
+  [4;36;1mSQL (0.001268)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed in 0.19399 (5 reqs/sec) | DB: 0.06208 (31%) | 302 Found [http://localhost/users/6]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 22:09:52) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Columns (0.007656)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.014408)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mRole Load (0.001888)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;36;1mAllowance Load (0.002741)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;35;1mPermission Load (0.001850)[0m   [0mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;36;1mUser Load (0.009311)[0m   [0;1mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.44498 (2 reqs/sec) | Rendering: 0.02853 (6%) | DB: 0.03785 (8%) | 200 OK [http://localhost/users]
+SessionsController: missing default helper path sessions_helper
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2007-08-23 22:20:23) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+  [4;36;1mSQL (0.000568)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Redirected to http://localhost:3000/
+Completed in 0.00961 (104 reqs/sec) | DB: 0.00057 (5%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 22:20:23) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.10515 (9 reqs/sec) | Rendering: 0.10218 (97%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2007-08-23 22:20:26) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (0.009574)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering template within layouts/application
+Rendering users/new
+Completed in 0.20065 (4 reqs/sec) | Rendering: 0.17219 (85%) | DB: 0.00957 (4%) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2007-08-23 22:20:44) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"user"=>{"username"=>"frtiz", "first_name"=>"", "last_name"=>"", "email"=>"sdfa@asdf.com"}, "commit"=>"Create", "action"=>"create", "controller"=>"users", "password"=>"fishfish", "password_confirm"=>"fishfish"}
+  [4;36;1mUser Columns (0.009619)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mRole Columns (0.005818)[0m   [0mSHOW FIELDS FROM roles[0m
+  [4;36;1mRole Load (0.004666)[0m   [0;1mSELECT * FROM roles WHERE (roles.`name` = 'user') LIMIT 1[0m
+  [4;35;1mRauth::Source::Native Columns (0.007915)[0m   [0mSHOW FIELDS FROM rauth_native_accounts[0m
+  [4;36;1mSQL (0.000686)[0m   [0;1mBEGIN[0m
+  [4;35;1mRauth::Source::Native Load (0.004154)[0m   [0mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.user_name = 'frtiz') LIMIT 1[0m
+  [4;36;1mSQL (0.001141)[0m   [0;1mINSERT INTO rauth_native_accounts (`openid_url`, `activation_code`, `password_salt`, `enabled`, `password_hash`, `reset_code`, `user_name`, `created_at`) VALUES(NULL, NULL, 'NVIHzArJ', 1, 'da0c06dd7667095dab8ebddb8fdd77a5f464e9ab75ddcdcd38fe0d7c781e33fd', NULL, 'frtiz', '2007-08-23 22:20:45')[0m
+  [4;35;1mSQL (0.001421)[0m   [0mINSERT INTO users (`last_login`, `updated_at`, `account_id`, `role_id`, `username`, `first_name`, `last_name`, `created_at`, `email`) VALUES(NULL, '2007-08-23 22:20:45', 7, 2, 'frtiz', '', '', '2007-08-23 22:20:45', 'sdfa@asdf.com')[0m
+  [4;36;1mSQL (0.001395)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 0.20592 (4 reqs/sec) | DB: 0.03681 (17%) | 302 Found [http://localhost/users]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 22:20:45) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkMOhZyYXV0aF9hZnRlcl9sb2dpbiIGLyIKZmxhc2hJ%0AQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3Rp%0AY2UiI1VzZXIgd2FzIHN1Y2Nlc3NmdWxseSBjcmVhdGVkLgY6CkB1c2VkewY7%0ACFQ%3D--5ce21a1914aa227eca62bab0cdbfee61b527dfee
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;35;1mUser Columns (0.007136)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.013806)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 7) [0m
+  [4;35;1mOmAccount Columns (0.005914)[0m   [0mSHOW FIELDS FROM om_accounts[0m
+  [4;36;1mSQL (0.003910)[0m   [0;1mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 7) [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mRole Load (0.001936)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 2) [0m
+  [4;36;1mAllowance Load (0.002332)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 2) [0m
+Completed in 0.12314 (8 reqs/sec) | Rendering: 0.05557 (45%) | DB: 0.03503 (28%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2007-08-23 22:20:51) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkMOhZyYXV0aF9hZnRlcl9sb2dpbiIGLyIKZmxhc2hJ%0AQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVz%0AZWR7AA%3D%3D--7fef12844e0557d34edb6a5d7679192f1a755285
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 0.00360 (277 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 22:20:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering template within layouts/application
+Rendering home/index
+Completed in 0.01542 (64 reqs/sec) | Rendering: 0.01267 (82%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2007-08-23 22:21:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.07673 (13 reqs/sec) | Rendering: 0.07609 (99%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2007-08-23 22:21:04) [POST]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--63ec7231e290916a0a7c666d299ae6b603fdcb58
+  Parameters: {"commit"=>"Login", "action"=>"create", "controller"=>"sessions", "password"=>"[FILTERED]", "login"=>"zippy"}
+  [4;35;1mRauth::Source::Native Load (0.004487)[0m   [0mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.`user_name` = 'zippy') LIMIT 1[0m
+  [4;36;1mUser Columns (0.006760)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.044606)[0m   [0mSELECT * FROM users WHERE (users.`account_id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.10049 (9 reqs/sec) | DB: 0.05585 (55%) | 302 Found [http://localhost/sessions]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2007-08-23 22:21:05) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mUser Columns (0.010580)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.003160)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mOmAccount Columns (0.008459)[0m   [0;1mSHOW FIELDS FROM om_accounts[0m
+  [4;35;1mSQL (0.005030)[0m   [0mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 1) [0m
+Redirected to http://localhost:3000/clients/show
+Completed in 0.05797 (17 reqs/sec) | DB: 0.02723 (46%) | 302 Found [http://localhost/]
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2007-08-23 22:21:06) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"show", "client"=>"show", "controller"=>"clients"}
+  [4;36;1mUser Columns (0.011063)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.003279)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mOmAccount Columns (0.008984)[0m   [0;1mSHOW FIELDS FROM om_accounts[0m
+  [4;35;1mSQL (0.003992)[0m   [0mSELECT count(*) AS count_all FROM om_accounts WHERE (om_accounts.user_id = 1) [0m
+  [4;36;1mOmAccount Load (0.005800)[0m   [0;1mSELECT * FROM om_accounts WHERE (om_accounts.user_id = 1) [0m
+Rendering template within layouts/application
+Rendering clients/show
+Rendered clients/_input_form (0.02498)
+Rendered clients/_history (1.28606)
+  [4;35;1mRole Load (0.002078)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;36;1mAllowance Load (0.002427)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;35;1mAllowance Columns (0.006195)[0m   [0mSHOW FIELDS FROM allowances[0m
+  [4;36;1mPermission Columns (0.009262)[0m   [0;1mSHOW FIELDS FROM permissions[0m
+  [4;35;1mPermission Load (0.006089)[0m   [0mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+Completed in 4.01124 (0 reqs/sec) | Rendering: 1.72436 (42%) | DB: 0.05917 (1%) | 200 OK [http://localhost/clients/show]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 22:21:12) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.007147)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.047322)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.002046)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002279)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002218)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003287)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.16624 (6 reqs/sec) | Rendering: 0.04400 (26%) | DB: 0.06430 (38%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2007-08-23 22:21:29) [DELETE]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"7", "controller"=>"users"}
+  [4;36;1mUser Columns (0.006745)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.044330)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.004495)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002363)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002133)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003406)[0m   [0mSELECT * FROM users WHERE (users.`id` = 7) [0m
+  [4;36;1mSQL (0.000814)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000501)[0m   [0mROLLBACK[0m
+Redirected to http://localhost:3000/users
+Completed in 0.12682 (7 reqs/sec) | DB: 0.06479 (51%) | 302 Found [http://localhost/users/7]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 22:21:30) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.007785)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.006441)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.001942)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002235)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.002636)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003867)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.11103 (9 reqs/sec) | Rendering: 0.02803 (25%) | DB: 0.02491 (22%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2007-08-23 22:21:52) [DELETE]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"7", "controller"=>"users"}
+  [4;36;1mUser Columns (0.006847)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.013500)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.002359)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002194)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.001946)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003645)[0m   [0mSELECT * FROM users WHERE (users.`id` = 7) [0m
+  [4;36;1mSQL (0.000551)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000431)[0m   [0mROLLBACK[0m
+Redirected to http://localhost:3000/users
+Completed in 0.13161 (7 reqs/sec) | DB: 0.03147 (23%) | 302 Found [http://localhost/users/7]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 22:21:53) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Columns (0.009040)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mUser Load (0.003342)[0m   [0mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;36;1mRole Load (0.001843)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.003783)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mPermission Load (0.001844)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003354)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.10712 (9 reqs/sec) | Rendering: 0.02631 (24%) | DB: 0.02321 (21%) | 200 OK [http://localhost/users]
+SessionsController: missing default helper path sessions_helper
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2007-08-23 22:23:11) [DELETE]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"7", "controller"=>"users"}
+  [4;36;1mSQL (0.000650)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.009418)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.045976)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mRole Columns (0.009637)[0m   [0mSHOW FIELDS FROM roles[0m
+  [4;36;1mRole Load (0.004165)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002501)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mAllowance Columns (0.056809)[0m   [0;1mSHOW FIELDS FROM allowances[0m
+  [4;35;1mPermission Columns (0.007851)[0m   [0mSHOW FIELDS FROM permissions[0m
+  [4;36;1mPermission Load (0.004300)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.003254)[0m   [0mSELECT * FROM users WHERE (users.`id` = 7) [0m
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.username):
+    /vendor/plugins/rauth/lib/rauth/bridge.rb:49:in `destroy_account'
+    /app/controllers/users_controller.rb:97:in `destroy'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:695:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:687:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:133:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:668:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:105:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:667:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/eric/Community Currency/open money/coding/rubycc/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+SessionsController: missing default helper path sessions_helper
+SessionsController: missing default helper path sessions_helper
+
+
+Processing UsersController#destroy (for 127.0.0.1 at 2007-08-23 22:25:06) [DELETE]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"_method"=>"delete", "action"=>"destroy", "id"=>"7", "controller"=>"users"}
+  [4;36;1mSQL (0.000572)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (0.007088)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.046366)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mRole Columns (0.005046)[0m   [0mSHOW FIELDS FROM roles[0m
+  [4;36;1mRole Load (0.005911)[0m   [0;1mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;35;1mAllowance Load (0.002419)[0m   [0mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;36;1mAllowance Columns (0.006836)[0m   [0;1mSHOW FIELDS FROM allowances[0m
+  [4;35;1mPermission Columns (0.007295)[0m   [0mSHOW FIELDS FROM permissions[0m
+  [4;36;1mPermission Load (0.004139)[0m   [0;1mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;35;1mUser Load (0.012581)[0m   [0mSELECT * FROM users WHERE (users.`id` = 7) [0m
+  [4;36;1mSQL (0.000650)[0m   [0;1mBEGIN[0m
+  [4;35;1mRauth::Source::Native Load (0.002990)[0m   [0mSELECT * FROM rauth_native_accounts WHERE (rauth_native_accounts.`user_name` = 'frtiz') LIMIT 1[0m
+  [4;36;1mRauth::Source::Native Columns (0.007757)[0m   [0;1mSHOW FIELDS FROM rauth_native_accounts[0m
+  [4;35;1mRauth::Source::Native Destroy (0.005285)[0m   [0m DELETE FROM rauth_native_accounts
+ WHERE `id` = 7
+[0m
+  [4;36;1mOmAccount Load (0.002461)[0m   [0;1mSELECT * FROM om_accounts WHERE (om_accounts.user_id = 7) [0m
+  [4;35;1mUser Destroy (0.001039)[0m   [0m DELETE FROM users
+ WHERE `id` = 7
+[0m
+  [4;36;1mSQL (0.001635)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/users
+Completed in 0.22280 (4 reqs/sec) | DB: 0.12007 (53%) | 302 Found [http://localhost/users/7]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2007-08-23 22:25:07) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGOhZyYXV0aF9hZnRlcl9sb2dpbjAiCmZsYXNoSUM6%0AJ0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2Vk%0AewA%3D--5d62ddeb7b9545e271802c56c33631c682c46952
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;35;1mUser Columns (0.010114)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mUser Load (0.012047)[0m   [0;1mSELECT * FROM users WHERE (users.`id` = 1) [0m
+  [4;35;1mRole Load (0.007547)[0m   [0mSELECT * FROM roles WHERE (roles.`id` = 1) [0m
+  [4;36;1mAllowance Load (0.002270)[0m   [0;1mSELECT * FROM allowances WHERE (allowances.role_id = 1) [0m
+  [4;35;1mPermission Load (0.003640)[0m   [0mSELECT * FROM permissions WHERE (permissions.`id` = 1) [0m
+  [4;36;1mUser Load (0.074626)[0m   [0;1mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 0.40922 (2 reqs/sec) | Rendering: 0.24087 (58%) | DB: 0.11024 (26%) | 200 OK [http://localhost/users]

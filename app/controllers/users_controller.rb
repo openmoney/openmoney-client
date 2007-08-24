@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if Rauth::Bridge.create_account(@user, :user_name => @user.username, :password => params[:password], :confirmation => params[:password_confirm])
         flash[:notice] = 'User was successfully created.'
-        current_user = @user if !logged_in?
+        self.current_user = @user if !logged_in?
         format.html { redirect_to(home_url) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
@@ -94,8 +94,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-
+    Rauth::Bridge.destroy_account(@user)
     respond_to do |format|
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
@@ -104,9 +103,9 @@ class UsersController < ApplicationController
   
   def login_as
     @user = User.find(params[:id])
-    current_user = @user
+    self.current_user = @user
     respond_to do |format|
-      format.html { redirect_to(home_url) }
+      format.html { render :action=>"show" }
       format.xml  { head :ok }
     end
   end
