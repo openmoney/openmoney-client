@@ -7,6 +7,6 @@
 class HomeController < ApplicationController
   require_authentication(:except => [:index])
   def index
-    redirect_to({:controller => 'clients', :action => 'show'}) if logged_in? && !current_user.om_accounts.empty?
+    redirect_to({:controller => 'clients', :action => 'show', :client => current_user.username}) if logged_in? && !current_user.om_accounts.empty?
   end
 end

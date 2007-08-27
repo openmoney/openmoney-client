@@ -1,14 +1,10 @@
-<h1>Listing om_accounts</h1>
+<% @header="Accounts" %>
 
 <table>
-  <tr>
-    <th>Omrl</th>
-  </tr>
 
 <% for om_account in @om_accounts %>
   <tr>
     <td><%=h om_account.omrl %></td>
-    <td><%= link_to 'Show', om_account %></td>
     <td><%= link_to 'Edit', edit_om_account_path(om_account) %></td>
     <td><%= link_to 'Destroy', om_account, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -17,4 +13,4 @@
 
 <br />
 
-<%= link_to 'New om_account', new_om_account_path %>
+<%= link_to 'Add account', new_om_account_path %>

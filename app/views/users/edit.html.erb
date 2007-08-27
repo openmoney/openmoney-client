@@ -1,4 +1,10 @@
-<h1>Editing user</h1>
+<% 
+	if current_user == @user
+		@header = "My Profile"
+	else
+		@header="Edit User: " << @user.username
+	end
+%>
 
 <%= error_messages_for :user %>
 

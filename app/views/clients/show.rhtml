@@ -1,4 +1,4 @@
-<% @header="Accounts: #{@client}" %>
+<% @header="Acknowledge Flows" %>
 
 <% if @accounts.empty?%>
 	<p>Welcome to the open money reference client.</p>
@@ -14,10 +14,15 @@
   </ul>
 </div>
 <div id="form">
-	<form action="/clients/<%= @client %>/<%= @account %>" method="post">
+	<% form_remote_tag (
+		:update=>'history',
+		:before => "$('history_spinner').show();",
+		:url=> {:action=>:ack, :account=>@account, :client=>@client, :only_path=>true},
+		:complete=>"$('history_spinner').hide();") do -%>
 		Currency: <%= select_tag('currency',options_for_select(@currencies,@currency_omrl)) %> <br />
 	  	<%= render(:partial => 'input_form') %>
-	</form>
+	<% end -%>
+  
 </div>
 <%= render(:partial => 'history') %>
 

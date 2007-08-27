@@ -1,27 +1,24 @@
-<h1>Listing users</h1>
+<% @header="Users"%>
 
 <table>
   <tr>
-    <th>First name</th>
-    <th>Last name</th>
+    <th>Username</th>
+    <th>Name</th>
     <th>Email</th>
     <th>Last login</th>
-    <th>Username</th>
   </tr>
 
 <% for user in @users %>
   <tr>
-    <td><%=h user.first_name %></td>
-    <td><%=h user.last_name %></td>
+    <td><%= link_to(h(user.username), edit_user_path(user)) %></td>
+    <td><%=h user.full_name %></td>
     <td><%=h user.email %></td>
-    <td><%=h user.last_login %></td>
-    <td><%=h user.username %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%=h user.last_login ? user.last_login.to_formatted_s(:db) : '' %></td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
     <% if current_user.can?(:manage_users)%>
-	<td><%= link_to 'Log in as', login_as_user_url(user) %></td>
+	<%= link_to 'Log in as', login_as_user_url(user) %>
 	<% end %>
+	</td>
   </tr>
 <% end %>
 </table>

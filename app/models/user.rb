@@ -11,7 +11,12 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   
-  public 
+  public
+  def om_account(omrl)
+    omrl << "." if omrl =~ /[^.]$/  #TODO this is more bogusness about that stupid period at then end.
+    om_accounts.first {|x| x.omrl == omrl }
+  end
+   
   def full_name
     "#{first_name} #{last_name}"
   end

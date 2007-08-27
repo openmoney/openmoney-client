@@ -1,3 +1,7 @@
+class Event < ActiveResource::Base
+  include Specification
+  self.site = "http://localhost:3001/"
+end
 class Entity < ActiveResource::Base
   include Specification
   self.site = "http://localhost:3001/"
