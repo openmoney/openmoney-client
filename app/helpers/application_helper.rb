@@ -110,7 +110,7 @@ module ApplicationHelper
     end
   end
   
-  def history(account, currency=nil,language = "en")
+  def history(account, currency=nil,sort_order = nil,language = "en")
     currency_omrl = currency.omrl
 #    a = OMRL.new(account)
 #    links = Link.find(:all,{:conditions => "link_type in ('accepts','declares') && omrl regexp '^#{a.entity}#[0-9]+\\\\^#{a.context}'"})
@@ -120,6 +120,16 @@ module ApplicationHelper
     fields ||= DefaultCurrencyFields
     f = {}
     fields.each{|name,type| f[name] = type if type != 'submit'  && type != 'unit'}
+    if sort_order =~ /^-(.*)/
+      reverse = true
+      sort_order = $1
+    end
+    if sort_order == nil or sort_order == ''
+      flows = flows.sort_by {|a| a.created_at}.reverse
+    else
+      flows = flows.sort_by {|a| a.specification_attribute(sort_order)}
+    end
+    flows = flows.reverse if reverse
     [flows,f]
   end
   

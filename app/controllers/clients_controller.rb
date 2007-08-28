@@ -39,6 +39,7 @@ class ClientsController < ApplicationController
      }
     )
     @event.save
+
     render :partial => "history"
   end
   

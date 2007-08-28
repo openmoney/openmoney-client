@@ -1,13 +1,20 @@
 <div id="history">
 <%= image_tag 'loading.gif', :id=>'history_spinner', :style=>"display:none; float:right;"%>
+
+<%= error_messages_for :event %>
+<% if @event && @event.error%>
+There was an error: <%= @event.error %>
+<% end %>
+
 <h3>History</h3>
-<% (@flows,@fields) = history(@account,@currency) %>
+<% (@flows,@fields) = history(@account,@currency,@sort_order) %>
 
 <% if @flows %>
   <table id ="history_table">
 	<tr>
-	<th> declarer </th>
-	<th> accepter </th>
+		<th> date </th>
+		<th> declarer </th>
+		<th> accepter </th>
 	<%for f in @fields.keys %>
 	<th> <%= h f %> </th>
 	<% end %>
@@ -15,6 +22,7 @@
 
 	<% for flow in @flows %>
 	<tr>
+		<td><%= h flow.created_at.localtime.strftime("%m/%d/%Y %I:%M")%> </td>
 		<td><%= h flow.specification_attribute('declaring_account')%> </td>
 		<td><%= h flow.specification_attribute('accepting_account') %> </td>
 		<%for f in @fields.keys %>
