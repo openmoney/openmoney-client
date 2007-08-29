@@ -39,6 +39,9 @@ class ClientsController < ApplicationController
      }
     )
     @event.save
+    if @event.respond_to?(:error)
+      @event_error = @event.error
+    end
 
     render :partial => "history"
   end

@@ -2,8 +2,8 @@
 <%= image_tag 'loading.gif', :id=>'history_spinner', :style=>"display:none; float:right;"%>
 
 <%= error_messages_for :event %>
-<% if @event && @event.error%>
-There was an error: <%= @event.error %>
+<% if @event_error%>
+There was an error: <%= @event_error %>
 <% end %>
 
 <h3>History</h3>
