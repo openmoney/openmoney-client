@@ -5,7 +5,7 @@
 ######################################################################################
 
 class UsersController < ApplicationController
-  require_authorization(:manage_users, :except => [:show,:update,:edit,:new,:create]) 
+  require_authorization(:manage_users, :except => [:show,:update,:edit,:new,:create,:password]) 
   require_authentication(:except => [:new,:create])
   # GET /users
   # GET /users.xml
