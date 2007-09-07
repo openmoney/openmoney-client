@@ -5,6 +5,7 @@ class DefaultRoles < ActiveRecord::Migration
     role = Role.create(:name => 'user')
     role.save!
   end
+  [:manage_users].each{|p| Permission.create(:name => p)}
 
   def self.down
   end

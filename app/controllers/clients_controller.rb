@@ -47,7 +47,9 @@ class ClientsController < ApplicationController
   end
   
   def setup
+    u = current_user
     @currency_omrl = params[:currency]
+    @currency_omrl ||= u.pref_default_currency if u.pref_default_currency?
     @currency_omrl ||= 'bucks~us'  #TODO take out this bogus default!
     @currency_omrl = @currency_omrl.chop if @currency_omrl =~ /\.$/
     @currency = Entity.find(@currency_omrl)
@@ -55,12 +57,19 @@ class ClientsController < ApplicationController
     @params.merge!(params[:flow_spec]) if params[:flow_spec]
 
     @client = params[:client]
-    @account = params[:account]
-    @accounts = current_user.om_accounts
-    @account ||= @accounts[0].omrl if !@accounts.empty?
+    @account_omrl = params[:account]
+    @accounts = u.om_accounts
+    if !@accounts.empty?
+      @account_omrl ||= u.pref_default_account if u.pref_default_account?
+      @account_omrl ||= @accounts[0].omrl 
+    end
     
-    currencies = Currency.find(:all, :params => { :used_by => @account })
-    @currencies = currencies.collect {|c| c.omrl}
+    @account = u.om_accounts.find_by_omrl(@account_omrl)
+    if @account.currencies_cache? && !params[:reload_currencies_cache]
+      @currencies = YAML.load(@account.currencies_cache)
+    else
+      @currencies = @account.reload_currencies_cache
+    end
   end
   
 end

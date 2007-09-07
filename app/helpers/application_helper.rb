@@ -112,7 +112,7 @@ module ApplicationHelper
     end
   end
   
-  def history(account, currency=nil,sort_order = nil,language = "en")
+  def history(account, currency=nil,sort_order = nil,count = 20,page = 0,language = "en")
     currency_omrl = currency.omrl
 #    a = OMRL.new(account)
 #    links = Link.find(:all,{:conditions => "link_type in ('accepts','declares') && omrl regexp '^#{a.entity}#[0-9]+\\\\^#{a.context}'"})

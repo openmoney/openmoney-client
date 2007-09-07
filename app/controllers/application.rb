@@ -21,10 +21,10 @@ class ApplicationController < ActionController::Base
 
   protected
   
-  def current_user_or_can?(permission = nil,obj = nil)
+  def current_user_or_can?(permissions = nil,obj = nil)
     the_id = obj ? obj.user_id : params[:id].to_i
-#    raise "((#{the_id} == #{current_user.id}) || (#{!permission} || #{current_user.can?(permission)}))"
-    if (the_id == current_user.id) || (!permission || current_user.can?(permission))
+    permissions = [permissions] if !permissions.nil? && permissions.class != Array
+    if (the_id == current_user.id) || (!permissions || (permissions.any? {|p| current_user.can?(p)} ) )
       true
     else
       respond_to do |format|

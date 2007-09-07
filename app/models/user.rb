@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
   def login_action
     update_attribute(:last_login,Time.now)
   end
+  
+  def prefs
+    YAML.load(self.preferences)
+  end
 end

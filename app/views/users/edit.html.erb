@@ -32,7 +32,27 @@
     <%= f.text_field :email %>
   </p>
 
+<table cellpadding="0" cellspacing="0" border=0><tr><td>
+<fieldset>
+<legend>Preferences</legend>
+	<p>
+	  <b>Language</b>
+	  <%= f.select(:pref_language,[['English','en'],['Spanish','es'],['French','fr']]) %>
+	</p>
+	<p>
+	  <b>Transactions per page</b>
+	  <%= f.text_field(:pref_items_per_page,"size" => 3) %>
+	</p>
+	<% if @user.om_accounts.size > 1%>
+	<p>
+	  <b>Default Account</b>
+	  <%= f.collection_select(:pref_default_account, @user.om_accounts, :omrl, :omrl) %>
+	  with currency <%= f.text_field(:pref_default_currency) %>
+	</p>
+	<% end %>
 
+</fieldset>
+</table>
   <p>
     <%= f.submit "Update" %>
   </p>
