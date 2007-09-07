@@ -9,7 +9,7 @@ describe "/users/edit.html.erb" do
     @user.stub!(:last_name).and_return("MyString")
     @user.stub!(:email).and_return("MyString")
     @user.stub!(:last_login).and_return(Time.now)
-    @user.stub!(:username).and_return("MyString")
+    @user.stub!(:user_name).and_return("MyString")
     assigns[:user] = @user
   end
 
@@ -20,7 +20,7 @@ describe "/users/edit.html.erb" do
       with_tag('input#user_first_name[name=?]', "user[first_name]")
       with_tag('input#user_last_name[name=?]', "user[last_name]")
       with_tag('input#user_email[name=?]', "user[email]")
-      with_tag('input#user_username[name=?]', "user[username]")
+      with_tag('input#user_user_name[name=?]', "user[user_name]")
     end
   end
 end

@@ -2,7 +2,7 @@
 	if current_user == @user
 		@header = "My Profile"
 	else
-		@header="Edit User: " << @user.username
+		@header="Edit User: " << @user.user_name
 	end
 %>
 
@@ -39,4 +39,5 @@
 <% end %>
 
 <%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %> |
+<%= link_to 'Change Password', password_user_path %>

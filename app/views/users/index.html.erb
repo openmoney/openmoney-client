@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Username</th>
+    <th>User Name</th>
     <th>Name</th>
     <th>Email</th>
     <th>Last login</th>
@@ -10,7 +10,7 @@
 
 <% for user in @users %>
   <tr>
-    <td><%= link_to(h(user.username), edit_user_path(user)) %></td>
+    <td><%= link_to(h(user.user_name), edit_user_path(user)) %></td>
     <td><%=h user.full_name %></td>
     <td><%=h user.email %></td>
     <td><%=h user.last_login ? user.last_login.to_formatted_s(:db) : '' %></td>

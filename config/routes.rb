@@ -5,7 +5,10 @@ ActionController::Routing::Routes.draw do |map|
   # Named routes
   map.home('', :controller => 'home', :action => 'index')
 
-  map.resources :users, :member => {:login_as => :get}
+  map.resources :users, :member => {
+    :login_as => :get,
+    :password => :get, :set_password => :put
+    }
 
   # The priority is based upon order of creation: first created -> highest priority.
 

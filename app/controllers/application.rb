@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   enable_authentication :user_model => User
   enable_authorization
   require_authentication
+  Rauth::Source::Native.rauth_options.update({
+    :min_pass_length  => 4,
+    :pass_error_msg   => 'Password must be at least 4 characters long',
+    })
 
 
   protected

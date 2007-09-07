@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     
     session[:rauth_after_login] = "/"
     respond_to do |format|
-      if Rauth::Bridge.create_account(@user, :user_name => @user.username, :password => params[:password], :confirmation => params[:password_confirm])
+      if Rauth::Bridge.create_account(@user, :user_name => @user.user_name, :password => params[:password], :confirmation => params[:password_confirm])
         flash[:notice] = 'User was successfully created.'
         self.current_user = @user if !logged_in?
         format.html { redirect_to(home_url) }
@@ -101,6 +101,7 @@ class UsersController < ApplicationController
     end
   end
   
+  #GET /user/login_as
   def login_as
     @user = User.find(params[:id])
     self.current_user = @user
@@ -109,5 +110,39 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # GET /users/1/password
+  def password
+    current_user_action do
+      session[:password_return_to] = request.env['HTTP_REFERER'] if !session[:password_return_to]
+    end
+  end
+
+  # PUT /users/1/set_password
+  def set_password
+    current_user_action do
+      return_url = session[:password_return_to] || home_url
+      respond_to do |format|
+        @account = Rauth::Bridge.backend.find_by_user_name(@user.user_name)
+        if @account.change_password(params[:current_password],params[:new_password],params[:password_confirm])  && @account.save
+          format.html { render :action => "password" }
+          format.xml  { head :ok }
+          session[:password_return_to] = nil
+        else
+          format.html { render :action => "password" }
+          format.xml  { render :xml => @account.errors.to_xml }
+        end
+      end
+    end
+  end
+
+  protected
+  def current_user_action
+    if current_user_or_can?(:manage_users)
+      @user = User.find(params[:id])
+      yield
+    end
+  end
+ 
   
 end
