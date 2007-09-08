@@ -25,19 +25,16 @@ class ClientsController < ApplicationController
   # POST /clients/
   def ack
     setup
-    account = current_user.om_account(params[:account])
-    raise "unconfigured account #{params[:account]}" if !account
-    @event = Event.new(
-     {:event_type => "AcknowledgeFlow",
-      :specification => {
-        "ack_password" => account.password,
-        "flow_specification" => params[:flow_spec],
-        "declaring_account" => account.omrl,
-        "accepting_account" => params[:accepting_account],
-        "currency" => params[:currency]
-       }.to_yaml
-     }
-    )
+    event_spec = {:event_type => "AcknowledgeFlow",
+     :specification => {
+       "ack_password" => @account.password,
+       "flow_specification" => params[:flow_spec],
+       "declaring_account" => @account.omrl,
+       "accepting_account" => params[:accepting_account],
+       "currency" => params[:currency]
+      }.to_yaml
+    }
+    @event = Event.new(event_spec)
     @event.save
     if @event.respond_to?(:error)
       @event_error = @event.error
@@ -52,7 +49,7 @@ class ClientsController < ApplicationController
     @currency_omrl ||= u.pref_default_currency if u.pref_default_currency?
     @currency_omrl ||= 'bucks~us'  #TODO take out this bogus default!
     @currency_omrl = @currency_omrl.chop if @currency_omrl =~ /\.$/
-    @currency = Entity.find(@currency_omrl)
+    
     @params = {"declaring_account" => params[:declaring_account],"accepting_account" => params[:accepting_account]}
     @params.merge!(params[:flow_spec]) if params[:flow_spec]
 
@@ -65,11 +62,9 @@ class ClientsController < ApplicationController
     end
     
     @account = u.om_accounts.find_by_omrl(@account_omrl)
-    if @account.currencies_cache? && !params[:reload_currencies_cache]
-      @currencies = YAML.load(@account.currencies_cache)
-    else
-      @currencies = @account.reload_currencies_cache
-    end
+    raise "unconfigured account #{@account_omrl}" if !@account
+    
+    @currencies = @account.currencies_list
   end
   
 end

@@ -55,17 +55,16 @@ module ApplicationHelper
     )
   end
   
-  def input_form(currency,declaring_account=nil,language = "en")
-    spec = YAML.load(@currency.specification)
+  def input_form(currency_spec,declaring_account=nil,language = "en")
     base_field_spec = {"submit" => "submit","USD" => 'unit'}
-    if spec["fields"]
-      field_spec = spec["fields"]
+    if currency_spec["fields"]
+      field_spec = currency_spec["fields"]
     else
       field_spec = DefaultCurrencyFields
     end
     field_spec = base_field_spec.merge(field_spec)
 #    return spec.inspect
-    form = spec["input_form"][language] if spec["input_form"]
+    form = currency_spec["input_form"][language] if currency_spec["input_form"]
     form = ":declaring_account acknowledges :accepting_account for :description in the amount of :USD:amount :submit" if !form
     form.gsub(/:([a-zA-Z0-9_-]+)/) {|m| 
       if $1 == 'declaring_account' && declaring_account
@@ -103,7 +102,7 @@ module ApplicationHelper
         'YEN'=>'&yen;',
         "CHY"=>'Yuan',
         'T-h'=>'h',
-        'T-m'=>'h',
+        'T-m'=>'m',
         'kwh'=>'kwh',
         'other'=>'&curren;'
       }[field_name]
@@ -112,13 +111,10 @@ module ApplicationHelper
     end
   end
   
-  def history(account, currency=nil,sort_order = nil,count = 20,page = 0,language = "en")
-    currency_omrl = currency.omrl
-#    a = OMRL.new(account)
-#    links = Link.find(:all,{:conditions => "link_type in ('accepts','declares') && omrl regexp '^#{a.entity}#[0-9]+\\\\^#{a.context}'"})
-#   flows = links.collect {|l| e = Entity.find_by_omrl(l.omrl); (e && OMRL.new(e.specification_attribute('currency')).to_s == currency_omrl) ? e : nil }.reject {|e| e == nil}
-    flows = Flow.find(:all, :params => { :with => account, :in_currency => currency_omrl })
-    fields = currency.specification_attribute('fields')
+  def history(account, currency_omrl,sort_order = nil,count = 20,page = 0,language = "en")
+    account_omrl = account.omrl
+    flows = Flow.find(:all, :params => { :with => account_omrl, :in_currency => currency_omrl })
+    fields = account.currency_specification(currency_omrl)['fields']
     fields ||= DefaultCurrencyFields
     f = {}
     fields.each{|name,type| f[name] = type if type != 'submit'  && type != 'unit'}

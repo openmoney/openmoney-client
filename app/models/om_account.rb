@@ -9,10 +9,25 @@ class OmAccount < ActiveRecord::Base
   validates_presence_of :user_id,:omrl
   attr_protected :user_id
   
+  def currencies_list
+    currencies.keys
+  end
+  
+  def currency_specification(currency_omrl)
+    c = currencies[currency_omrl]
+    c.get_specification if c
+  end
+  
   def reload_currencies_cache
     currencies = Currency.find(:all, :params => { :used_by => self.omrl })
-    currencies_list = currencies.collect {|c| c.omrl.chop}
-    update_attribute(:currencies_cache,currencies_list.to_yaml)
-    currencies_list
+    currencies_hash = {}
+    currencies.each {|c| currencies_hash[c.omrl.chop] = c}
+    update_attribute(:currencies_cache,currencies_hash.to_yaml)
+  end
+  
+  def currencies
+    reload_currencies_cache if !self.currencies_cache?
+    c = YAML.load(self.currencies_cache)
+    c ||= {}
   end
 end

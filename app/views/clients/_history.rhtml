@@ -7,7 +7,7 @@ There was an error: <%= @event_error %>
 <% end %>
 
 <h3>History</h3>
-<% (@flows,@fields) = history(@account_omrl,@currency,@sort_order) %>
+<% (@flows,@fields) = history(@account,@currency_omrl,@sort_order) %>
 
 <% if @flows %>
   <table id ="history_table">
