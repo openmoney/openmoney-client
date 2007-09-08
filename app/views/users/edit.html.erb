@@ -49,6 +49,10 @@
 	  <%= f.collection_select(:pref_default_account, @user.om_accounts, :omrl, :omrl) %>
 	  with currency <%= f.text_field(:pref_default_currency) %>
 	</p>
+	<% else %>
+	<p>
+	  <b>Default Currency</b> <%= f.text_field(:pref_default_currency) %>
+	</p>
 	<% end %>
 
 </fieldset>

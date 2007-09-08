@@ -44,6 +44,7 @@ class OmAccountsController < ApplicationController
   def edit
     @om_account = OmAccount.find(params[:id])
     current_user_or_can?(:manage_users,@om_account)
+    setup_return_to(:edit_account)
   end
 
   # POST /om_accounts
@@ -54,8 +55,8 @@ class OmAccountsController < ApplicationController
 
     respond_to do |format|
       if @om_account.save
-        flash[:notice] = 'OmAccount was successfully created.'
-        format.html { redirect_to(@om_account) }
+        flash[:notice] = 'account was successfully created.'
+        format.html { redirect_to(home_url) }
         format.xml  { render :xml => @om_account, :status => :created, :location => @om_account }
       else
         format.html { render :action => "new" }
@@ -69,12 +70,14 @@ class OmAccountsController < ApplicationController
   def update
     @om_account = OmAccount.find(params[:id])
     if current_user_or_can?(:manage_users,@om_account)
-
+      @om_account.currencies_cache = nil if params[:clear_currencies_cache]
       respond_to do |format|
+        return_url = session[:edit_account_return_to] || om_accounts_url
         if @om_account.update_attributes(params[:om_account])
-          flash[:notice] = 'OmAccount was successfully updated.'
-          format.html { redirect_to(@om_account) }
+          flash[:notice] = 'account was successfully updated.'
+          format.html { redirect_to(return_url) }
           format.xml  { head :ok }
+          session[:edit_account_return_to] = nil
         else
           format.html { render :action => "edit" }
           format.xml  { render :xml => @om_account.errors, :status => :unprocessable_entity }

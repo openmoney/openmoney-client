@@ -48,7 +48,7 @@ module ApplicationHelper
 		<option value="YEN">Yen (&yen;)</option>
 		<option value="CHY">Yuan</option>
 		<option value="T-h">Time:hours (h)</option>
-		<option value="T-m">Time:minutes (h)</option>
+		<option value="T-m">Time:minutes (m)</option>
 		<option value="kwh">Kilowatt Hours (kwh)</option>
 		<option value="other">other--see description (&curren;)</option>
     EOHTML
@@ -64,8 +64,12 @@ module ApplicationHelper
     end
     field_spec = base_field_spec.merge(field_spec)
 #    return spec.inspect
-    form = currency_spec["input_form"][language] if currency_spec["input_form"]
-    form = ":declaring_account acknowledges :accepting_account for :description in the amount of :USD:amount :submit" if !form
+    if currency_spec["input_form"]
+      form = currency_spec["input_form"][language]
+      form ||= currency_spec["input_form"]['en']
+    else
+      form = ":declaring_account acknowledges :accepting_account for :description in the amount of :USD:amount :submit"
+    end
     form.gsub(/:([a-zA-Z0-9_-]+)/) {|m| 
       if $1 == 'declaring_account' && declaring_account
         declaring_account

@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id]) if current_user_or_can?(:manage_users)
-    session[:edit_profile_return_to] = request.env['HTTP_REFERER'] if !session[:edit_profile_return_to]
+    setup_return_to(:edit_profile)
   end
 
   # POST /users
@@ -117,7 +117,7 @@ class UsersController < ApplicationController
   # GET /users/1/password
   def password
     current_user_action do
-      session[:password_return_to] = request.env['HTTP_REFERER'] if !session[:password_return_to]
+      setup_return_to(:password)
     end
   end
 

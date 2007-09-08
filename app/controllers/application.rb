@@ -19,7 +19,13 @@ class ApplicationController < ActionController::Base
     })
 
 
+
   protected
+
+  def setup_return_to(key)
+    key = key.to_s << 'return_to'
+    session[key] = request.env['HTTP_REFERER'] if !session[key]
+  end
   
   def current_user_or_can?(permissions = nil,obj = nil)
     the_id = obj ? obj.user_id : params[:id].to_i

@@ -7,7 +7,7 @@
 class OmAccount < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :user_id,:omrl
-  attr_protected :user_id
+  attr_protected :user_id,:currencies_cache
   
   def currencies_list
     currencies.keys
