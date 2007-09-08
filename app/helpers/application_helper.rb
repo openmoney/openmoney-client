@@ -26,6 +26,18 @@ module ApplicationHelper
 
   DefaultCurrencyFields = {"amount" => "float", "description" => "text"}
   
+  # stub for localizing
+  def l(text)
+    map = {'es' => {'Yes' => 'Si','No' => 'No'}}
+    k = map[current_user.pref_language]
+    
+    if k
+      k[text] || text
+    else  
+      text
+    end
+  end
+  
   def currency_select(html_field_name,selected,account = nil)
     c = Currency.find(:all).collect{|e| e.omrl.chop}
     select_tag(html_field_name,options_for_select(c,selected))
@@ -87,7 +99,7 @@ module ApplicationHelper
     when field_type.is_a?(Array)
       select_tag(html_field_name,options_for_select(field_type,@params[field_name]))
     when field_type == "boolean"
-      select_tag(html_field_name,options_for_select([["Yes", "Y"], ["No", "N"]],@params[field_name]))
+      select_tag(html_field_name,options_for_select([[l('Yes'), "Y"], [l('No'), "N"]],@params[field_name]))
     when field_type == "submit"
       submit_tag(field_name.gsub(/_/,' '))
     when field_type == "text"
