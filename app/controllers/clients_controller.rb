@@ -44,12 +44,7 @@ class ClientsController < ApplicationController
   end
   
   def setup
-    u = current_user
-    @currency_omrl = params[:currency]
-    @currency_omrl ||= u.pref_default_currency if u.pref_default_currency?
-    @currency_omrl ||= 'bucks~us'  #TODO take out this bogus default!
-    @currency_omrl = @currency_omrl.chop if @currency_omrl =~ /\.$/
-    
+    u = current_user    
     @params = {"declaring_account" => params[:declaring_account],"accepting_account" => params[:accepting_account]}
     @params.merge!(params[:flow_spec]) if params[:flow_spec]
 
@@ -65,6 +60,12 @@ class ClientsController < ApplicationController
     raise "unconfigured account #{@account_omrl}" if !@account
     
     @currencies = @account.currencies_list
+
+    @currency_omrl = params[:currency]
+    @currency_omrl ||= u.pref_default_currency if u.pref_default_currency?
+    @currency_omrl ||= @currencies[0]
+    @currency_omrl = @currency_omrl.chop if @currency_omrl =~ /\.$/
+    
   end
   
 end
