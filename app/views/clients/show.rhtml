@@ -19,7 +19,7 @@
 		:before => "$('history_spinner').show();",
 		:url=> {:action=>:ack, :account=>@account_omrl, :client=>@client, :only_path=>true},
 		:complete=>"$('history_spinner').hide();") do -%>
-		Currency: <%= select_tag('currency',options_for_select(@currencies,@currency_omrl)) %> <br />
+		<%= l 'Currency' %>: <%= select_tag('currency',options_for_select(@currencies,@currency_omrl)) %> <br />
 	  	<%= render(:partial => 'input_form') %>
 	<% end -%>
   

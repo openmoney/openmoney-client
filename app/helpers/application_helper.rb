@@ -28,7 +28,15 @@ module ApplicationHelper
   
   # stub for localizing
   def l(text)
-    map = {'es' => {'Yes' => 'Si','No' => 'No'}}
+    text = text.to_s
+    map = {'es' => {
+      'Yes' => 'Si',
+      'No' => 'No',
+      'Date' => 'Fecha',
+      'Declarer' => 'Declarador',
+      'Accepter' => 'Acceptador',
+      'Currency' => 'Moneda'
+      }}
     k = map[current_user.pref_language]
     
     if k
@@ -86,22 +94,42 @@ module ApplicationHelper
       if $1 == 'declaring_account' && declaring_account
         declaring_account
       else
-        render_field($1,field_spec)
+        render_field($1,field_spec,language)
       end
     }
   end
 
-  def render_field(field_name,field_spec)
-
-    field_type = field_spec[field_name]
+  def get_field_spec(field_name,field_spec)
+    fspec = field_spec[field_name]
+    fspec = field_name if fspec.nil?
+    case
+    when fspec.is_a?(String)
+      fspec = {'type' => fspec}
+    when fspec.is_a?(Array)
+      fspec = {'values_enum' => fspec}
+    end
+    fspec['description'] = field_name.gsub(/_/,' ').capitalize if !fspec['description']
+    fspec
+  end
+  
+  def render_field(field_name,field_spec,language = 'en')
+    fspec = get_field_spec(field_name,field_spec)
+    
     html_field_name = "flow_spec[#{field_name}]"
+    
+    field_description = fspec['description']
+    field_description = field_description[language] if field_description.is_a?(Hash)
+
+    field_type = fspec['type']
     case 
-    when field_type.is_a?(Array)
-      select_tag(html_field_name,options_for_select(field_type,@params[field_name]))
+    when fspec['values_enum']
+      enum = fspec['values_enum']
+      enum = enum[language] if enum.is_a?(Hash)
+      select_tag(html_field_name,options_for_select(enum,@params[field_name]))
     when field_type == "boolean"
-      select_tag(html_field_name,options_for_select([[l('Yes'), "Y"], [l('No'), "N"]],@params[field_name]))
+      select_tag(html_field_name,options_for_select([[l('Yes'), "true"], [l('No'), "false"]],@params[field_name]))
     when field_type == "submit"
-      submit_tag(field_name.gsub(/_/,' '))
+      submit_tag(field_description)
     when field_type == "text"
       text_field_tag(html_field_name,@params[field_name])
     when field_type == "float"
@@ -127,13 +155,22 @@ module ApplicationHelper
     end
   end
   
-  def history(account, currency_omrl,sort_order = nil,count = 20,page = 0,language = "en")
+  def history(account, currency_omrl,sort_order = nil,language = "en",count = 20,page = 0)
     account_omrl = account.omrl
     flows = Flow.find(:all, :params => { :with => account_omrl, :in_currency => currency_omrl })
     fields = account.currency_specification(currency_omrl)['fields']
     fields ||= DefaultCurrencyFields
     f = {}
-    fields.each{|name,type| f[name] = type if type != 'submit'  && type != 'unit'}
+    
+    fields.keys.each do |name|
+      fspec = get_field_spec(name,fields)
+      type = fspec['type']
+      if type != 'submit'  && type != 'unit'
+        field_description = fspec['description']
+        field_description = field_description[language] if field_description.is_a?(Hash)
+        f[name] = field_description
+      end
+    end
     if sort_order =~ /^-(.*)/
       reverse = true
       sort_order = $1
