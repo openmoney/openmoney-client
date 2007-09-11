@@ -1,0 +1,12 @@
+<% @header="Join Currency" %>
+
+<%= error_messages_for :event %>
+<% if @event_error%>
+There was an error: <%= @event_error %>
+<% end %>
+
+<% form_tag(do_join_om_account_path(@om_account)) do -%>
+Join <%= h @om_account.omrl %> to 
+currency: <%= text_field_tag(:currency,params[:currency])%>
+<%= submit_tag "Join Currency" %>
+<% end -%>

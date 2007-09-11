@@ -4,9 +4,12 @@
 
 <% for om_account in @om_accounts %>
   <tr>
-    <td><%=h om_account.omrl %></td>
-    <td><%= link_to 'Edit', edit_om_account_path(om_account) %></td>
-    <td><%= link_to 'Destroy', om_account, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%=link_to h(om_account.omrl),edit_om_account_path(om_account) %> <br />
+	 Currencies: <%= h(om_account.currencies_list.join(', ')) %>
+	</td>
+    <td><%= link_to 'Delete', om_account, :confirm => 'Are you sure?', :method => :delete %><br />
+		<%= link_to 'Join Currency', join_om_account_path(om_account) %>
+	</td>
   </tr>
 <% end %>
 </table>

@@ -43,6 +43,7 @@ class ClientsController < ApplicationController
     render :partial => "history"
   end
   
+  protected
   def setup
     u = current_user    
     @params = {"declaring_account" => params[:declaring_account],"accepting_account" => params[:accepting_account]}
@@ -65,7 +66,6 @@ class ClientsController < ApplicationController
     @currency_omrl ||= u.pref_default_currency if u.pref_default_currency?
     @currency_omrl ||= @currencies[0]
     @currency_omrl = @currency_omrl.chop if @currency_omrl =~ /\.$/
-    
   end
   
 end

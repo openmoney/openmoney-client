@@ -99,4 +99,29 @@ class OmAccountsController < ApplicationController
       end
     end
   end
+  
+  def join
+    @om_account = OmAccount.find(params[:id])
+  end
+  
+  def do_join
+    @om_account = OmAccount.find(params[:id])
+    event_spec = {:event_type => "JoinCurrency",
+     :specification => {
+#       "ack_password" => @account.password,
+       "account" => @om_account.omrl,
+       "currency" => params[:currency]
+      }.to_yaml
+    }
+    @event = Event.new(event_spec)
+    @event.save
+    if @event.respond_to?(:error)
+      @event_error = @event.error
+      render :action => 'join'
+    else
+      @om_account.update_attribute(:currencies_cache,nil)
+      redirect_to(om_accounts_url)
+    end
+  end
+  
 end

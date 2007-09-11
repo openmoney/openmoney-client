@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :om_accounts
-
+  map.resources :om_accounts, :member => {
+    :join => :get,:do_join => :post
+    }
 
   # Named routes
   map.home('', :controller => 'home', :action => 'index')
