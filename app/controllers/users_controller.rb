@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id]) if current_user_or_can?(:manage_users)
-    setup_return_to(:edit_profile)
+    setup_return_to(:edit_profile_return_to)
   end
 
   # POST /users
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     session[:rauth_after_login] = "/"
     respond_to do |format|
       if Rauth::Bridge.create_account(@user, :user_name => @user.user_name, :password => params[:password], :confirmation => params[:password_confirm])
-        flash[:notice] = 'User was successfully created.'
+        flash[:notice] = l('Your profile was created.')
         self.current_user = @user if !logged_in?
         format.html { redirect_to(home_url) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
       respond_to do |format|
         return_url = session[:edit_profile_return_to] || users_url
         if @user.update_attributes(params[:user])
-          flash[:notice] = 'User was successfully updated.'
+          flash[:notice] = l('Your profile was updated.')
           format.html { redirect_to(return_url) }
           format.xml  { head :ok }
           session[:edit_profile_return_to] = nil
@@ -117,7 +117,7 @@ class UsersController < ApplicationController
   # GET /users/1/password
   def password
     current_user_action do
-      setup_return_to(:password)
+      setup_return_to(:password_return_to)
     end
   end
 

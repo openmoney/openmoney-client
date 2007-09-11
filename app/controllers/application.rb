@@ -8,6 +8,9 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  
+  include L8n
+  
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_rubycc_session_id'
   enable_authentication :user_model => User
@@ -18,12 +21,9 @@ class ApplicationController < ActionController::Base
     :pass_error_msg   => 'Password must be at least 4 characters long',
     })
 
-
-
   protected
 
   def setup_return_to(key)
-    key = key.to_s << 'return_to'
     session[key] = request.env['HTTP_REFERER'] if !session[key]
   end
   

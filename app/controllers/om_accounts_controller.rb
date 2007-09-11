@@ -44,7 +44,7 @@ class OmAccountsController < ApplicationController
   def edit
     @om_account = OmAccount.find(params[:id])
     current_user_or_can?(:manage_users,@om_account)
-    setup_return_to(:edit_account)
+    setup_return_to(:edit_account_return_to)
   end
 
   # POST /om_accounts
