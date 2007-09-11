@@ -4,28 +4,7 @@
 # http://openmoney.info/licenses/rubycc
 ######################################################################################
 
-require "config/omsite"
-
-class Event < ActiveResource::Base
-  include Specification
-  self.site = SITE_URL
-end
-class Entity < ActiveResource::Base
-  include Specification
-  self.site = SITE_URL
-end
-class Account < ActiveResource::Base
-  include Specification
-  self.site = SITE_URL
-end
-class Currency < ActiveResource::Base
-  include Specification
-  self.site = SITE_URL
-end
-class Flow < ActiveResource::Base
-  include Specification
-  self.site = SITE_URL
-end
+require "lib/om_classes"
 
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper

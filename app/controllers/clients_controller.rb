@@ -25,21 +25,13 @@ class ClientsController < ApplicationController
   # POST /clients/
   def ack
     setup
-    event_spec = {:event_type => "AcknowledgeFlow",
-     :specification => {
-       "ack_password" => @account.password,
-       "flow_specification" => params[:flow_spec],
-       "declaring_account" => @account.omrl,
-       "accepting_account" => params[:accepting_account],
-       "currency" => params[:currency]
-      }.to_yaml
-    }
-    @event = Event.new(event_spec)
-    @event.save
-    if @event.respond_to?(:error)
-      @event_error = @event.error
-    end
-
+    @event = Event.churn(:AcknowledgeFlow,
+      "ack_password" => @account.password,
+      "flow_specification" => params[:flow_spec],
+      "declaring_account" => @account.omrl,
+      "accepting_account" => params[:accepting_account],
+      "currency" => params[:currency]
+    )
     render :partial => "history"
   end
   
