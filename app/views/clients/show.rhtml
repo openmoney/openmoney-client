@@ -14,17 +14,30 @@
   </ul>
 </div>
 <div id="form">
-	<% form_remote_tag (
+	<% if @currencies.size > 0 
+		form_remote_tag (
 		:update=>'history',
 		:before => "$('history_spinner').show();",
 		:url=> {:action=>:ack, :account=>@account_omrl, :client=>@client, :only_path=>true},
 		:complete=>"$('history_spinner').hide();") do -%>
 		<%= l 'Currency' %>: <%= select_tag('currency',options_for_select(@currencies,@currency_omrl)) %> <br />
-	  	<%= render(:partial => 'input_form') %>
-	<% end -%>
-  
+		<% if @currency_spec%>
+	  		<%= render(:partial => 'input_form') %>
+	  	<%else%>
+			<% if @currency_omrl %>
+			<%= h @account_omrl %> does not seem to be a member of <%= h @currency_omrl %>. <br />
+		  	<%end%>
+			<%=link_to "Join Currencies", join_om_account_path(@account) %>
+	  	<%end%>
+		<% end -%>
+	<% else %>
+		This account hasn't yet joined any currencies. <br />
+		<%=link_to "Join Currencies", join_om_account_path(@account) %>
+	<% end %>
 </div>
-<%= render(:partial => 'history') %>
+<% if @currency_spec%>
+	<%= render(:partial => 'history') %>
+<% end %>
 
 <%= observe_field :currency,
 	:frequency => 0.5,

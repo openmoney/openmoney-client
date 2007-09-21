@@ -55,9 +55,10 @@ class ClientsController < ApplicationController
     @currencies = @account.currencies_list
 
     @currency_omrl = params[:currency]
-    @currency_omrl ||= u.pref_default_currency if u.pref_default_currency?
+    @currency_omrl ||= @account.default_currency if @account.default_currency?
     @currency_omrl ||= @currencies[0]
     @currency_omrl = @currency_omrl.chop if @currency_omrl =~ /\.$/
+    @currency_spec = @account.currency_specification(@currency_omrl)
   end
   
 end

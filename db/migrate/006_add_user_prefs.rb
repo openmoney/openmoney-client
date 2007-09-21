@@ -3,13 +3,11 @@ class AddUserPrefs < ActiveRecord::Migration
     add_column :users, :pref_language, :string, :null => false
     add_column :users, :pref_items_per_page, :integer, :null => false, :default => 20
     add_column :users, :pref_default_account, :string, :null => false
-    add_column :users, :pref_default_currency, :string, :null => false
   end
 
   def self.down
     remove_column :users, :pref_language
     remove_column :users, :pref_items_per_page
     remove_column :users, :pref_default_account
-    remove_column :users, :pref_default_currency
   end
 end

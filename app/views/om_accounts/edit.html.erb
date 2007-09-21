@@ -4,7 +4,7 @@
 
 <% form_for(@om_account) do |f| %>
   <p>
-    <b>Omrl</b><br />
+    <b>Currency Address</b><br />
     <%= f.text_field :omrl %>
   </p>
 
@@ -12,6 +12,11 @@
     <b>Password</b><br />
     <%= f.text_field :password %>
   </p>
+
+  <% if @om_account.currencies_list.size > 1%>
+  	<b>Default Currency</b><br />
+	<%= f.select(:default_currency, @om_account.currencies_list) %>
+  <%end%>
 
   <p>
 	<%= check_box_tag(:clear_currencies_cache)%> <b>Clear currencies cache</b> <br />
