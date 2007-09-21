@@ -4,12 +4,12 @@
 
 <% form_for(@om_account) do |f| %>
   <p>
-    <b>Currency Address</b><br />
+    <b>Account Address</b><br />
     <%= f.text_field :omrl %>
   </p>
 
   <p>
-    <b>Password</b><br />
+    <b>Account Access Password</b><br />
     <%= f.text_field :password %>
   </p>
 
@@ -19,9 +19,12 @@
   <%end%>
 
   <p>
-	<%= check_box_tag(:clear_currencies_cache)%> <b>Clear currencies cache</b> <br />
-    <b>Currencies cache</b><br />
-    <%= f.text_area :currencies_cache %>
+	<%= check_box_tag(:clear_currencies_cache)%> <b>Clear currencies cache</b> 
+	(<%= link_to_function 'show cache', "$('ccache').toggle();$('showhide').update($('ccache').visible() ? 'hide cache' : 'show cache');", :id => 'showhide'%>)
+	<br />
+	<div id="ccache" style="display:none;" class="specification">
+    <%= @om_account.currencies_cache %>
+	</div>
   </p>
 
   <p>
