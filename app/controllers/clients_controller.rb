@@ -30,11 +30,15 @@ class ClientsController < ApplicationController
       "flow_specification" => params[:flow_spec],
       "declaring_account" => @account.omrl,
       "accepting_account" => params[:accepting_account],
-      "currency" => params[:currency]
+      "currency" => @currency_omrl
     )
     result = YAML.load(@event.result)
     summary = result[@account.omrl]    
-    @account.update_summary_in_cache(params[:currency],summary)
+    @account.update_summary_in_cache(@currency_omrl,summary)
+    a = OmAccount.find_by_omrl(params[:accepting_account])
+    if a 
+      a.reload_currencies_cache
+    end
     render :partial => "history"
   end
   
