@@ -35,9 +35,9 @@ class ClientsController < ApplicationController
     result = YAML.load(@event.result)
     summary = result[@account.omrl]    
     @account.update_summary_in_cache(@currency_omrl,summary)
-    a = OmAccount.find_by_omrl(params[:accepting_account])
+    a = current_user.om_accounts.find_by_omrl(params[:accepting_account])
     if a 
-      a.reload_currencies_cache
+      a.update_attribute(:currencies_cache,nil)
     end
     render :partial => "history"
   end
