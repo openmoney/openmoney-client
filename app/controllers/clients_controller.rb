@@ -32,6 +32,9 @@ class ClientsController < ApplicationController
       "accepting_account" => params[:accepting_account],
       "currency" => params[:currency]
     )
+    result = YAML.load(@event.result)
+    summary = result[@account.omrl]    
+    @account.update_summary_in_cache(params[:currency],summary)
     render :partial => "history"
   end
   

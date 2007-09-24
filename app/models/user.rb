@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   
   def login_action
     update_attribute(:last_login,Time.now)
+    om_accounts.each {|a| a.update_attribute(:currencies_cache,nil)}
   end
   
 end

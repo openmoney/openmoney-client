@@ -6,6 +6,8 @@
 There was an error: <%= @event_error %>
 <% end %>
 
+<h3><%=l 'Summary' %></h3>
+<%= summary(@account,@currency_omrl,:language => current_user.pref_language)%>
 <h3><%=l 'History' %></h3>
 <% (@flows,@fields) = history(@account,@currency_omrl,:sort_order => @sort_order,:language => current_user.pref_language) %>
 

@@ -25,6 +25,14 @@ class OmAccount < ActiveRecord::Base
     update_attribute(:currencies_cache,currencies_hash.to_yaml)
   end
   
+  def update_summary_in_cache(currency_omrl,summary)
+    c = YAML.load(self.currencies_cache)
+    summaries = c[currency_omrl].specification_attribute('summaries')
+    summaries[omrl] = summary
+    c[currency_omrl].set_specification_attribute('summaries',summaries)
+    update_attribute(:currencies_cache,c.to_yaml)
+  end
+  
   def currencies
     reload_currencies_cache if !self.currencies_cache?
     c = YAML.load(self.currencies_cache)
