@@ -78,9 +78,11 @@ class UsersController < ApplicationController
     if current_user_or_can?(:manage_users)
       @user = User.find(params[:id])
       @user.role_id = params[:user][:role_id] if current_user.can?(:manage_users) #gotta do this because role is protected
+      params[:user].delete(:role_id)
+      @user.attributes = params[:user]
       respond_to do |format|
         return_url = session[:edit_profile_return_to] || users_url
-        if @user.update_attributes(params[:user])
+        if @user.save
           flash[:notice] = l('Your profile was updated.')
           format.html { redirect_to(return_url) }
           format.xml  { head :ok }

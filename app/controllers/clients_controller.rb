@@ -8,6 +8,12 @@ class ClientsController < ApplicationController
   # GET /clients/:client/:account/:currency
   def show
     setup
+    begin
+      c = Currency.find(@currency_omrl, :params => { :extra => 'summary', :entity_omrl => @account_omrl })
+    rescue ActiveResource::ResourceNotFound
+    end
+      
+    @summary = c.attributes if c
   end
 
   # POST clients/:client/:account/input_form
@@ -26,6 +32,7 @@ class ClientsController < ApplicationController
   def ack
     setup
     @event = Event.churn(:AcknowledgeFlow,
+      "credentials" => {@account.omrl => {:tag => current_user.user_name, :password=>@account.password}},
       "ack_password" => @account.password,
       "flow_specification" => params[:flow_spec],
       "declaring_account" => @account.omrl,
@@ -33,12 +40,8 @@ class ClientsController < ApplicationController
       "currency" => @currency_omrl
     )
     result = YAML.load(@event.result)
-    summary = result[@account.omrl]    
-    @account.update_summary_in_cache(@currency_omrl,summary)
-    a = current_user.om_accounts.find_by_omrl(params[:accepting_account])
-    if a 
-      a.update_attribute(:currencies_cache,nil)
-    end
+    @summary = result['summary'][@account.omrl]
+#    @account.update_summary_in_cache(@currency_omrl,summary)
     render :partial => "history"
   end
   

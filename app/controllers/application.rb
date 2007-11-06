@@ -11,9 +11,7 @@ class ApplicationController < ActionController::Base
   
   include L8n
   
-  # Pick a unique cookie name to distinguish our session data from others'
-  session :session_key => '_rubycc_session_id'
-  enable_authentication :user_model => User
+  enable_authentication :user_model => 'User'
   enable_authorization
   require_authentication
   Rauth::Source::Native.rauth_options.update({

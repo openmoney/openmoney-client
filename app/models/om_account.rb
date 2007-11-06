@@ -19,19 +19,17 @@ class OmAccount < ActiveRecord::Base
   end
   
   def reload_currencies_cache
-    currencies = Currency.find(:all, :params => { :used_by => self.omrl })
+    currencies = Currency.find(:all, :params => { :used_by => self.omrl, "account_#{self.omrl}"=>'fish' })
     currencies_hash = {}
     currencies.each {|c| currencies_hash[c.omrl.chop] = c}
     update_attribute(:currencies_cache,currencies_hash.to_yaml)
   end
   
-  def update_summary_in_cache(currency_omrl,summary)
-    c = YAML.load(self.currencies_cache)
-    summaries = c[currency_omrl].specification_attribute('summaries')
-    summaries[omrl] = summary
-    c[currency_omrl].set_specification_attribute('summaries',summaries)
-    update_attribute(:currencies_cache,c.to_yaml)
-  end
+#  def update_summary_in_cache(currency_omrl,summary)
+#    c = YAML.load(self.currencies_cache)
+#    c[currency_omrl].set_specification_attribute('summary',summary)
+#    update_attribute(:currencies_cache,c.to_yaml)
+#  end
   
   def currencies
     reload_currencies_cache if !self.currencies_cache?

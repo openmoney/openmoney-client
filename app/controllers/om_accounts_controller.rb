@@ -71,9 +71,10 @@ class OmAccountsController < ApplicationController
     @om_account = OmAccount.find(params[:id])
     if current_user_or_can?(:manage_users,@om_account)
       @om_account.currencies_cache = nil if params[:clear_currencies_cache]
+      @om_account.attributes = params[:om_account]
       respond_to do |format|
         return_url = session[:edit_account_return_to] || om_accounts_url
-        if @om_account.update_attributes(params[:om_account])
+        if @om_account.save
           flash[:notice] = 'account was successfully updated.'
           format.html { redirect_to(return_url) }
           format.xml  { head :ok }
