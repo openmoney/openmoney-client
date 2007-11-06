@@ -1,0 +1,31 @@
+<% @header="Currencies" %>
+
+<table>
+  <tr>
+    <th>Address</th>
+    <th>Summary</th>
+  </tr>
+
+<% for om_currency in @om_currencies %>
+  <tr>
+    <td><%=h om_currency.omrl %></td>
+    <td><%=
+	  c = nil
+      begin
+        c = Currency.find(om_currency.omrl, :params => { :extra => 'summary' })
+		c.attributes.inspect
+      rescue ActiveResource::ResourceNotFound
+		'-- currency summary unavailable -- '
+      end
+ 	%></td>
+    <td><%= link_to 'Show', om_currency %></td>
+    <td><%= link_to 'Edit', edit_om_currency_path(om_currency) %></td>
+    <td><%= link_to 'Delete', om_currency, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Access Currency', new_om_currency_path %>
+<%= link_to 'Create Currency', make_new_om_currency_path %>

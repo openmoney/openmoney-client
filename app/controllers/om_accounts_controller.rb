@@ -21,7 +21,6 @@ class OmAccountsController < ApplicationController
   def show
     @om_account = OmAccount.find(params[:id])
     if current_user_or_can?(:manage_users,@om_account)
-
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @om_account }
@@ -55,8 +54,8 @@ class OmAccountsController < ApplicationController
 
     respond_to do |format|
       if @om_account.save
-        flash[:notice] = 'account was successfully created.'
-        format.html { redirect_to(home_url) }
+        flash[:notice] = 'account was successfully accessed.'
+        format.html { redirect_to(om_accounts_url) }
         format.xml  { render :xml => @om_account, :status => :created, :location => @om_account }
       else
         format.html { render :action => "new" }

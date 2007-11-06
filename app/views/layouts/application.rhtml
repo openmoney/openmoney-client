@@ -27,7 +27,8 @@
 				<li><%= link_to "home",home_url%></li>
 			<% if logged_in?%>
             	<li><a href="/clients/<%= current_user.user_name %>">ack flows</a></li>
-				<li><%= link_to "config accounts",om_accounts_url%></li>
+				<li><%= link_to "accounts",om_accounts_url%></li>
+				<li><%= link_to "admin currencies",om_currencies_url%></li>
 				<li><%= link_to "edit profile",edit_user_url(current_user)%></li>
 				<% if current_user.can?(:manage_users)%>
 				<li><%= link_to "manage users",users_url%></li>

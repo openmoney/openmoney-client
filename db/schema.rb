@@ -2,7 +2,7 @@
 # migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 
-ActiveRecord::Schema.define(:version => 7) do
+ActiveRecord::Schema.define(:version => 8) do
 
   create_table "allowances", :force => true do |t|
     t.integer "role_id"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 7) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "default_currency", :default => "", :null => false
+  end
+
+  create_table "om_currencies", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "omrl"
+    t.text     "credentials"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "permissions", :force => true do |t|

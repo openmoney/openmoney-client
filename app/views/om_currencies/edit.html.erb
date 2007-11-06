@@ -1,0 +1,22 @@
+<% @header="Edit Currency Access" %>
+
+<%= error_messages_for :om_currency %>
+
+<% form_for(@om_currency) do |f| %>
+  <p>
+    <b>Currency Address</b><br />
+    <%= f.text_field :omrl %>
+  </p>
+
+  <p>
+    <b>Access Credential</b><br />
+    Password: <%= password_field_tag :password,@password %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @om_currency %> |
+<%= link_to 'Back', om_currencies_path %>

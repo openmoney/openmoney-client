@@ -10,7 +10,7 @@
 class ApplicationController < ActionController::Base
   
   include L8n
-  
+    
   enable_authentication :user_model => 'User'
   enable_authorization
   require_authentication
@@ -18,6 +18,14 @@ class ApplicationController < ActionController::Base
     :min_pass_length  => 4,
     :pass_error_msg   => 'Password must be at least 4 characters long',
     })
+
+  def render_status(code)
+    respond_to do |format| 
+      format.html { render :file => "#{RAILS_ROOT}/public/#{code}.html", :status => code } 
+      format.xml  { render :nothing => true, :status => code } 
+    end 
+    true 
+  end
 
   protected
 

@@ -1,4 +1,4 @@
-<% @header="Edit Account" %>
+<% @header="Edit Account Access" %>
 
 <%= error_messages_for :om_account %>
 
@@ -9,8 +9,8 @@
   </p>
 
   <p>
-    <b>Account Access Password</b><br />
-    <%= f.text_field :password %>
+    <b>Access Credential</b><br />
+   	Password: <%= f.password_field :password %>
   </p>
 
   <% if @om_account.currencies_list.size > 1%>
