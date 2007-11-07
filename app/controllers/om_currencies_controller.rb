@@ -117,6 +117,7 @@ class OmCurrenciesController < ApplicationController
     @om_currency = OmCurrency.new()
     @om_currency.omrl = params[:omrl]
     @om_currency.user_id = current_user.id
+    
     @om_currency.credentials = {:tag => current_user.user_name, :password => params[:currency_password]}.to_yaml
 
     if !@om_currency.valid?
@@ -190,10 +191,10 @@ class OmCurrenciesController < ApplicationController
       	}        
     	end  
     end
-    
+        
     @event = Event.churn(:CreateCurrency,
-      "credentials" => {context => {:tag => current_user.user_name, :password=>params[:context_password]}},
-      "access_control" => {:tag => current_user.user_name, :password=>params[:currency_password]},
+      "credentials" => {context => {:tag => params[:context_tag], :password => params[:context_password]}},
+      "access_control" => {:tag => current_user.user_name, :password => params[:currency_password], :authorities => '*', :defaults=>['approves','is_used_by']},
       "parent_context" => context,
       "name" => name,
       "currency_specification" => currency_spec

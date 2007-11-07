@@ -5,8 +5,8 @@
 
 <% form_tag do_make_new_om_currency_path do -%>
 	<p>
-	  <b>Access Credential To add Currency To Context</b><br />
-	  Password: <%= password_field_tag :context_password,params[:context_password] %>
+	  <b>Please provide a credential to give to the parent context:</b><br />
+	  Tag <%= text_field_tag(:context_tag) %> Password: <%= password_field_tag :context_password,params[:context_password] %>
 	</p>
   <p>
 	<hr>

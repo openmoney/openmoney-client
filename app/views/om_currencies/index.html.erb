@@ -13,9 +13,9 @@
 	  c = nil
       begin
         c = Currency.find(om_currency.omrl, :params => { :extra => 'summary' })
-		c.attributes.inspect
+		"Volume: #{c.volume} Transactions: #{c.count} as of #{c.updated_at}"
       rescue ActiveResource::ResourceNotFound
-		'-- currency summary unavailable -- '
+		'-- not unavailable -- '
       end
  	%></td>
     <td><%= link_to 'Show', om_currency %></td>
