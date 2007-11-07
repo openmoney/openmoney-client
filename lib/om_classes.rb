@@ -15,7 +15,19 @@ class Event < ActiveResource::Base
       :specification => specification.to_yaml
     }
     event = new(event_spec)
-    event.save
+    begin
+      event.save
+    rescue Exception => e
+      err = case e.response.code
+      when '406'
+        "invalid credential or parameter"
+      when '500'
+        "internal error -- check the om server log for details"
+      else
+        e.to_s
+      end
+      event.errors.add_to_base("The om server reported error: #{err} (#{e.response.code})")
+    end
     #TODO we need to do this because at this point enmeshing errors the errors aren't coming back
     # from the server in the usual way.  This needs to be fixed.
     if event.respond_to?(:error)
