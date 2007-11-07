@@ -8,12 +8,7 @@ class ClientsController < ApplicationController
   # GET /clients/:client/:account/:currency
   def show
     setup
-    begin
-      c = Currency.find(@currency_omrl, :params => { :extra => 'summary', :entity_omrl => @account_omrl })
-    rescue ActiveResource::ResourceNotFound
-    end
-      
-    @summary = c.attributes if c
+    get_summary      
   end
 
   # POST clients/:client/:account/input_form
@@ -25,6 +20,7 @@ class ClientsController < ApplicationController
   # POST clients/:client/:account/history
   def history
     setup
+    get_summary
     render :partial => "history"
   end
 
@@ -70,5 +66,14 @@ class ClientsController < ApplicationController
     @currency_omrl = @currency_omrl.chop if @currency_omrl =~ /\.$/
     @currency_spec = @account.currency_specification(@currency_omrl)
   end
+  
+  def get_summary
+    begin
+      c = Currency.find(@currency_omrl, :params => { :extra => 'summary', :entity_omrl => @account_omrl })
+    rescue ActiveResource::ResourceNotFound
+    end
+    @summary = c.attributes if c
+  end
+  
   
 end

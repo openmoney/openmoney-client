@@ -71,13 +71,15 @@ class OmCurrenciesController < ApplicationController
   def update
     @om_currency = OmCurrency.find(params[:id])
     if current_user_or_can?(:manage_users,@om_currency)
-      @om_account.attributes = params[:om_currency]
+      
+      @om_currency.attributes = params[:om_currency]
       respond_to do |format|
         return_url = session[:edit_currency_return_to] || om_currencies_url
-        if @om_account.save
+        if @om_currency.save
           flash[:notice] = 'Currency was successfully updated.'
           format.html { redirect_to(return_url) }
           format.xml  { head :ok }
+          session[:edit_currency_return_to] = nil
         else
           format.html { render :action => "edit" }
           format.xml  { render :xml => @om_currency.errors, :status => :unprocessable_entity }

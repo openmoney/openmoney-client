@@ -4,7 +4,12 @@
 <%= error_messages_for :om_currency %>
 
 <% form_tag do_make_new_om_currency_path do -%>
+	<p>
+	  <b>Access Credential To add Currency To Context</b><br />
+	  Password: <%= password_field_tag :context_password,params[:context_password] %>
+	</p>
   <p>
+	<hr>
     <b>Currency Address</b><br />
     <%= text_field_tag :omrl,params[:omrl] %>
   </p>
@@ -14,12 +19,7 @@
   </p>
 
   <p>
-    <b>Context Access Credential</b><br />
-    Password: <%= password_field_tag :context_password,params[:context_password] %>
-  </p>
-
-  <p>
-    <b>Currency Access Credential</b><br />
+    <b>Steward's Currency Access Credential</b><br />
     Password: <%= password_field_tag :currency_password,params[:currency_password] %>
   </p>
 
