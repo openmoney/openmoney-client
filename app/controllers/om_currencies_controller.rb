@@ -1,3 +1,9 @@
+######################################################################################
+# Copyright (C) 2007 Eric Harris-Braun (eric -at- harris-braun.com), et al
+# This software is distributed according to the license at 
+# http://openmoney.info/licenses/rubycc
+######################################################################################
+
 class OmCurrenciesController < ApplicationController
   include OpenMoneyHelper
   # GET /om_currencies
@@ -133,62 +139,9 @@ class OmCurrenciesController < ApplicationController
     else
       case params[:type]
       when "mutual_credit"
-        currency_spec = default_mutual_credit_currency(params[:taxable],params[:unit])
+        currency_spec = default_mutual_credit_currency(params[:use_description],params[:use_taxable],params[:unit])
       when "reputation"
-        r = { 'type' => 'integer',
-          'description' => {
-            'en' => 'Rate',
-            'es' => 'Califique'
-          }
-        }
-        r['values_enum'] = {
-      		"2qual" => {
-            'en' => [['Good',1],['Bad',2]],
-            'es' => [['Bueno',1],['Malo',2]],
-          },
-      		"2yesno" => {
-      		  'en' => [['Yes',2],['No',1]],
-      		  'es' => [['Si',2],['No',1]],
-      		},
-      		"3qual" => {
-      		  'en' => [['Good',3],['Average',2],['Bad',1]],
-      		  'es' => [['Bueno',3],['Mediano',2],['Malo',1]],
-      		},
-      		"4qual" => {
-      		  'en' => [['Excellent',4],['Good',3],['Average',2],['Bad',1]],
-      		  'es' => [['Excellente',4],['Bueno',3],['Mediano',2],['Malo',1]],
-      		},
-      		"3stars" => [['***',3],['**',2],['*',1]],
-      		"4stars" => [['****',4],['***',3],['**',2],['*',1]],
-      		"5stars" => [['*****',5],['****',4],['***',3],['**',2],['*',1]],
-      		"3" => (1..3).to_a,
-      		"4" => (1..4).to_a,
-      		"5" => (1..5).to_a,
-      		"10" => (1..10).to_a
-          }[params[:rating_type]]
-          
-        r['type'] = 'integer'
-        r['description'] = {
-            'en' => 'Rating',
-            'es' => 'Calificacíon'
-          }
-    
-        currency_spec['fields'] = {
-        	'rate' => {
-            'type' => 'submit',
-            
-        	},
-          'rating' => r,
-        }
-      	currency_spec['summary_type'] = 'mean(rating)'
-      	currency_spec['input_form'] = {
-      	  'en' => ":declaring_account rates :accepting_account as :rating :rate",
-      	  'es' => ":declaring_account califica :accepting_account como :rating :rate"
-      	}
-      	currency_spec['summary_form'] = {
-      	  'en' => ":Overall rating: :mean_accepted (from :count_accepted total ratings)",
-          'es' => "Calificacíon: :mean_accepted (de :count_accepted calificacíones)"
-      	}        
+        currency_spec = default_reputation_currency(params[:rating_type])
     	end  
     end
         

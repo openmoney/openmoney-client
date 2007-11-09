@@ -35,6 +35,7 @@ class ClientsController < ApplicationController
       "accepting_account" => params[:accepting_account],
       "currency" => @currency_omrl
     )
+    #TODO check for errors, i.e. when the credentials aren't right!!!
     result = YAML.load(@event.result)
     @summary = result['summary'][@account.omrl]
 #    @account.update_summary_in_cache(@currency_omrl,summary)
@@ -61,7 +62,7 @@ class ClientsController < ApplicationController
     @currencies = @account.currencies_list
 
     @currency_omrl = params[:currency]
-    @currency_omrl ||= @account.default_currency if @account.default_currency?
+    @currency_omrl ||= @account.default_currency if @account.default_currency? && @account.currency_specification(@account.default_currency)
     @currency_omrl ||= @currencies[0]
     @currency_omrl = @currency_omrl.chop if @currency_omrl =~ /\.$/
     @currency_spec = @account.currency_specification(@currency_omrl)

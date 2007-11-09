@@ -13,7 +13,9 @@
 	  c = nil
       begin
         c = Currency.find(om_currency.omrl, :params => { :extra => 'summary' })
-		"Volume: #{c.volume} Transactions: #{c.count} as of #{c.updated_at}"
+		attrs = []
+		c.attributes.collect {|k,v| next if k == 'updated_at'; attrs << (k.titleize << ': ' << v.to_s)}
+		attrs.join(', ')
       rescue ActiveResource::ResourceNotFound
 		'-- not unavailable -- '
       end
