@@ -1,14 +1,24 @@
 
 <p>
-  <b>Omrl:</b>
+  <b>Currency:</b>
   <%=h @om_currency.omrl %>
 </p>
 
 <p>
-  <b>Credentials:</b>
-  <%=h @om_currency.credentials %>
+	<b>Summary:</b>
+  
+	<%=
+	  c = nil
+      begin
+        c = Currency.find(@om_currency.omrl, :params => { :extra => 'summary' })
+		attrs = []
+		c.attributes.collect {|k,v| next if k == 'updated_at'; attrs << (k.titleize << ': ' << v.to_s)}
+		attrs.join(', ')
+      rescue ActiveResource::ResourceNotFound
+		'-- not available -- '
+      end
+ 	%>
 </p>
 
-
-<%= link_to 'Edit', edit_om_currency_path(@om_currency) %> |
+<%= link_to 'Edit Access', edit_om_currency_path(@om_currency) %> |
 <%= link_to 'Back', om_currencies_path %>

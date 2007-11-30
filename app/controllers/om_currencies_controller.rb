@@ -44,7 +44,9 @@ class OmCurrenciesController < ApplicationController
     @om_currency = OmCurrency.find(params[:id])
     current_user_or_can?(:manage_users,@om_currency)
     setup_return_to(:edit_currencies_return_to)
-    @password = YAML.load(@om_currency.credentials)[:password]
+    creds = YAML.load(@om_currency.credentials)
+    @password = creds[:password]
+    @tag = creds[:tag]
   end
 
   # POST /om_currencies
@@ -52,7 +54,7 @@ class OmCurrenciesController < ApplicationController
   def create
     @om_currency = OmCurrency.new(params[:om_currency])
     @om_currency.user_id = current_user.id
-    @om_currency.credentials = {:tag => current_user.user_name, :password => params[:password]}.to_yaml
+    @om_currency.credentials = {:tag => params[:tag], :password => params[:password]}.to_yaml
 
     begin
       c = Currency.find(@om_currency.omrl)
@@ -124,7 +126,7 @@ class OmCurrenciesController < ApplicationController
     @om_currency.omrl = params[:omrl]
     @om_currency.user_id = current_user.id
     
-    @om_currency.credentials = {:tag => current_user.user_name, :password => params[:currency_password]}.to_yaml
+    @om_currency.credentials = {:tag => params[:currency_tag], :password => params[:currency_password]}.to_yaml
 
     if !@om_currency.valid?
       render :action => 'make'
@@ -147,7 +149,7 @@ class OmCurrenciesController < ApplicationController
         
     @event = Event.churn(:CreateCurrency,
       "credentials" => {context => {:tag => params[:context_tag], :password => params[:context_password]}},
-      "access_control" => {:tag => current_user.user_name, :password => params[:currency_password], :authorities => '*', :defaults=>['approves','is_used_by']},
+      "access_control" => {:tag => params[:currency_tag], :password => params[:currency_password], :authorities => '*', :defaults=>['approves','is_used_by']},
       "parent_context" => context,
       "name" => name,
       "currency_specification" => currency_spec

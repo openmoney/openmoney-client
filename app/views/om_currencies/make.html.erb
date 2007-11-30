@@ -19,7 +19,8 @@
   </p>
 
   <p>
-    <b>Steward's Currency Access Credential</b><br />
+    <b>Currency Steward's Access Credentials</b><br />
+    Tag: <%= text_field_tag :currency_tag,params[:currency_tag] || 'steward' %>
     Password: <%= password_field_tag :currency_password,params[:currency_password] %>
   </p>
 
