@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '1.2.4' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.0.1' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -32,7 +32,7 @@ Rails::Initializer.run do |config|
 
   config.action_controller.session = {
     :session_key => '_rubycc_session_id',
-    :secret      => 'squidbumpers'
+    :secret      => '849fb63a18e03638e8850b7eb104d331'
   }
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
