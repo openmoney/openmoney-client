@@ -119,6 +119,7 @@ class UsersController < ApplicationController
   # GET /users/1/password
   def password
     current_user_action do
+      @require_current_password = current_password_required
       setup_return_to(:password_return_to)
     end
   end
@@ -126,10 +127,17 @@ class UsersController < ApplicationController
   # PUT /users/1/set_password
   def set_password
     current_user_action do
+      @require_current_password = current_password_required
       return_url = session[:password_return_to] || home_url
       respond_to do |format|
         @account = Rauth::Bridge.backend.find_by_user_name(@user.user_name)
-        if @account.change_password(params[:current_password],params[:new_password],params[:password_confirm])  && @account.save
+        if @require_current_password
+          changed_ok = @account.change_password(params[:current_password],params[:new_password],params[:password_confirm])
+        else
+          @account.password_with_confirmation(params[:new_password],params[:password_confirm])
+          changed_ok = @account.valid?
+        end
+        if changed_ok && @account.save
           format.html { render :action => "password" }
           format.xml  { head :ok }
           session[:password_return_to] = nil
@@ -147,6 +155,10 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       yield
     end
+  end
+
+  def current_password_required
+    @user.id == current_user.id || !current_user.can?(:manage_users)
   end
  
   
