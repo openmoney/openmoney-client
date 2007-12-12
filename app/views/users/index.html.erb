@@ -1,28 +1,27 @@
 <% @header="Users"%>
 
-<table>
-  <tr>
-    <th>User Name</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Last login</th>
-  </tr>
 
 <% for user in @users %>
-  <tr>
-    <td><%= link_to(h(user.user_name), edit_user_path(user)) %></td>
-    <td><%=h user.full_name %></td>
-    <td><%=h user.email %></td>
-    <td><%=h user.last_login ? user.last_login.to_formatted_s(:db) : '' %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
+	<p>
+		
+
+	<%=h user.full_name %> (<%=h user.user_name %>) <%=h user.email %>
+
     <% if current_user.can?(:manage_users)%>
 	<%= link_to 'Log in as', login_as_user_url(user) %>
 	<% end %>
-	</td>
-  </tr>
+	<%= icon_link :pencil, {:controller => 'users', :action => 'edit', :id=>user.id}, :title => 'Edit user settings'%>
+	<%= icon_link :minus, {:controller => 'users', :id=>user.id}, :confirm => 'Are you sure?', :method => :delete, :title => "Delete user" %>
+
+
+	<% if user.last_login%>
+    	<br />Last login: <%=h user.last_login.to_formatted_s(:db)%>
+	<% end %>
+
+  </p>
 <% end %>
-</table>
 
 <br />
 
 <%= link_to 'New user', new_user_path %>
+	

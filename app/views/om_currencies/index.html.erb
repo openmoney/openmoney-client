@@ -2,17 +2,18 @@
 
 <table>
 
-<% for om_currency in @om_currencies %>
+<% for om_currency in @om_currencies 
+  @omrl = h om_currency.omrl
+%>
   <tr>
-    <td><%=h om_currency.omrl %></td>
-    <td><%= link_to 'Details', om_currency %></td>
-    <td><%= link_to 'Edit Access', edit_om_currency_path(om_currency) %></td>
-    <td><%= link_to 'Delete Access', om_currency, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to @omrl, om_currency, :html_options =>{:title => 'View details for '<< @omrl} %></td>
+    <td><%= icon_link :pencil, {:controller => 'om_currencies', :action => 'edit', :id=>om_currency.id}, :title => 'Edit access parameters for '<< @omrl %></td>
+    <td><%= icon_link :minus, {:controller => 'om_currencies', :id=>om_currency.id}, :title => "Remove #{@omrl} from list of managed currencies", :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Access Existing Currency', new_om_currency_path %> <br />
+<%= link_to 'Manage Existing Currency', new_om_currency_path %> <br />
 <%= link_to 'Create New Currency', make_new_om_currency_path %>
