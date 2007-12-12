@@ -1,5 +1,8 @@
 class DefaultRoles < ActiveRecord::Migration
   def self.up
+    require 'rauth/permission'
+    require 'rauth/role'
+    require 'rauth/allowance'
     ['manage_users'].each{|p| Permission.create(:name => p)}
     role = Role.create(:name => 'admin')
     role.save!
