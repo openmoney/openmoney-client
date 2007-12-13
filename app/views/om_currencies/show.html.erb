@@ -1,8 +1,7 @@
-<% @header = "Manage #{h @om_currency.omrl}" %>
+<% @header = "#{h @om_currency.omrl}" %>
 
-<p>
-	<b>Summary:</b>
-  
+<div id="history">
+	<h3><%=l 'Summary' %></h3>
 	<%=
 	  c = nil
       begin
@@ -14,4 +13,33 @@
 		'-- not available -- '
       end
  	%>
-</p>
+
+	<h3><%=l 'History' %></h3>
+	<% (@flows,@fields) = history(nil,@om_currency.omrl,YAML.load(Currency.find(@om_currency.omrl).specification),:language => current_user.pref_language) %>
+
+	<% if @flows %>
+	  <table id ="history_table">
+		<tr>
+			<th> <%=l :Date %> </th>
+			<th> <%=l :Declarer %>  </th>
+			<th> <%=l :Accepter %>  </th>
+		<%for f in @fields.keys %>
+		<th> <%= h @fields[f] %> </th>
+		<% end %>
+		</tr>
+
+		<% for flow in @flows %>
+		<tr>
+			<td><%= h flow.created_at.localtime.strftime("%m/%d/%Y %I:%M")%> </td>
+			<td><%= h flow.specification_attribute('declaring_account')%> </td>
+			<td><%= h flow.specification_attribute('accepting_account') %> </td>
+			<%for f in @fields.keys %>
+			<td> <%= h flow.specification_attribute(f)  %> </td>
+			<% end %>
+		<tr>
+		<% end %>
+	  </table>
+	<% else %>
+		No History
+	<% end %>
+</div>
