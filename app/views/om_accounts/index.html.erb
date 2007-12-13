@@ -2,12 +2,17 @@
 
 <table>
 
-<% for om_account in @om_accounts %>
+<% for om_account in @om_accounts 
+	@omrl = h(om_account.omrl)
+%>
   <tr>
-    <td><%=link_to h(om_account.omrl),edit_om_account_path(om_account) %> <br />
+    <td><%=link_to @omrl,acknowledge_flows_url(@omrl) %> <br />
 	 Currencies: <%= h(om_account.currencies_list.join(', ')) %>
 	</td>
-    <td><%= link_to 'Delete', om_account, :confirm => 'Are you sure?', :method => :delete %><br />
+    <td>
+	<%= icon_link :pencil, {:controller => 'om_accounts', :action => 'edit', :id=>om_account.id}, :title => 'Edit access parameters for '<< @omrl %>
+	<%= icon_link :minus, {:controller => 'om_accounts', :id=>om_account.id}, :title => "Remove #{@omrl} from accounts list", :confirm => 'Are you sure?', :method => :delete %>
+	<br />
 		<%= link_to 'Join Currency', join_om_account_path(om_account) %>
 	</td>
   </tr>

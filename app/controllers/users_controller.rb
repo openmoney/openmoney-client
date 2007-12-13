@@ -83,7 +83,7 @@ class UsersController < ApplicationController
       respond_to do |format|
         return_url = session[:edit_profile_return_to] || users_url
         if @user.save
-          flash[:notice] = l('Your profile was updated.')
+          flash[:notice] = l('Profile was updated.')
           format.html { redirect_to(return_url) }
           format.xml  { head :ok }
           session[:edit_profile_return_to] = nil

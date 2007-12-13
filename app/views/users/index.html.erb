@@ -1,26 +1,29 @@
 <% @header="Users"%>
 
+<table>
 
 <% for user in @users %>
-	<p>
-		
+	<tr>
+	<td>
 
 	<%=h user.full_name %> (<%=h user.user_name %>) <%=h user.email %>
-
-    <% if current_user.can?(:manage_users)%>
-	<%= link_to 'Log in as', login_as_user_url(user) %>
-	<% end %>
-	<%= icon_link :pencil, {:controller => 'users', :action => 'edit', :id=>user.id}, :title => 'Edit user settings'%>
-	<%= icon_link :minus, {:controller => 'users', :id=>user.id}, :confirm => 'Are you sure?', :method => :delete, :title => "Delete user" %>
-
-
 	<% if user.last_login%>
     	<br />Last login: <%=h user.last_login.to_formatted_s(:db)%>
 	<% end %>
 
+	</td>
+	<td>
+	<%= icon_link :pencil, {:controller => 'users', :action => 'edit', :id=>user.id}, :title => 'Edit user settings'%>
+	<%= icon_link :minus, {:controller => 'users', :id=>user.id}, :confirm => 'Are you sure?', :method => :delete, :title => "Delete user" %>
+    <% if current_user.can?(:manage_users)%>
+	<%= link_to 'Log in as', login_as_user_url(user) %>
+	<% end %>
+	</td>
+
+	</tr>
   </p>
 <% end %>
-
+</table>
 <br />
 
 <%= link_to 'New user', new_user_path %>
