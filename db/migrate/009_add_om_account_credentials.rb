@@ -10,6 +10,13 @@ class AddOmAccountCredentials < ActiveRecord::Migration
   end
 
   def self.down
+    add_column :om_accounts, :password, :string
+    accounts = OmAccount.find(:all)
+    accounts.each do |a|
+      cred = YAML.load(a.credentials)
+      a.password = cred[:password]
+      a.save
+    end
     remove_column :om_accounts, :credentials
   end
 end
