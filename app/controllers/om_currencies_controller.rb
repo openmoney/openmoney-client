@@ -44,9 +44,7 @@ class OmCurrenciesController < ApplicationController
     @om_currency = OmCurrency.find(params[:id])
     current_user_or_can?(:manage_users,@om_currency)
     setup_return_to(:edit_currencies_return_to)
-    creds = YAML.load(@om_currency.credentials)
-    @password = creds[:password]
-    @tag = creds[:tag]
+    setup_credentials_for_edit(@om_currency)
   end
 
   # POST /om_currencies

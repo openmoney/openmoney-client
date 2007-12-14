@@ -28,8 +28,7 @@ class ClientsController < ApplicationController
   def ack
     setup
     @event = Event.churn(:AcknowledgeFlow,
-      "credentials" => {@account.omrl => {:tag => current_user.user_name, :password=>@account.password}},
-      "ack_password" => @account.password,
+      "credentials" => {@account.omrl => YAML.load(@account.credentials)},
       "flow_specification" => params[:flow_spec],
       "declaring_account" => @account.omrl,
       "accepting_account" => params[:accepting_account],

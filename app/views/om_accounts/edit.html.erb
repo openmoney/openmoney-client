@@ -10,7 +10,8 @@
 
   <p>
     <b>Access Credential</b><br />
-   	Password: <%= f.password_field :password %>
+    ID: <%= text_field_tag :tag,@tag %>
+    Password: <%= password_field_tag :password,@password %>
   </p>
 
   <% if @om_account.currencies_list.size > 1%>

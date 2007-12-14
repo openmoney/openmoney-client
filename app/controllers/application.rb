@@ -47,5 +47,16 @@ class ApplicationController < ActionController::Base
       false
     end
   end
+  
+  def setup_credentials_for_edit(entity)
+    if params[:tag]
+      @tag = params[:tag]
+      @password = params[:password]
+    else
+      creds = YAML.load(entity.credentials)
+      @password = creds[:password]
+      @tag = creds[:tag]
+    end
+  end
 
 end

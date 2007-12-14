@@ -44,6 +44,7 @@ class OmAccountsController < ApplicationController
     @om_account = OmAccount.find(params[:id])
     current_user_or_can?(:manage_users,@om_account)
     setup_return_to(:edit_account_return_to)
+    setup_credentials_for_edit(@om_account)
   end
 
   # POST /om_accounts
@@ -115,5 +116,49 @@ class OmAccountsController < ApplicationController
       render :action => 'join'
     end
   end
+
+  def make
+  end
+  
+  def do_make
+    (name,context) = params[:omrl].split('^')
+    if context.nil? || context == "" || name.nil? || name == ""
+      @event = Event.new
+      @event.errors.add(:account_address, 'is missing or incomplete')
+      render :action => 'make'
+      return
+    end
+
+    @om_account = OmAccount.new()
+    @om_account.omrl = params[:omrl]
+    @om_account.user_id = current_user.id
+    
+    @om_account.credentials = {:tag => params[:account_tag], :password => params[:account_tag]}.to_yaml
+
+    if !@om_account.valid?
+      render :action => 'make'
+      return
+    end
+    
+    account_spec = {
+      "description" => params[:description]
+    }
+        
+    @event = Event.churn(:CreateAccount,
+      "credentials" => {context => {:tag => params[:context_tag], :password => params[:context_password]}},
+      "access_control" => {:tag => params[:account_tag], :password => params[:account_tag], :authorities => '*', :defaults=>['accepts']},
+      "parent_context" => context,
+      "name" => name,
+      "account_specification" => account_spec
+    )
+    
+    if @event.errors.empty?
+      @om_account.save
+      redirect_to(om_accounts_url)
+    else
+      render :action => 'make'
+    end
+  end
+
   
 end

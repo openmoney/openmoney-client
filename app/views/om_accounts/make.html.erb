@@ -1,0 +1,32 @@
+<% @header="Create Account" %>
+
+<%= error_messages_for :event %>
+<%= error_messages_for :om_account %>
+
+<% form_tag do_make_new_om_account_path do -%>
+	<p>
+	  <b>Please provide a credential to give to the parent context:</b><br />
+	  ID <%= text_field_tag(:context_tag) %> Password: <%= password_field_tag :context_password,params[:context_password] %>
+	</p>
+  <p>
+	<hr>
+    <b>Account Address</b><br />
+    <%= text_field_tag :omrl,params[:omrl] %>
+  </p>
+  <p>
+    <b>Description:</b><br />
+    <%= text_field_tag :description,params[:description] ,:size => 50 %>
+  </p>
+
+  <p>
+    <b>Account Owner's Access Credentials</b><br />
+    ID: <%= text_field_tag :account_tag,params[:account_tag] || current_user.user_name %>
+    Password: <%= password_field_tag :account_password,params[:account_password] %>
+  </p>
+
+  <p>
+    <%= submit_tag "Create Account" %>
+  </p>
+<% end -%>
+
+<%= link_to 'Back', om_accounts_path %>
