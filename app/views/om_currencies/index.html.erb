@@ -7,8 +7,8 @@
 %>
   <tr>
     <td><%= link_to @omrl, om_currency, :html_options =>{:title => 'View details for '<< @omrl} %></td>
-    <td><%= icon_link :pencil, {:controller => 'om_currencies', :action => 'edit', :id=>om_currency.id}, :title => 'Edit access parameters for '<< @omrl %></td>
-    <td><%= icon_link :minus, {:controller => 'om_currencies', :id=>om_currency.id}, :title => "Remove #{@omrl} from list of managed currencies", :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= icon_link :pencil, edit_om_currency_path(om_currency), :title => 'Edit access parameters for '<< @omrl %></td>
+    <td><%= icon_link :minus, om_currency, :title => "Remove #{@omrl} from list of managed currencies", :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

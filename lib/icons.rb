@@ -51,7 +51,7 @@ module Icons
     ################################################################################
     def icon_link (icon, options={}, html_options = {})
       attributes = Icons::ICON_ATTRS[icon]
-      use_xhr = options.delete(:xhr)
+      use_xhr = options.delete(:xhr) if options.is_a?(Hash)
       html_options[:class] ||= attributes[:class]      
       if use_xhr
         link_to_remote(icon_tag(icon), {:url => options}, html_options)

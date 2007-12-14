@@ -10,8 +10,8 @@
 	 Currencies: <%= h(om_account.currencies_list.join(', ')) %>
 	</td>
     <td>
-	<%= icon_link :pencil, {:controller => 'om_accounts', :action => 'edit', :id=>om_account.id}, :title => 'Edit access parameters for '<< @omrl %>
-	<%= icon_link :minus, {:controller => 'om_accounts', :id=>om_account.id}, :title => "Remove #{@omrl} from accounts list", :confirm => 'Are you sure?', :method => :delete %>
+	<%= icon_link :pencil, edit_om_account_path(om_account), :title => 'Edit access parameters for '<< @omrl %>
+	<%= icon_link :minus, om_account, :title => "Remove #{@omrl} from accounts list", :confirm => 'Are you sure?', :method => :delete %>
 	<br />
 		<%= link_to 'Join Currency', join_om_account_path(om_account) %>
 	</td>

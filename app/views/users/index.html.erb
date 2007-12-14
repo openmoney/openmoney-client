@@ -15,6 +15,7 @@
 	<td>
 	<%= icon_link :pencil, {:controller => 'users', :action => 'edit', :id=>user.id}, :title => 'Edit user settings'%>
 	<%= icon_link :minus, {:controller => 'users', :id=>user.id}, :confirm => 'Are you sure?', :method => :delete, :title => "Delete user" %>
+	
     <% if current_user.can?(:manage_users)%>
 	<%= link_to 'Log in as', login_as_user_url(user) %>
 	<% end %>
