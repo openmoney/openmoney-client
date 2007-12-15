@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   belongs_to_role
   has_many :om_accounts, :dependent => :destroy
   has_many :om_currencies, :dependent => :destroy
+  has_many :om_contexts, :dependent => :destroy
   attr_protected :role_id
   validates_presence_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i

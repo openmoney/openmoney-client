@@ -121,43 +121,8 @@ class OmAccountsController < ApplicationController
   end
   
   def do_make
-    (name,context) = params[:omrl].split('^')
-    if context.nil? || context == "" || name.nil? || name == ""
-      @event = Event.new
-      @event.errors.add(:account_address, 'is missing or incomplete')
-      render :action => 'make'
-      return
-    end
-
     @om_account = OmAccount.new()
-    @om_account.omrl = params[:omrl]
-    @om_account.user_id = current_user.id
-    
-    @om_account.credentials = {:tag => params[:account_tag], :password => params[:account_tag]}.to_yaml
-
-    if !@om_account.valid?
-      render :action => 'make'
-      return
-    end
-    
-    account_spec = {
-      "description" => params[:description]
-    }
-        
-    @event = Event.churn(:CreateAccount,
-      "credentials" => {context => {:tag => params[:context_tag], :password => params[:context_password]}},
-      "access_control" => {:tag => params[:account_tag], :password => params[:account_tag], :authorities => '*', :defaults=>['accepts']},
-      "parent_context" => context,
-      "name" => name,
-      "account_specification" => account_spec
-    )
-    
-    if @event.errors.empty?
-      @om_account.save
-      redirect_to(om_accounts_url)
-    else
-      render :action => 'make'
-    end
+    handle_do_make(@om_account,'account','^',:CreateAccount,om_accounts_url,['accepts'])
   end
 
   

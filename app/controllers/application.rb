@@ -58,5 +58,53 @@ class ApplicationController < ActionController::Base
       @tag = creds[:tag]
     end
   end
+  
+  def handle_do_make(entity,entity_name,separator,create_action,redirect_url,acl_defaults=nil)
+    if params[:power_user]
+      (name,context) = params[:omrl].split(separator,2)
+      context_creds = {:tag => params[:context_tag], :password => params[:context_password]}
+    else
+      name = params[:name]
+      context = params[:parent_context]
+      c = OmContext.find_by_omrl(context)
+      context_creds = YAML.load(c.credentials)
+    end
+
+    if context.nil? || context == "" || name.nil? || name == ""
+      @event = Event.new
+      @event.errors.add("#{entity_name} address" , 'is missing or incomplete')
+      render :action => 'make'
+      return
+    end
+
+    entity.omrl = "#{name}#{separator}#{context}"
+    entity.user_id = current_user.id
+    entity.credentials = {:tag => params[:tag], :password => params[:password]}.to_yaml
+
+    if !entity.valid?
+      render :action => 'make'
+      return nil
+    end
+    
+    spec = {"description" => params[:description]}
+    spec = yield(spec) if block_given?
+    acl = {:tag => params[:tag], :password => params[:password], :authorities => '*'}
+    acl[:defaults] = acl_defaults if acl_defaults
+    @event = Event.churn(create_action,
+      "credentials" => {context => context_creds},
+      "access_control" => acl,
+      "parent_context" => context,
+      "name" => name,
+      "#{entity_name}_specification" => spec
+    )
+    
+    if @event.errors.empty?
+      entity.save
+      redirect_to(redirect_url)
+    else
+      render :action => 'make'
+    end
+    
+  end
 
 end

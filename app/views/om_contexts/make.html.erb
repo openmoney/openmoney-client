@@ -1,0 +1,15 @@
+<% @header="Create Context" %>
+
+<%= error_messages_for :event %>
+<%= error_messages_for :om_context %>
+
+<% form_tag do_make_new_om_context_path do -%>
+
+  <%= make_entity_base_fields('Context') %>
+
+  <p>
+    <%= submit_tag "Create Context" %>
+  </p>
+<% end -%>
+
+<%= link_to 'Back', om_contexts_path %>

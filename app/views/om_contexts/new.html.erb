@@ -1,10 +1,10 @@
-<% @header="Manage Existing Currency" %>
+<% @header="Manage Existing Context" %>
 
-<%= error_messages_for :om_currency %>
+<%= error_messages_for :om_context %>
 
-<% form_for(@om_currency) do |f| %>
+<% form_for(@om_context) do |f| %>
   <p>
-    <b>Currency Address</b><br />
+    <b>Context Address</b><br />
     <%= f.text_field :omrl %>
   </p>
 
@@ -19,4 +19,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', om_currencies_path %>
+<%= link_to 'Back', om_contexts_path %>

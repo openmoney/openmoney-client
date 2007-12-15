@@ -1,4 +1,4 @@
-<% @header = 'Welcome to rubycc'; @subhead = 'the reference open money client' %>
+<% @header = 'Welcome to open money'; @subhead = 'this is the reference open money client' %>
 
 <% if logged_in? && !current_user.om_accounts.empty? %>
 <%= link_to "Your accounts",url_for (:controller => 'clients', :action => 'show', :client => current_user.user_name) %>

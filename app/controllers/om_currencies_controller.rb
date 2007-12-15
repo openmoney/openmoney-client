@@ -112,52 +112,19 @@ class OmCurrenciesController < ApplicationController
   end
   
   def do_make
-    (name,context) = params[:omrl].split('~')
-    if context.nil? || context == "" || name.nil? || name == ""
-      @event = Event.new
-      @event.errors.add(:currency_address, 'is missing or incomplete')
-      render :action => 'make'
-      return
-    end
-
     @om_currency = OmCurrency.new()
-    @om_currency.omrl = params[:omrl]
-    @om_currency.user_id = current_user.id
-    
-    @om_currency.credentials = {:tag => params[:currency_tag], :password => params[:currency_password]}.to_yaml
-
-    if !@om_currency.valid?
-      render :action => 'make'
-      return
-    end
-    
-    currency_spec = {
-      "description" => params[:description]
-    }
-    if params[:use_advanced]
-      currency_spec.merge!(YAML.load(params[:currency_spec]))
-    else
-      case params[:type]
-      when "mutual_credit"
-        currency_spec = default_mutual_credit_currency(params[:use_description],params[:use_taxable],params[:unit])
-      when "reputation"
-        currency_spec = default_reputation_currency(params[:rating_type])
-    	end  
-    end
-        
-    @event = Event.churn(:CreateCurrency,
-      "credentials" => {context => {:tag => params[:context_tag], :password => params[:context_password]}},
-      "access_control" => {:tag => params[:currency_tag], :password => params[:currency_password], :authorities => '*', :defaults=>['approves','is_used_by']},
-      "parent_context" => context,
-      "name" => name,
-      "currency_specification" => currency_spec
-    )
-    
-    if @event.errors.empty?
-      @om_currency.save
-      redirect_to(om_currencies_url)
-    else
-      render :action => 'make'
+    handle_do_make(@om_currency,'currency','~',:CreateCurrency,om_currencies_url,['approves','is_used_by']) do |spec|
+      if params[:use_advanced]
+        spec.merge!(YAML.load(params[:currency_spec]))
+      else
+        case params[:type]
+        when "mutual_credit"
+          spec = default_mutual_credit_currency(params[:use_description],params[:use_taxable],params[:unit])
+        when "reputation"
+          spec = default_reputation_currency(params[:rating_type])
+      	end  
+      end
+      spec
     end
   end
 

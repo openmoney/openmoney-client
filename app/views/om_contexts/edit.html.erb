@@ -1,0 +1,22 @@
+<% @header="Edit Context Access" %>
+
+<%= error_messages_for :om_context %>
+
+<% form_for(@om_context) do |f| %>
+  <p>
+    <b>Context Address</b><br />
+    <%= f.text_field :omrl %>
+  </p>
+
+  <p>
+    <b>Access Credential</b><br />
+    ID: <%= text_field_tag :tag,@tag %>
+    Password: <%= password_field_tag :password,@password %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', om_contexts_path %>

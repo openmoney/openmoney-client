@@ -41,6 +41,10 @@ class Entity < ActiveResource::Base
   include Specification
   self.site = SITE_URL
 end
+class Context < ActiveResource::Base
+  include Specification
+  self.site = SITE_URL
+end
 class Account < ActiveResource::Base
   include Specification
   self.site = SITE_URL

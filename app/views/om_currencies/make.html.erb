@@ -4,25 +4,8 @@
 <%= error_messages_for :om_currency %>
 
 <% form_tag do_make_new_om_currency_path do -%>
-	<p>
-	  <b>Please provide a credential to give to the parent context:</b><br />
-	  ID <%= text_field_tag(:context_tag) %> Password: <%= password_field_tag :context_password,params[:context_password] %>
-	</p>
-  <p>
-	<hr>
-    <b>Currency Address</b><br />
-    <%= text_field_tag :omrl,params[:omrl] %>
-  </p>
-  <p>
-    <b>Description:</b><br />
-    <%= text_field_tag :description,params[:description] ,:size => 50 %>
-  </p>
-
-  <p>
-    <b>Currency Steward's Access Credentials</b><br />
-    ID: <%= text_field_tag :currency_tag,params[:currency_tag] || 'steward' %>
-    Password: <%= password_field_tag :currency_password,params[:currency_password] %>
-  </p>
+		
+  <%= make_entity_base_fields('Currency') %>
 
 	<fieldset style="display: inline">
 		<legend>

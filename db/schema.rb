@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 10) do
 
   create_table "allowances", :force => true do |t|
     t.integer "role_id"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(:version => 9) do
     t.datetime "updated_at"
     t.string   "default_currency", :default => "", :null => false
     t.text     "credentials",      :default => "", :null => false
+  end
+
+  create_table "om_contexts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "omrl"
+    t.text     "credentials"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "om_currencies", :force => true do |t|
