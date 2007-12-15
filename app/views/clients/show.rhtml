@@ -16,10 +16,11 @@
 <div id="form">
 	<% if @currencies.size > 0 
 		form_remote_tag (
+		:html => {:id => 'ack_form'},
 		:update=>'history',
 		:before => "$('history_spinner').show();",
 		:url=> {:action=>:ack, :account=>@account_omrl, :client=>@client, :only_path=>true},
-		:complete=>"$('history_spinner').hide();") do -%>
+		:complete=>"$('history_spinner').hide();document.forms[0].reset();") do -%>
 		<%= l 'Currency' %>: <%= select_tag('currency',options_for_select(@currencies,@currency_omrl)) %> <br />
 		<% if @currency_spec%>
 	  		<%= render(:partial => 'input_form') %>

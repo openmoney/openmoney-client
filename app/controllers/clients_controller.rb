@@ -34,10 +34,12 @@ class ClientsController < ApplicationController
       "accepting_account" => params[:accepting_account],
       "currency" => @currency_omrl
     )
-    #TODO check for errors, i.e. when the credentials aren't right!!!
-    result = YAML.load(@event.result)
-    @summary = result['summary'][@account.omrl]
-#    @account.update_summary_in_cache(@currency_omrl,summary)
+    if @event.errors.empty?
+      result = YAML.load(@event.result)
+      @summary = result['summary'][@account.omrl]
+    else
+      get_summary
+    end
     render :partial => "history"
   end
   
