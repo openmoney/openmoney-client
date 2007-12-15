@@ -5,11 +5,12 @@
 
 <% form_tag do_make_new_om_currency_path do -%>
 		
-  <%= make_entity_base_fields('Currency') %>
-
+  <%= make_entity_base_fields('Currency','name~context') %>
+<br />
+<br />
 	<fieldset style="display: inline">
 		<legend>
-			Currency Parameters
+			Currency Properties
 
 			(<input id="use_advanced" type="checkbox" name="use_advanced" value="1" onClick="if($F('use_advanced')) {$('simple').hide();$('advanced').show()} else {$('simple').show();$('advanced').hide()}"> Use Advanced Interface)
 
