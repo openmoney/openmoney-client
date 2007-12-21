@@ -55,7 +55,7 @@ class OmContextsController < ApplicationController
     @om_context.credentials = {:tag => params[:tag], :password => params[:password]}.to_yaml
 
     begin
-      c = Context.find(@om_context.omrl)
+      c = Context.find_by_omrl(@om_context.omrl)
     rescue Exception => e
       @om_context.errors.add(:omrl, "context could not be accessed (#{e.to_s})")
     end

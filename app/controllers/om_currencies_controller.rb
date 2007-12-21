@@ -55,7 +55,7 @@ class OmCurrenciesController < ApplicationController
     @om_currency.credentials = {:tag => params[:tag], :password => params[:password]}.to_yaml
 
     begin
-      c = Currency.find(@om_currency.omrl)
+      c = Currency.find_by_omrl(@om_currency.omrl)
     rescue Exception => e
       @om_currency.errors.add(:omrl, "currency could not be accessed (#{e.to_s})")
     end
