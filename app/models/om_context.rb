@@ -3,4 +3,7 @@ class OmContext < ActiveRecord::Base
   validates_presence_of :user_id,:omrl
   validates_uniqueness_of :omrl, :scope => [:user_id]
   attr_protected :user_id
+  def before_save
+    self.omrl = self.omrl.downcase
+  end
 end

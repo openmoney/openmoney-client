@@ -38,4 +38,8 @@ class OmAccount < ActiveRecord::Base
     c = YAML.load(self.currencies_cache)
     c ||= {}
   end
+  
+  def before_save
+    self.omrl = self.omrl.downcase
+  end
 end
