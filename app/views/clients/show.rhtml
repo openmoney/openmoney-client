@@ -18,9 +18,9 @@
 		form_remote_tag (
 		:html => {:id => 'ack_form'},
 		:update=>'history',
-		:before => "$('history_spinner').show();",
+		:before => "$('history_spinner').show();$('commit').hide();$('commit_processing').show();",
 		:url=> {:action=>:ack, :account=>@account_omrl, :client=>@client, :only_path=>true},
-		:complete=>"$('history_spinner').hide();document.forms[0].reset();") do -%>
+		:complete=>"$('history_spinner').hide();$('commit_processing').hide();$('commit').show();clear_input_form();$('flow_uid').value=new Date().getTime();") do -%>
 		<%= l 'Currency' %>: <%= select_tag('currency',options_for_select(@currencies,@currency_omrl)) %> <br />
 		<% if @currency_spec%>
 	  		<%= render(:partial => 'input_form') %>
@@ -57,3 +57,9 @@
 	
 %>
 <% end %>
+
+<% javascript_tag do -%>
+ function clear_input_form() {
+	$('ack_form').getInputs('text').each (function(inputs){inputs.clear()})
+ }
+ <% end -%>

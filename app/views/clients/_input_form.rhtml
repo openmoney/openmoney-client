@@ -1,4 +1,6 @@
 <div id="inputForm">
 <%= image_tag 'loading.gif', :id=>'input_form_spinner', :style=>"display:none; float:right;"%>
 <%= input_form(@currency_spec,:language => current_user.pref_language,:pre_specified_fields => {'declaring_account' => @account_omrl}) %>
+<%= hidden_field_tag(:flow_uid,Time.now.to_i )%>
+
 </div>
