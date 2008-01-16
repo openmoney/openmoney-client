@@ -28,4 +28,16 @@ class User < ActiveRecord::Base
     om_accounts.each {|a| a.update_attribute(:currencies_cache,nil)}
   end
   
+  def after_create
+    add_default_contexts
+  end
+  
+  # TODO Delete this!  Just for temporary....
+  def add_default_contexts
+    ctx = OmContext.new({:omrl => 'x'})
+    ctx.user_id = self.id
+    ctx.credentials = {:tag => 'steward', :password=>'fish'}.to_yaml
+    ctx.save
+  end
+  
 end
