@@ -9,6 +9,8 @@ class DefaultRoles < ActiveRecord::Migration
     role.allowances.add('manage_users')
     role = Role.create(:name => 'user')
     role.save!
+
+
   end
 
   def self.down

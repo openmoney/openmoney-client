@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 10) do
+ActiveRecord::Schema.define(:version => 7) do
 
   create_table "allowances", :force => true do |t|
     t.integer "role_id"
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(:version => 10) do
   create_table "om_accounts", :force => true do |t|
     t.integer  "user_id"
     t.string   "omrl"
+    t.text     "credentials",      :default => "", :null => false
     t.text     "currencies_cache"
+    t.string   "default_currency", :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "default_currency", :default => "", :null => false
-    t.text     "credentials",      :default => "", :null => false
   end
 
   create_table "om_contexts", :force => true do |t|
@@ -82,12 +82,11 @@ ActiveRecord::Schema.define(:version => 10) do
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "last_login"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "default_account_pref"
     t.string   "pref_language",        :default => "", :null => false
     t.integer  "pref_items_per_page",  :default => 20, :null => false
     t.string   "pref_default_account", :default => "", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
