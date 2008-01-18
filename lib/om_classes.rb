@@ -41,7 +41,8 @@ class OMResource < ActiveResource::Base
   self.site = SITE_URL
   include Specification
   def self.find_by_omrl(omrl,*args)
-    self.find(CGI.escape(omrl).gsub(/\./,'%2E'),*args)
+    omrl = CGI.escape(omrl).gsub(/\./,'%2E') if !omrl.nil?
+    self.find(omrl,*args)
   end
 end
 
