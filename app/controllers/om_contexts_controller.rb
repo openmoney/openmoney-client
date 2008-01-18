@@ -113,7 +113,7 @@ class OmContextsController < ApplicationController
   
   def do_make
     @om_context = OmContext.new()
-    handle_do_make(@om_context,'context','.',:CreateContext,om_contexts_url)
+    handle_do_make(@om_context,'context',:CreateContext,om_contexts_url)
   end
 
 end

@@ -59,9 +59,11 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def handle_do_make(entity,entity_name,separator,create_action,redirect_url,acl_defaults=nil)
+  def handle_do_make(entity,entity_name,create_action,redirect_url,acl_defaults=nil)
     if params[:power_user]
-      (name,context) = params[:omrl].split(separator,2)
+      names = params[:omrl].split('.')
+      name = names.pop
+      context = names.join('.')
       context_creds = {:tag => params[:context_tag], :password => params[:context_password]}
     else
       name = params[:name]
@@ -77,7 +79,7 @@ class ApplicationController < ActionController::Base
       return
     end
 
-    entity.omrl = "#{name}#{separator}#{context}"
+    entity.omrl = "#{context}.#{name}"
     entity.user_id = current_user.id
     entity.credentials = {:tag => params[:tag], :password => params[:password]}.to_yaml
 

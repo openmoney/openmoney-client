@@ -23,7 +23,7 @@ class OmAccount < ActiveRecord::Base
   def reload_currencies_cache
     currencies = Currency.find(:all, :params => { :used_by => self.omrl, "account_#{self.omrl}"=>'fish' })
     currencies_hash = {}
-    currencies.each {|c| currencies_hash[c.omrl.chop] = c}
+    currencies.each {|c| currencies_hash[c.omrl] = c}
     update_attribute(:currencies_cache,currencies_hash.to_yaml)
   end
   

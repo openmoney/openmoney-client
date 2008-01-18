@@ -55,7 +55,8 @@ class UsersController < ApplicationController
     if logged_in? && current_user.can?(:manage_users) && params[:user][:role_id]
       @user.role_id = params[:user][:role_id]
     else
-      @user.role_id = Role.find_by_name('user').id
+      # the first user is created as an admin...
+      @user.role = Role.find_by_name(User.count == 0 ? 'admin' : 'user')
     end
     
     session[:rauth_after_login] = "/"

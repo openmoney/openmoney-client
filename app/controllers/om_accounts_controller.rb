@@ -52,6 +52,7 @@ class OmAccountsController < ApplicationController
   def create
     @om_account = OmAccount.new(params[:om_account])
     @om_account.user_id = current_user.id
+    @om_account.credentials = {:tag => params[:tag], :password => params[:password]}.to_yaml
 
     respond_to do |format|
       if @om_account.save
@@ -122,7 +123,7 @@ class OmAccountsController < ApplicationController
   
   def do_make
     @om_account = OmAccount.new()
-    handle_do_make(@om_account,'account','^',:CreateAccount,om_accounts_url,['accepts'])
+    handle_do_make(@om_account,'account',:CreateAccount,om_accounts_url,['accepts'])
   end
 
   

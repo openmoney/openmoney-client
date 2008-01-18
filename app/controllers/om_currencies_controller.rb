@@ -113,7 +113,7 @@ class OmCurrenciesController < ApplicationController
   
   def do_make
     @om_currency = OmCurrency.new()
-    handle_do_make(@om_currency,'currency','~',:CreateCurrency,om_currencies_url,['approves','is_used_by']) do |spec|
+    handle_do_make(@om_currency,'currency',:CreateCurrency,om_currencies_url,['approves','is_used_by']) do |spec|
       if params[:use_advanced]
         spec.merge!(YAML.load(params[:currency_spec]))
       else
