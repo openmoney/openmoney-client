@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
   def handle_do_make(entity,entity_name,create_action,redirect_url,acl_defaults=nil)
     if params[:power_user]
       names = params[:omrl].split('.')
-      name = names.pop
+      name = names.shift
       context = names.join('.')
       context_creds = {:tag => params[:context_tag], :password => params[:context_password]}
     else
@@ -79,7 +79,7 @@ class ApplicationController < ActionController::Base
       return
     end
 
-    entity.omrl = "#{context}.#{name}"
+    entity.omrl = "#{name}.#{context}"
     entity.user_id = current_user.id
     entity.credentials = {:tag => params[:tag], :password => params[:password]}.to_yaml
 
