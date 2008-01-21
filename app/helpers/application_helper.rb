@@ -10,6 +10,31 @@ require "lib/om_classes"
 module ApplicationHelper
   include L8n
   
+  require 'parsedate'
+  def standard_date(date)
+    if date.is_a?(String)
+      d = ParseDate.parsedate(date)
+      date = Date.new(*d[0..2]) if d[0]
+    end
+    if date
+      "#{date.month}/#{date.day}/#{date.year}" 
+    else
+      ""
+    end
+  end
+
+  def standard_time(time)
+    if time.is_a?(String)
+      t = ParseDate.parsedate(date)
+      time = Time.local(*t) if t[0]
+    end
+    if time
+      time.asctime 
+    else
+      ""
+    end
+  end
+  
   def acknowledge_flows_url(account_omrl)
     "/clients/#{current_user.user_name}/#{account_omrl}"
   end

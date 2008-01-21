@@ -1,18 +1,19 @@
 <% @header = "#{h @om_currency.omrl}" %>
 
 <div id="history">
-	<h3><%=l 'Summary' %></h3>
-	<%=
-	  c = nil
-      begin
-        c = Currency.find_by_omrl(@om_currency.omrl, :params => { :extra => 'summary' })
-		attrs = []
-		c.attributes.collect {|k,v| next if k == 'updated_at'; attrs << (k.titleize << ': ' << v.to_s)}
-		attrs.join(', ')
-      rescue ActiveResource::ResourceNotFound
-		'-- not available -- '
-      end
- 	%>
+	<h3><%=l 'Summaries' %></h3>
+	<% if @summaries.nil? %>
+		-- not available -- 
+	<% else %>
+	<table>
+		<% @summaries.each do |omrl,s| %>
+				<tr>
+			<td><%= omrl %>:</td>
+			<td><%= render_summary(@summary_form,s,:language => current_user.pref_language) %></td>
+			</tr>
+		<%end %>	
+	</table>
+    <%end%>
 
 	<h3><%=l 'History' %></h3>
 	<% (@flows,@fields) = history(nil,@om_currency.omrl,YAML.load(Currency.find_by_omrl(@om_currency.omrl).specification),:language => current_user.pref_language) %>

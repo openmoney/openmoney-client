@@ -53,6 +53,16 @@ end
 class Account < OMResource
 end
 class Currency < OMResource
+  def self.get_summaries(currency_omrl,entity_omrl = nil)
+    params = {:extra => 'summary'}
+    params[:entity_omrl] = entity_omrl if entity_omrl
+    summaries = nil
+    begin
+      summaries = self.find_by_omrl(currency_omrl, :params => params).attributes
+    rescue ActiveResource::ResourceNotFound
+    end
+    summaries
+  end
 end
 class Flow < OMResource
 end

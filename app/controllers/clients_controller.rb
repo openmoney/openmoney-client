@@ -70,11 +70,8 @@ class ClientsController < ApplicationController
   end
   
   def get_summary
-    begin
-      c = Currency.find_by_omrl(@currency_omrl, :params => { :extra => 'summary', :entity_omrl => @account_omrl })
-    rescue ActiveResource::ResourceNotFound
-    end
-    @summary = c.attributes if c
+    s = Currency.get_summaries(@currency_omrl,@account_omrl)
+    @summary = s[@account_omrl] if s
   end
   
   
