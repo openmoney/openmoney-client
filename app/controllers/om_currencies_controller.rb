@@ -21,9 +21,9 @@ class OmCurrenciesController < ApplicationController
   def show
     @om_currency = OmCurrency.find(params[:id])
     if current_user_or_can?(:manage_users,@om_currency)
-      #TODO.  The specification should be cached in om_currency just as we do for accounts
-      @summary_form = YAML.load(Currency.find_by_omrl(@om_currency.omrl).specification)['summary_form']
-      @summaries = Currency.get_summaries(@om_currency.omrl)
+      currency = Currency.find_by_omrl(@om_currency.omrl, :params => {:summaries => nil,:credentials => {@om_currency.omrl => YAML.load(@om_currency.credentials)}})
+      @summary_form = YAML.load(currency.specification)['summary_form']
+      @summaries = currency.summaries
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @om_currency }

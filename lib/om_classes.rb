@@ -53,15 +53,18 @@ end
 class Account < OMResource
 end
 class Currency < OMResource
-  def self.get_summaries(currency_omrl,entity_omrl = nil)
-    params = {:extra => 'summary'}
-    params[:entity_omrl] = entity_omrl if entity_omrl
-    summaries = nil
-    begin
-      summaries = self.find_by_omrl(currency_omrl, :params => params).attributes
-    rescue ActiveResource::ResourceNotFound
+  def summaries
+    summaries = self.attributes['summary']
+    case summaries
+    when nil
+      nil
+    when Array
+      s = {}
+      summaries.each{ |summary| s[summary.attributes['omrl']] = summary.attributes}
+      s
+    else
+      {summaries.attributes['omrl'] => summary.attributes}
     end
-    summaries
   end
 end
 class Flow < OMResource

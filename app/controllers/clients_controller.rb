@@ -70,9 +70,10 @@ class ClientsController < ApplicationController
   end
   
   def get_summary
-    s = Currency.get_summaries(@currency_omrl,@account_omrl)
+    c = Currency.find_by_omrl(@currency_omrl, :params => {:summaries => @account_omrl,:credentials => {@account_omrl => YAML.load(@account.credentials)},
+    })
+    s = c.summaries
     @summary = s[@account_omrl] if s
   end
-  
   
 end
