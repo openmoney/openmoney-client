@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :plays, :member => {:approve => :put}
+  map.resources :nodes, :member => {:move => :put}
+
   map.resources :om_contexts, :new => {:make => :get,:do_make => :post}
   map.resources :om_currencies, :new => {:make => :get,:do_make => :post}
   map.resources :om_accounts, :member => {:join => :get,:do_join => :post},:new => {:make => :get,:do_make => :post}

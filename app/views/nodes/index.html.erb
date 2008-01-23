@@ -1,0 +1,46 @@
+<% @i%>
+<% 0.upto(@nodes.size-1) do |i| 
+	node = @nodes[i]
+	%>
+  <div id="node_<%= node.id %>" class="node_level_<%= node.level %>">
+  	<%=link_to_function h(node.name), "toggleContents(#{node.id})" %>
+    <% if node.om_account %> (<%=h node.om_account.omrl %>) <%end%> <div style="float:right" class="last_modified">last modified by <%=h node.modifier.full_name %> <br /> <%= standard_time(node.updated_at) %></div>
+    <%= icon_link :pencil, edit_node_path(node), :title => 'Edit' %> 
+     <%= icon_link :minus, node, :confirm => 'Are you sure?', :method => :delete %>
+    
+	 <% if i > 0
+		prev_node = @nodes[i-1]
+		%>
+		<%if prev_node.level == node.level%>
+	 	<%= link_to '>', move_node_url(node,:to=>'child_of', :dest_id=>prev_node), :method => :put %>
+	 	<% end %>
+		<%if prev_node.level < node.level%>
+	 	<%= link_to '<', move_node_url(node,:to=>'right_of', :dest_id=>prev_node), :method => :put %>
+	 	<% end %>
+	 <%= link_to '^', move_node_url(node,:to=>'left_of', :dest_id=>prev_node), :method => :put %>
+	 <% end %>
+	 <% if i < @nodes.size-1%>
+	 <%= link_to 'v', move_node_url(node,:to=>'right_of', :dest_id=>@nodes[i+1]), :method => :put %>
+	 <% end %>
+	<div id="node_contents_<%= node.id %>" class="node_contents" style="display:none">
+		<%= render_body(node) %>
+	</div>	
+  </div>
+<% end %>
+
+<br />
+
+<%= link_to 'New project', new_node_path %>
+
+<% javascript_tag do -%>
+function toggleContents(id) {
+	var e = $('node_contents_'+id)
+	var is_visible = e.visible();
+	if (is_visible) {
+		e.toggle()
+	}
+	else {
+		Effect.Appear(e);
+	}
+}
+<%end%>

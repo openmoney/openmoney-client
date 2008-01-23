@@ -1,0 +1,14 @@
+<h3>Editing project</h3>
+
+<%= error_messages_for :node %>
+
+<% form_for(@node) do |f| %>
+	<%= render(:partial => 'f', :object => f) %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @node %> |
+<%= link_to 'Back', nodes_path %>

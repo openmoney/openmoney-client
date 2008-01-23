@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 7) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "allowances", :force => true do |t|
     t.integer "role_id"
@@ -18,6 +18,19 @@ ActiveRecord::Schema.define(:version => 7) do
   end
 
   add_index "allowances", ["role_id"], :name => "index_allowances_on_role_id"
+
+  create_table "nodes", :force => true do |t|
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.string   "name"
+    t.text     "body"
+    t.integer  "om_account_id"
+    t.integer  "modifier_id"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "om_accounts", :force => true do |t|
     t.integer  "user_id"
@@ -51,6 +64,22 @@ ActiveRecord::Schema.define(:version => 7) do
   end
 
   add_index "permissions", ["name"], :name => "index_permissions_on_name", :unique => true
+
+  create_table "plays", :force => true do |t|
+    t.text     "description"
+    t.text     "notes"
+    t.string   "account_omrl"
+    t.string   "currency_omrl"
+    t.integer  "player_id"
+    t.integer  "creator_id"
+    t.integer  "project_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "status"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "rauth_native_accounts", :force => true do |t|
     t.string   "user_name"

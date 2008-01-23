@@ -13,6 +13,7 @@ class Event < ActiveResource::Base
     event_spec = {
       :event_type => event_type.to_s,
       :specification => specification.to_yaml
+#      :specification => specification.to_xml(:root => 'specification')
     }
     event = new(event_spec)
     begin

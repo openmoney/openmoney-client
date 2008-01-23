@@ -1,0 +1,16 @@
+<h3>New project</h3>
+
+<%= error_messages_for :node %>
+
+<% form_for(@node) do |f| %>
+  <p>
+ Insert After <%= select_tag(:insert_after_id,options_for_select(nested_set_options_for_select(Node,{}))) %>
+</p>
+
+<%= render(:partial => 'f', :object => f) %>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', nodes_path %>

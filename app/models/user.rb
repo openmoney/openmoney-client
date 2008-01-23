@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :om_accounts, :dependent => :destroy
   has_many :om_currencies, :dependent => :destroy
   has_many :om_contexts, :dependent => :destroy
+  has_many :projects, :class_name => "Node", :foreign_key => "owner_id",:dependent => :nullify
+  has_many :plays, :foreign_key => "player_id",:dependent => :nullify
+  has_many :created_plays, :class_name => "Play",  :foreign_key => "creator_id",:dependent => :nullify
+
   attr_protected :role_id
   validates_presence_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i

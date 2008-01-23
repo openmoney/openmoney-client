@@ -1,0 +1,19 @@
+<h3>Editing play</h3>
+
+<%= error_messages_for :play %>
+
+<% form_for(@play) do |f| %>
+	<%= render(:partial => 'f', :object => f) %>
+
+	<p>
+			<%= f.label :status %>
+	  <%= f.select :status, Play::Statuses %>
+	</p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @play %> |
+<%= link_to 'Back', plays_path %>

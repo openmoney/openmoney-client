@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyText
+  notes: MyText
+  account_omrl: MyString
+  currency_omrl: MyString
+  player_id: 1
+  creator_id: 1
+  project_id: 1
+  start_date: 2008-01-23 09:32:48
+  end_date: 2008-01-23 09:32:48
+  status: MyString
+  value: 1
+
+two:
+  description: MyText
+  notes: MyText
+  account_omrl: MyString
+  currency_omrl: MyString
+  player_id: 1
+  creator_id: 1
+  project_id: 1
+  start_date: 2008-01-23 09:32:48
+  end_date: 2008-01-23 09:32:48
+  status: MyString
+  value: 1

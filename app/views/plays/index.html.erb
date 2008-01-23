@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Player</th>
+    <th>Status</th>
+    <th>Value</th>
+    <th>Description</th>
+    <th>Currency</th>
+    <th>Date</th>
+  </tr>
+
+<% for play in @plays %>
+  <tr>
+    <td><%=h play.project_name %></td>
+    <td><%=h play.player_name %></td>
+    <td><%=h play.status %></td>
+    <td><%=h play.value %></td>
+    <td><%=h play.description %></td>
+    <td><%=h play.currency_omrl %></td>
+    <td><%= standard_date play.start_date %></td>
+    <td><%= icon_link :pencil, edit_play_path(play), :title => 'Edit' %></td>
+    <td><%= icon_link :minus, play, :title => 'Delete',:confirm => 'Are you sure?', :method => :delete %></td>
+    <%if play.status != 'approved'%><td><%= icon_link :plus, approve_play_path(play), :title => 'Approve', :method => :put %></td><%end%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New play', new_play_path %>

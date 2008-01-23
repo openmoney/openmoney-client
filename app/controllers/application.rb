@@ -7,10 +7,12 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
+SectionsOpenPlay = [{:name => 'projects', :url => '/nodes'},{:name => 'plays', :url => '/plays'}]
+
 class ApplicationController < ActionController::Base
   
   include L8n
-    
+      
   enable_authentication :user_model => 'User'
   enable_authorization
   require_authentication

@@ -11,6 +11,11 @@ module ApplicationHelper
   include L8n
   
   require 'parsedate'
+  
+  def users_select(f,id)
+    f.collection_select(id, User.find(:all, :order => "last_name,first_name"), :id, :full_name)
+  end
+  
   def standard_date(date)
     if date.is_a?(String)
       d = ParseDate.parsedate(date)

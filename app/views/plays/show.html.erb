@@ -1,0 +1,58 @@
+<p>
+  <b>Description:</b>
+  <%=h @play.description %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @play.notes %>
+</p>
+
+<p>
+  <b>Account omrl:</b>
+  <%=h @play.account_omrl %>
+</p>
+
+<p>
+  <b>Currency omrl:</b>
+  <%=h @play.currency_omrl %>
+</p>
+
+<p>
+  <b>Player:</b>
+  <%=h @play.player_id %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%=h @play.creator_id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%=h @play.project_id %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%=h @play.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%=h @play.end_date %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @play.status %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @play.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_play_path(@play) %> |
+<%= link_to 'Back', plays_path %>
