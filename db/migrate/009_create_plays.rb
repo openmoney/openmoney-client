@@ -11,7 +11,7 @@ class CreatePlays < ActiveRecord::Migration
       t.datetime :start_date
       t.datetime :end_date
       t.string :status
-      t.integer :value
+      t.string :value
 
       t.timestamps
     end
