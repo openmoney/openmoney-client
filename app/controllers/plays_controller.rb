@@ -29,6 +29,7 @@ class PlaysController < ApplicationController
   def new
     @play = Play.new
     @play.player = current_user
+    @play.project = Node.root
 
     respond_to do |format|
       format.html # new.html.erb
@@ -105,7 +106,7 @@ class PlaysController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+    
   protected
   def setup_sections
     @header="open play" 

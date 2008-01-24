@@ -102,6 +102,12 @@ class NodesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def currency_omrls_select
+    @node = Node.find(params[:id])
+    render :partial => 'currency_omrls_select', :locals => { :account => @node.get_account }
+  end
+  
   protected
   def setup_sections
     @header="open play" 

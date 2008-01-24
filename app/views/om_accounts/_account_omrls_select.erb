@@ -1,0 +1,2 @@
+<option value=""></option>
+<%=options_from_collection_for_select(OmAccount.find(:all,:conditions => ['user_id = ?',id]), :omrl, :omrl, {:include_blank => true})%>

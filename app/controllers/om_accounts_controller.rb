@@ -126,5 +126,8 @@ class OmAccountsController < ApplicationController
     handle_do_make(@om_account,'account',:CreateAccount,om_accounts_url,['accepts'])
   end
 
+  def account_omrls_select
+    render :partial => 'account_omrls_select', :locals => { :id => params[:id] }
+  end
   
 end
