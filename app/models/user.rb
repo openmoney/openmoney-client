@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   end
    
   def full_name
+    return user_name if (first_name.nil? || first_name == '') && (last_name.nil? || last_name == '')
     "#{first_name} #{last_name}"
   end
   
