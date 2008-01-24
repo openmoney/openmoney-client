@@ -1,10 +1,10 @@
-<% @header="Manage Existing Context" %>
+<% @header="Access Existing Namespace" %>
 
 <%= error_messages_for :om_context %>
 
 <% form_for(@om_context) do |f| %>
   <p>
-    <b>Context Address</b><br />
+    <b>Namespace Address</b><br />
     <%= f.text_field :omrl %>
   </p>
 
@@ -15,7 +15,7 @@
   </p>
 
   <p>
-    <%= f.submit "Manage" %>
+    <%= f.submit "Access" %>
   </p>
 <% end %>
 

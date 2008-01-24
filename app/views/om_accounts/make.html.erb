@@ -5,7 +5,7 @@
 
 <% form_tag do_make_new_om_account_path do -%>
 
-  <%= make_entity_base_fields('Account','name^context',current_user.user_name) %>
+  <%= make_entity_base_fields('Account','name.namespace.x',current_user.user_name) %>
 
   <p>
     <%= submit_tag "Create Account" %>

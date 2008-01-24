@@ -57,12 +57,12 @@ class OmContextsController < ApplicationController
     begin
       c = Context.find_by_omrl(@om_context.omrl)
     rescue Exception => e
-      @om_context.errors.add(:omrl, "context could not be accessed (#{e.to_s})")
+      @om_context.errors.add(:omrl, "namespace could not be accessed (#{e.to_s})")
     end
 
     respond_to do |format|
       if c && @om_context.save
-        flash[:notice] = 'Context was successfully accessed.'
+        flash[:notice] = 'Namespace was successfully accessed.'
         format.html { redirect_to(om_contexts_url) }
         format.xml  { render :xml => @om_context, :status => :created, :location => @om_context }
       else
@@ -82,7 +82,7 @@ class OmContextsController < ApplicationController
       respond_to do |format|
         return_url = session[:edit_context_return_to] || om_contexts_url
         if @om_context.save
-          flash[:notice] = 'Context was successfully updated.'
+          flash[:notice] = 'Namespace was successfully updated.'
           format.html { redirect_to(return_url) }
           format.xml  { head :ok }
           session[:edit_context_return_to] = nil
