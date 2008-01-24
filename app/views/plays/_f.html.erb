@@ -19,10 +19,10 @@
 	</p>
 
 <p>
-		<%= f.label :start_date %>
-  <%= f.date_select :start_date %>
+		<%= f.label :start_date, 'Date' %>
+  <%= f.date_select :start_date %>  <%= check_box_tag 'date_range','1', @is_range, :onclick => "$('end_date').toggle()"%> date range
 </p>
-<p>
+<p id='end_date' <% if !@is_range %> style="display:none;" <%end%>>
 		<%= f.label :end_date %>
   <%= f.date_select :end_date %>
 </p>

@@ -40,6 +40,7 @@ class PlaysController < ApplicationController
   # GET /plays/1/edit
   def edit
     @play = Play.find(params[:id])
+    @is_range = @play.start_date != @play.end_date
   end
 
   # POST /plays
@@ -48,6 +49,7 @@ class PlaysController < ApplicationController
     @play = Play.new(params[:play])
     @play.creator = current_user
     @play.status = 'pending'
+    @play.end_date = @play.start_date if !params[:date_range]
     respond_to do |format|
       if @play.save
         flash[:notice] = 'Play was successfully created.'
@@ -64,9 +66,10 @@ class PlaysController < ApplicationController
   # PUT /plays/1.xml
   def update
     @play = Play.find(params[:id])
-
+    @play.attributes= params[:play]
+    @play.end_date = @play.start_date if !params[:date_range]
     respond_to do |format|
-      if @play.update_attributes(params[:play])
+      if @play.save
         flash[:notice] = 'Play was successfully updated.'
         format.html { redirect_to(plays_url) }
         format.xml  { head :ok }
