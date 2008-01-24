@@ -2,11 +2,40 @@ class PlaysController < ApplicationController
   require_authentication  
   before_filter :setup_sections
   
+  OrderMap = {
+		'd'=> 'start_date',
+		's'=> 'status',
+		'n'=> 'last_name,first_name'
+	}
+	SearchFieldMap = {
+		'u' => 'user_name',
+		'p' => "concat(first_name,' ',last_name)", 
+		'd' => 'description',
+		's' => 'status',
+		'c' => 'currency_omrl'
+	}
+  
   # GET /plays
   # GET /plays.xml
   def index
-    @plays = Play.find(:all)
+		options = search_options(:plays,SearchFieldMap,OrderMap,'s',:player,:project)
+    @plays = Play.find(:all,options)
 
+    if @search_params
+      project_id = @search_params[:project_id].to_i
+      if project_id > 0
+        @project_id_list = [project_id]
+        @project_id_list.concat(Node.find(project_id).all_children.collect {|n| n.id})
+      end
+    else
+      @search_params = {}
+    end
+
+		if @search_params
+      if @project_id_list
+        @plays = @plays.reject {|p| !@project_id_list.include?(p.project.id)}
+      end
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @plays }

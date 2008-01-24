@@ -1,3 +1,44 @@
+
+<% form_tag('/plays',:method => :get,:id=>'search_form') do -%>
+
+<%= link_to_function 'my pending', %Q|$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'pending';$('search_form').submit()|%>
+
+<%= link_to_function 'my approved', %Q|$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'approved';$('search_form').submit()|%>
+
+<%= check_box_tag('search[advanced]','1',@search_params[:advanced],:onclick=>'$("search").toggle()') %> advanced options
+<fieldset id='search' <% if !@search_params[:advanced] %>style="display:none"<%end%>>
+<legend>Advanced Search</legend>
+
+	<%= select_tag('search[on]', options_for_select([
+		['--Any--',''],
+		['Player name contains','p_c'],
+		['Player begins with','p_b'],
+		['Player user_name is','u_is'],
+		['Description contains','d_c'],
+		['Currency name contains','c_c']
+	],@search_params[:on]))%>
+<%= text_field_tag('search[for]', @search_params[:for]) %>
+
+<p>
+Status: <select name="search[on_s_is_n]" id="search_status">
+	<option value=''>--Any--</option>
+	  <%= options_for_select(Play::Statuses,@search_params[:on_s_is_n]) %>
+	</select>
+
+Project: <select name="search[project_id]">
+	<option value=0>--Any--</option>
+	  <%= options_for_select(nested_set_options_for_select(Node,{}),@search_params[:project_id].to_i) %>
+	</select>
+Order by: <%= select_tag('search[order]', options_for_select([
+	['Name','n'],
+	['Status','s'],
+	['Date','d'],
+	],@search_params[:order]))%>
+	<%= submit_tag 'Search'%>
+</p>
+</fieldset>
+<%end%>
+
 <table>
   <tr>
     <th>Project</th>

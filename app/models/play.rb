@@ -5,7 +5,7 @@ class Play < ActiveRecord::Base
   Statuses = %w(pending submitted approved retired)
 
   def project_name
-    self.project.nil? ? '--' : self.project.name
+    self.project.nil? ? '--' : self.project.long_name
   end
   
   def player_name

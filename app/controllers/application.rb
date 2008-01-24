@@ -28,7 +28,63 @@ class ApplicationController < ActionController::Base
     end 
     true 
   end
-
+  
+  # Creates options for find for index pages
+  def search_options(search_name,field_map,order_map,default_order,joins=nil,associations=nil)
+    if !params[:search]
+      # if the search params aren't in the actual params from the requst
+      # then look for them in the session
+  	  @search_params = session[search_name]
+      params[:search] = @search_params if @search_params
+    else
+      # otherwise store them in the session for later
+      @search_params = params[:search]
+      session[search_name] = @search_params
+    end
+    if @search_params
+      options = {}
+    	if @search_params[:order]
+    	  o = order_map[@search_params[:order]]
+    	  options[:order] = o ? o : order_map[default_order]  		
+      end
+      conditions = add_conditions(conditions,field_map,@search_params[:on],@search_params[:for])
+      @search_params.keys.each{|k| 
+        conditions = add_conditions(conditions,field_map,$1,@search_params[k]) if k =~ /^on_(.*)/
+      }
+      options[:conditions] = conditions if conditions
+      options[:joins] = joins if joins
+      options[:include] = associations if associations
+      options
+    else
+      nil
+    end
+	end
+  		
+	def add_conditions(conditions,field_map,field,value)
+  	if field && field != ''
+  	  (key,search_type,options) = field.split(/_/)
+  	  skip = options =~ /n/ && (!value || value == '')
+  	  field = field_map[key]
+  	  if field && !skip
+  	    case search_type
+        when 'c'
+          match = "#{field} like ?"; value = "%#{value}%"
+        when 'b'
+          match =  "#{field} like ?"; value = "#{value}%"
+        else
+          match =  "#{field} = ?"
+        end
+        if conditions
+          conditions[0] = "#{conditions[0]} and #{match}"
+          conditions <<  value
+        else
+          conditions = [match,value]
+        end
+      end
+    end
+    conditions
+  end
+  
   protected
 
   def setup_return_to(key)

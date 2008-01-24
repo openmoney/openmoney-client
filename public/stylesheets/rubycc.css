@@ -285,6 +285,13 @@ DIV.tabs LI#current SPAN
    padding-bottom   : 2px;
 }
 
+.icon_link 
+{
+	border: 0px;
+}
+
+/*----- NODE STYLES ---------------- */
+
 .node_level_0 a {
  font-weight: bold;
 }

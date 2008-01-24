@@ -10,4 +10,8 @@ class Node < ActiveRecord::Base
     return nil if parent.nil?
     return parent.get_account
   end
+  
+  def long_name
+    (self.ancestors.collect{|n| n.name} << self.name).join('|')
+  end
 end
