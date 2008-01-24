@@ -7,7 +7,9 @@
 %>
   <tr>
     <td><%=link_to @omrl,acknowledge_flows_url(@omrl) %> <br />
-	 Currencies: <%= h(om_account.currencies_list.join(', ')) %>
+	 <% currencies = om_account.currencies_list; if !currencies.empty? %>
+		Currencies: <%= h(currencies.join(', ')) %>
+	 <%end%>
 	</td>
     <td>
 	<%= icon_link :pencil, edit_om_account_path(om_account), :title => 'Edit access parameters for '<< @omrl %>

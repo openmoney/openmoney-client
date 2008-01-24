@@ -125,6 +125,12 @@ class ApplicationController < ActionController::Base
       context_creds = {:tag => params[:context_tag], :password => params[:context_password]}
     else
       name = params[:name]
+      if name !~ /^[-a-z0-9]+$/i
+        @event = Event.new
+        @event.errors.add("#{entity_name} address" , 'must contiain only numbers, letters or hyphens')
+        render :action => 'make'
+        return
+      end
       context = params[:parent_context]
       c = OmContext.find_by_omrl(context)
       context_creds = YAML.load(c.credentials)
