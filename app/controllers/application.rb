@@ -118,6 +118,7 @@ class ApplicationController < ActionController::Base
   end
   
   def handle_do_make(entity,entity_name,create_action,redirect_url,acl_defaults=nil)
+    @entity_human_name = (entity_name == 'context') ? 'namespace' : entity_name
     if params[:power_user]
       names = params[:omrl].split('.')
       name = names.shift
@@ -127,7 +128,7 @@ class ApplicationController < ActionController::Base
       name = params[:name]
       if name !~ /^[-a-z0-9]+$/i
         @event = Event.new
-        @event.errors.add("#{entity_name} address" , 'must contiain only numbers, letters or hyphens')
+        @event.errors.add("#{@entity_human_name} address" , 'must contiain only numbers, letters or hyphens')
         render :action => 'make'
         return
       end
@@ -138,7 +139,7 @@ class ApplicationController < ActionController::Base
 
     if context.nil? || context == "" || name.nil? || name == ""
       @event = Event.new
-      @event.errors.add("#{entity_name} address" , 'is missing or incomplete')
+      @event.errors.add("#{@entity_human_name} address" , 'is missing or incomplete')
       render :action => 'make'
       return
     end
