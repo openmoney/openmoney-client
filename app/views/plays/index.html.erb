@@ -1,12 +1,17 @@
 
 <% form_tag('/plays',:method => :get,:id=>'search_form') do -%>
+<%= hidden_field_tag 'search[type]',@search_params[:type] %>
+<div class="tabs">  
+<ul>
+<li <%= (@search_params[:type]=='my_pending') ? 'id="current"' : '' %>><%= link_to_function '<span>my pending</span>', %Q|$('search_project').value=0;$("search[type]").value = "my_pending";$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'pending';$('search_form').submit()|%></li>
 
-<%= link_to_function 'my pending', %Q|$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'pending';$('search_form').submit()|%>
+<li <%= (@search_params[:type]=='my_approved') ? 'id="current"' : '' %>><%= link_to_function '<span>my approved</span>', %Q|$('search_project').value=0;$("search[type]").value = "my_pending";$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'approved';$('search_form').submit()|%></li>
 
-<%= link_to_function 'my approved', %Q|$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'approved';$('search_form').submit()|%>
-
-<%= check_box_tag('search[advanced]','1',@search_params[:advanced],:onclick=>'$("search").toggle()') %> advanced options
-<fieldset id='search' <% if !@search_params[:advanced] %>style="display:none"<%end%>>
+<li <%= (@search_params[:type]=='custom') ? 'id="current"' : '' %>><%= link_to_function '<span>custom</span>', %Q|;$("search[type]").value = "custom";$("search").show()|%></li>
+</ul>
+</div>
+<hr style="clear: both"/>
+<fieldset id='search' <% if @search_params[:type]!='custom' %>style="display:none"<%end%>>
 <legend>Advanced Search</legend>
 
 	<%= select_tag('search[on]', options_for_select([
@@ -25,7 +30,7 @@ Status: <select name="search[on_s_is_n]" id="search_status">
 	  <%= options_for_select(Play::Statuses,@search_params[:on_s_is_n]) %>
 	</select>
 
-Project: <select name="search[project_id]">
+Project: <select name="search[project_id]" id="search_project">
 	<option value=0>--Any--</option>
 	  <%= options_for_select(nested_set_options_for_select(Node,{}),@search_params[:project_id].to_i) %>
 	</select>
