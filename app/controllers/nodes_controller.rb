@@ -5,7 +5,31 @@ class NodesController < ApplicationController
   # GET /nodes.xml
   def index
     @nodes = Node.find(:all,:order => :lft)
-
+    
+    @node_list = []
+    0.upto(@nodes.size-1) do |i|
+      node = @nodes[i]
+      links = []
+      if i > 0
+      	prev_node = @nodes[i-1]
+      	if prev_node.level == node.level
+          links << {:link_type=> :arrow_right, :to => 'child_of', :dest_id => prev_node}
+      	end
+      	if prev_node.level < node.level
+          links << {:link_type=> :arrow_left, :to => 'right_of', :dest_id => prev_node}
+      	end
+        links << {:link_type=> :arrow_up, :to => 'left_of', :dest_id => prev_node}
+      end
+      if i < @nodes.size-1
+        (i+1).upto(@nodes.size-1) do |n|
+          if @nodes[n].level <= node.level
+            links << {:link_type=> :arrow_down, :to => 'right_of', :dest_id => @nodes[n]}
+            break
+          end
+        end
+      end
+      @node_list << [node,links]
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @nodes }

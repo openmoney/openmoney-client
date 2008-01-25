@@ -27,7 +27,12 @@ module Icons
   ICON_ATTRS = {
     :minus  => {:src => 'minus.gif',  :size => '14x14', :class => 'icon_link'},
     :plus   => {:src => 'plus.gif',   :size => '14x14', :class => 'icon_link'},
-    :pencil => {:src => 'pencil.gif', :size => '18x18', :class => 'icon_link'},
+    :check   => {:src => 'check.gif',   :size => '14x14', :class => 'icon_link'},
+    :pencil   => {:src => 'pencil.gif',   :size => '18x18', :class => 'icon_link'},
+    :arrow_up => {:src => 'arrow_up.gif', :size => '14x14', :class => 'icon_link'},
+    :arrow_down => {:src => 'arrow_down.gif', :size => '14x14', :class => 'icon_link'},
+    :arrow_left => {:src => 'arrow_left.gif', :size => '14x14', :class => 'icon_link'},
+    :arrow_right => {:src => 'arrow_right.gif', :size => '14x14', :class => 'icon_link'}
   }
 
   ################################################################################

@@ -59,7 +59,7 @@ Order by: <%= select_tag('search[order]', options_for_select([
     <td><%= standard_date play.start_date %></td>
     <td><%= icon_link :pencil, edit_play_path(play), :title => 'Edit' %></td>
     <td><%= icon_link :minus, play, :title => 'Delete',:confirm => 'Are you sure?', :method => :delete %></td>
-    <%if play.status != 'approved'%><td><%= icon_link :plus, approve_play_path(play), :title => 'Approve',:confirm => "Are you sure you want to approve this play and acknowledge #{play.value} to #{play.account_omrl}?", :method => :put %></td><%end%>
+    <%if play.status != 'approved'%><td><%= icon_link :check, approve_play_path(play), :title => 'Approve',:confirm => "Are you sure you want to approve this play and acknowledge #{play.value} to #{play.account_omrl}?", :method => :put %></td><%end%>
   </tr>
  <tr><td colspan=6 class="play_description"><%=h play.description %></td></tr>
 <% end %>
