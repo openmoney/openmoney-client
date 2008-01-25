@@ -39,30 +39,29 @@ Order by: <%= select_tag('search[order]', options_for_select([
 </fieldset>
 <%end%>
 
-<table>
+<table id="plays">
   <tr>
     <th>Project</th>
     <th>Player</th>
     <th>Status</th>
     <th>Value</th>
-    <th>Description</th>
     <th>Currency</th>
     <th>Date</th>
   </tr>
 
 <% for play in @plays %>
-  <tr>
+  <tr class="play">
     <td><%=h play.project_name %></td>
     <td><%=h play.player_name %></td>
     <td><%=h play.status %></td>
     <td><%=h play.value %></td>
-    <td><%=h play.description %></td>
     <td><%=h play.currency_omrl %></td>
     <td><%= standard_date play.start_date %></td>
     <td><%= icon_link :pencil, edit_play_path(play), :title => 'Edit' %></td>
     <td><%= icon_link :minus, play, :title => 'Delete',:confirm => 'Are you sure?', :method => :delete %></td>
     <%if play.status != 'approved'%><td><%= icon_link :plus, approve_play_path(play), :title => 'Approve',:confirm => "Are you sure you want to approve this play and acknowledge #{play.value} to #{play.account_omrl}?", :method => :put %></td><%end%>
   </tr>
+ <tr><td colspan=6 class="play_description"><%=h play.description %></td></tr>
 <% end %>
 </table>
 

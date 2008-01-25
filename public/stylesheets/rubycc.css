@@ -290,6 +290,22 @@ DIV.tabs LI#current SPAN
 	border: 0px;
 }
 
+/* PLAY STYLES */
+
+.play
+{
+	font-size: 11px;
+	padding-bottom: 0px;
+}
+.play_description
+{
+	font-size: 9px;
+	padding-left:20px;
+	padding-top: 0px;
+	background-color: #EEEEEE;
+}
+
+
 /*----- NODE STYLES ---------------- */
 
 .node_level_0 a {
