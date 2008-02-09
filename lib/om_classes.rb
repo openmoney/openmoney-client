@@ -60,8 +60,10 @@ class Currency < OMResource
     when nil
       nil
     when Array
-      s = {}
-      summaries.each{ |summary| s[summary.attributes['omrl']] = summary.attributes}
+      s = {'account' => {},'currency' => {},'context' => {}}
+      summaries.each do |summary|
+        s[summary.attributes['type']][summary.attributes['omrl']] = summary.attributes
+      end
       s
     else
       {summaries.attributes['omrl'] => summary.attributes}

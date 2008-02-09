@@ -6,11 +6,17 @@
 		-- not available -- 
 	<% else %>
 	<table>
-		<% @summaries.each do |omrl,s| %>
+		<% @summaries.each do |entity_type,sms| %>
+			<% if sms%>
+			<tr><td colspan=2><b><%= {'account' => 'Accounts','context'=>'Namespaces','currency'=>'Currency'}[entity_type] %></b></td></td>
+		  <% sms.each do |omrl,s| %>
+		   
 				<tr>
 			<td><%= omrl %>:</td>
 			<td><%= render_summary(@summary_form,s,:language => current_user.pref_language) %></td>
 			</tr>
+		   <% end %>
+			<%end%>
 		<%end %>	
 	</table>
     <%end%>
