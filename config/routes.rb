@@ -4,7 +4,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :om_contexts, :new => {:make => :get,:do_make => :post}
   map.resources :om_currencies, :new => {:make => :get,:do_make => :post}
-  map.resources :om_accounts, :member => {:join => :get,:do_join => :post},:new => {:make => :get,:do_make => :post}
+
+  # TODO I couldn't get these routes to work with :collection so I just hard-coded them here.
+  map.connect '/join_currency', :controller => 'om_accounts', :action => 'join',:conditions => {:method => :get}
+  map.connect '/join_currency/do_join', :controller => 'om_accounts', :action => 'do_join',:conditions => {:method => :post}
+  map.resources :om_accounts, 
+    :member => {:join => :get,:do_join => :post},
+    :new => {:make => :get,:do_make => :post}
 
   # Named routes
   map.home('', :controller => 'home', :action => 'index')

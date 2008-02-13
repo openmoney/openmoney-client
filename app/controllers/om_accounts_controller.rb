@@ -102,10 +102,12 @@ class OmAccountsController < ApplicationController
     end
   end
   
+  # GET /om_accounts/join/1
   def join
-    @om_account = OmAccount.find(params[:id])
+    @om_account = OmAccount.find(params[:id]) if params[:id]
   end
   
+  # POST /om_accounts/join/1
   def do_join
     @om_account = OmAccount.find(params[:id])
     @event = Event.churn(:JoinCurrency,"account" => @om_account.omrl,"currency" => params[:currency])

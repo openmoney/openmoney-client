@@ -2,8 +2,10 @@
 
 <%= error_messages_for :event %>
 
-<% form_tag(do_join_om_account_path(@om_account)) do -%>
-Join <%= h @om_account.omrl %> to 
+<% form_tag(params[:id] ? do_join_om_account_path(@om_account) : '/join_currency/do_join') do -%>
+Join 
+<%if params[:id]%><%= h @om_account.omrl %><%else%><%= om_accounts_select_tag%> <%end%>
+to 
 currency: <%= text_field_tag(:currency,params[:currency])%>
 <%= submit_tag "Join Currency" %>
 <% end -%>
