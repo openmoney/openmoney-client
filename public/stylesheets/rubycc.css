@@ -94,6 +94,36 @@ ul#nav li a:hover {background:url(/images/header_hover.gif) repeat-x bottom cent
 ul#nav li a#active {background: url(/images/header_arrow.gif)no-repeat bottom center;}
 ul#nav li.last a {margin-right:0;}
 
+.quicklinks_top {
+  background:#868686 url(/images/quicklinks_top.gif) no-repeat top center;
+  float:right;
+  margin-bottom:12px;
+  width:169px;  
+}               
+
+#quicklinks h3 {
+  display:block;
+	padding:3px 10px;
+	margin:0px;
+}
+ul.quicklinks_bottom {
+  background: url(/images/quicklinks_bottom.gif) no-repeat bottom center;
+  padding: 5px 10px;
+}
+ul.quicklinks_bottom li {
+  display:block;
+  padding:3px 0px;
+}
+#content_full ul.quicklinks_bottom li a{
+  color:#d7ff00;
+  text-align:center;
+  display:inline;
+}
+#content_full ul.quicklinks_bottom li a:hover {
+  background:#d7ff00;
+  color:#000;
+}
+
 /*  TEXT FORMATTING  */
 
 h1 {
@@ -186,7 +216,32 @@ p#rss a:hover {
 #footer { clear:both;}
 #footer p {padding:7px; color:#999; margin:0; text-align:center;}
 
+/* GETTING STARTED */
+#getting-started {
+  padding-top: 15px;
+}
+#getting-started code {
+	color: blue;
+}
+#getting-started a {
+	display: inline;
+}
 
+#getting-started ul {
+  margin-left: 0;
+  padding-left: 10;
+}
+#getting-started li {
+  background: url(/images/li.gif) no-repeat left top;
+  padding: 4px 4px 4px 16px;
+  margin-bottom: 10px;
+}
+#getting-started li p.indented_1 {
+	margin-left:20px;
+}
+#getting-started li p.indented_2 {
+	margin-left:40px;
+}
 
 
 			.specification {

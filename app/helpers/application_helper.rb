@@ -19,6 +19,10 @@ module ApplicationHelper
   def users_select(f,id)
     f.collection_select(id, User.find(:all, :order => "last_name,first_name"), :id, :full_name)
   end
+
+  def om_accounts_select_tag()
+    select_tag('id',options_from_collection_for_select(OmAccount.find(:all, :conditions => ["user_id = ?",current_user]),:id, :omrl))
+  end
   
   def standard_date(date)
     if date.is_a?(String)

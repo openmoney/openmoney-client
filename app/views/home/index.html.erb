@@ -1,36 +1,57 @@
-<% @header = 'Welcome to open money'; @subhead = 'this is the reference open money client' %>
+<% @header = 'Welcome to open money reference client!' %>
 
-<% if logged_in? && !current_user.om_accounts.empty? %>
-<%= link_to "Your accounts",url_for (:controller => 'clients', :action => 'show', :client => current_user.user_name) %>
-<% else %>
-        
- <div id="getting-started">
-   <h1>Two steps to get started:</h1>
-   
-   <ol>
-     <li>
-       <h2>
-		<% if logged_in? %>
-			Completed: Create a profile
-		<% else %>
-			<a href="/users/new">Create a profile</a> or <%= link_to('login', login_url)%>
-		<% end %>
-		</h2>
-       <p>
-Your profile allows you to login to this open money client web-site.
-<br>
-</p>
-     </li>
-   
-     <li>
-       <h2>
-			<%= link_to('Configure accounts', om_accounts_url)%>
-	   </h2>
-       <p>
-Add your open money accounts to your profile.
-       </p>
-     </li>
+<% if !logged_in? %>
 
-   </ol>
+<div class='quicklinks_top' id="quicklinks">
+	<h3>Get Started:</h3>
+   <ul class='quicklinks_bottom'>
+		<li><%= link_to('new user profile', new_user_url)%> </li>
+		<li> or </li>
+		<li><%= link_to('login', login_url)%></li>
+   </ul>
  </div>
 <% end %>
+        
+<p>
+This site is for you to eXplore &amp; eXperiment with creating open money namespaces, accounts and currencies.
+</p>
+<p>
+Many, many features are yet to be implemented - however what's here is sufficient to demonstrate the basic architecture and functionality of open money systems.
+</p>
+
+<% if logged_in? %>
+<div id="getting-started">
+Now that you have created a user profile, here's what you can do:
+
+<ul>
+  <li>
+	<%= link_to('name new accounts', om_accounts_url)%> (as many as you like) in the ".x" namespace, i.e. - <code>henry.x</code>, <code>mytown.x</code>, <code>31419.x</code>, etc. When you create accounts you set the credentials for the account which you can give to others to access it.
+	</li>
+  <li>
+	<%= link_to('join your accounts to currencies', '/join_currency')%> (whose names you know)
+	</li>
+  <li>
+		<%= link_to('record flows',"/clients/#{current_user.user_name}")%> to, and receive flows from other accounts (whose names you know)
+	</li>
+  <li>
+	<%= link_to('name new currencies', om_currencies_url)%>  (as many as you like) in the ".x" namespace, i.e. - <code>cc.x</code>, <code>game1.x</code>, etc.  When you create a currency you can set its properties using the templates provided (more to come) or directly in the currency specification language.  You also set the credentials for the currency which you can give to others to access it.
+	</li>
+  <li>
+	<%= link_to('open new namespaces',om_contexts_url)%> i.e. - <code>town.x</code>, <code>me.x</code> <br />
+	Once you open a new namespace you can then start  all over and:
+	<p class="indented_1">
+	name accounts in them  - <code>henry.town.x</code> <br />
+	name currencies / systems  - <code>cc.town.x</code> <br />
+	open new namespaces - <code>south.town.x</code>  <br />
+	</p>
+ <p class="indented_2">
+	name accounts in them  - <code>pete.south.town.x</code> <br />
+	name currencies / systems  - <code>youth.south.town.x</code> <br />
+	open new namespaces - <code>bus.south.town</code> <br />
+	</p>
+	and so on, 
+	</p>
+	</li>
+</ul>
+ </div>
+<%end%>

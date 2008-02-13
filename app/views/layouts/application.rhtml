@@ -15,7 +15,7 @@
         </div>
         <ul id='nav'>
 					<% if logged_in?%>
-						<li><%= link_to "dash",home_url, is_active?(HomeController)%></li>
+						<li><%= link_to "home",home_url, is_active?(HomeController)%></li>
 		        <li><%=  link_to "flows","/clients/#{current_user.user_name}", is_active?(ClientsController)%></li>
 						<li><%=  link_to "accounts",om_accounts_url, is_active?(OmAccountsController)%></li>
 						<li><%= link_to "currencies",om_currencies_url, is_active?(OmCurrenciesController)%></li>
@@ -63,7 +63,7 @@
 		        <a href="http://openmoney.info/phronesis">practice</a>
 		        <a href="http://openmoney.info/play">participation</a>
 		        <br />
-            (cc) 2008, the open money development group | the open money reference client is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
+            (cc) 2008, the open money development group | <%= link_to ('rubycc', 'http://projects.openmoney.info/rubycc')%> is released under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT License</a>
           </p>
         </div>
       </div>
