@@ -1,11 +1,11 @@
-<% @header="Welcome to open money"; @subhead = 'please login' %>
+<% @header="Login"; @subhead = 'please enter your user name and password' %>
 
 <%= @login_error ? @login_error : ''  %>
 
 <% form_tag '/sessions' do -%>
 <p>
-  <b>User Name</b> <%= text_field_tag :login %> <br />
-  <b>Password</b> <%= password_field_tag :password %>
+  <label for="login">User Name</label> <%= text_field_tag :login %> <br />
+  <label for="password">Password</label> <%= password_field_tag :password %>
 </p>
 <%= submit_tag "Login" %>
 <% end -%>

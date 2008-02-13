@@ -12,7 +12,7 @@ SectionsOpenPlay = [{:name => 'projects', :url => '/nodes'},{:name => 'plays', :
 class ApplicationController < ActionController::Base
   
   include L8n
-      
+            
   enable_authentication :user_model => 'User'
   enable_authorization
   require_authentication

@@ -11,7 +11,11 @@ module ApplicationHelper
   include L8n
   
   require 'parsedate'
-  
+
+  def is_active?(controller)
+    @controller.is_a?(controller) ? {:id => 'active'} : nil
+  end
+    
   def users_select(f,id)
     f.collection_select(id, User.find(:all, :order => "last_name,first_name"), :id, :full_name)
   end

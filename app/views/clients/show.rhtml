@@ -4,7 +4,7 @@
 	<p>Welcome to the open money reference client.</p>
 	<%= link_to "Add an open money account",new_om_account_url%>
 <% else %>
-<div class="tabs">  
+<div id="tabs">  
   <ul >
 	 <% for act in @accounts 
 	    a = act.omrl
