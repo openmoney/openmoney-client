@@ -200,14 +200,14 @@ dl.sidebar_bottom dt {
 dl.sidebar_bottom dd {padding:3px 0px;}
 #content_sidebar p {padding:10px 0px;}
 p#rss a {
-  background: url(/images/rss.gif) no-repeat left center;
+  background: url(/images/rss.png) no-repeat left center;
   color:#000;
   font:bold 14px "Lucida Grande";
   padding: 8px 6px 8px 34px;
   text-decoration:none;
 }
 p#rss a:hover {
-  background: url(/images/rss.gif) no-repeat left center;
+  background: url(/images/rss.png) no-repeat left center;
   background-color:#fff;
   text-decoration:underline;
 }
