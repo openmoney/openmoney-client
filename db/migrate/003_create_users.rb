@@ -8,9 +8,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.datetime :last_login
-      t.string :pref_language, :null => false
+      t.string :pref_language, :null => false, :default => ''
       t.integer :pref_items_per_page, :null => false, :default => 20
-      t.string :pref_default_account, :null => false
+      t.string :pref_default_account, :null => false, :default => ''
 
       t.timestamps 
     end

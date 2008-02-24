@@ -3,9 +3,9 @@ class CreateOmAccounts < ActiveRecord::Migration
     create_table :om_accounts do |t|
       t.integer :user_id
       t.string :omrl
-      t.text :credentials, :null => false
+      t.text :credentials, :null => false, :default => ''
       t.text :currencies_cache
-      t.string :default_currency,  :null => false
+      t.string :default_currency,  :null => false, :default => ''
 
       t.timestamps 
     end
