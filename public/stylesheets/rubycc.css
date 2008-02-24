@@ -364,6 +364,29 @@ p#rss a:hover {
 	border: 0px;
 }
 
+/* ------------------------------------------------------ */
+/* Entity creation styles */
+
+#create_entity fieldset {
+	border: 1px solid #aaa8a8;
+	display: inline;
+	padding: 7px;
+	margin-bottom: 5px;
+}
+
+#create_entity legend {
+	font-weight: bold;
+	color: #039;
+	font-size: 12pt;
+}
+
+.legend_option {
+	font-weight: normal;
+	color: black;
+	font-size: 10pt;
+}
+
+/* ------------------------------------------------------ */
 /* PLAY STYLES */
 
 .play
@@ -380,7 +403,8 @@ p#rss a:hover {
 }
 
 
-/*----- NODE STYLES ---------------- */
+/* ------------------------------------------------------ */
+/*  NODE STYLES */
 
 .node_level_0 a {
  font-weight: bold;

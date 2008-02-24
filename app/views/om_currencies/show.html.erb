@@ -22,7 +22,7 @@
     <%end%>
 
 	<h3><%=l 'History' %></h3>
-	<% (@flows,@fields) = history(nil,@om_currency.omrl,YAML.load(Currency.find_by_omrl(@om_currency.omrl).specification),:language => current_user.pref_language) %>
+	<% (@flows,@fields) = history(nil,@om_currency.omrl,@currency_spec,:language => current_user.pref_language) %>
 
 	<% if @flows %>
 	  <table id ="history_table">

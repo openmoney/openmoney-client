@@ -117,13 +117,20 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def random_password(size = 8)
+    chars = (('a'..'z').to_a + ('0'..'9').to_a) - %w(i o 0 1 l 0)
+    (1..size).collect{|a| chars[rand(chars.size)] }.join
+  end
+  
   def handle_do_make(entity,entity_name,create_action,redirect_url,acl_defaults=nil)
     @entity_human_name = (entity_name == 'context') ? 'namespace' : entity_name
+    @entity_tag = params[:tag]
     if params[:power_user]
       names = params[:omrl].split('.')
       name = names.shift
       context = names.join('.')
       context_creds = {:tag => params[:context_tag], :password => params[:context_password]}
+      @entity_password = params[:password]
     else
       name = params[:name]
       if name !~ /^[-a-z0-9]+$/i
@@ -135,6 +142,7 @@ class ApplicationController < ActionController::Base
       context = params[:parent_context]
       c = OmContext.find_by_omrl(context)
       context_creds = YAML.load(c.credentials)
+      @entity_password = random_password
     end
 
     if context.nil? || context == "" || name.nil? || name == ""
@@ -146,7 +154,7 @@ class ApplicationController < ActionController::Base
 
     entity.omrl = "#{name}.#{context}"
     entity.user_id = current_user.id
-    entity.credentials = {:tag => params[:tag], :password => params[:password]}.to_yaml
+    entity.credentials = {:tag => @entity_tag, :password => @entity_password}.to_yaml
 
     if !entity.valid?
       render :action => 'make'
@@ -155,7 +163,7 @@ class ApplicationController < ActionController::Base
     
     spec = {"description" => params[:description]}
     spec = yield(spec) if block_given?
-    acl = {:tag => params[:tag], :password => params[:password], :authorities => '*'}
+    acl = {:tag => @entity_tag, :password => @entity_password, :authorities => '*'}
     acl[:defaults] = acl_defaults if acl_defaults
     @event = Event.churn(create_action,
       "credentials" => {context => context_creds},

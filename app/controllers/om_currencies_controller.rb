@@ -22,7 +22,8 @@ class OmCurrenciesController < ApplicationController
     @om_currency = OmCurrency.find(params[:id])
     if current_user_or_can?(:manage_users,@om_currency)
       currency = Currency.find_by_omrl(@om_currency.omrl, :params => {:summaries => nil,:credentials => {@om_currency.omrl => YAML.load(@om_currency.credentials)}})
-      @summary_form = YAML.load(currency.specification)['summary_form']
+      @currency_spec = YAML.load(currency.specification)
+      @summary_form = @currency_spec['summary_form']
       @summaries = currency.summaries
       respond_to do |format|
         format.html # show.html.erb

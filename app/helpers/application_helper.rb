@@ -61,42 +61,52 @@ module ApplicationHelper
   def make_entity_base_fields(entity_type,default_omrl='',default_tag='steward')
     context_select = om_contexts_select(:parent_context,params[:parent_context])
     result = ""
-    detailed = <<-EOHTML
+    advanced = <<-EOHTML
   	  <b>Credential for parent context access:</b><br />
   	  ID: #{text_field_tag(:context_tag,params[:context_tag] || 'steward')} Password: #{password_field_tag :context_password,params[:context_password]}
-  	<br />
+      <p>
     <b>#{entity_type} omrl:</b> #{ text_field_tag :omrl,params[:omrl]||default_omrl}
-    EOHTML
-    if context_select
-      name_and_context = <<-EOHTML
-      <p id="power" style="display: none">
-      #{detailed}
-      </p>
-      <p id="easy">
-      <b>#{entity_type} Name: </b> #{ text_field_tag :name,params[:name] } in #{context_select}
-      </p>
-      
-      EOHTML
-      power = %Q|(<input id="power_user" type="checkbox" name="power_user" value="1" onClick="if($F('power_user')) {$('easy').hide();$('power').show()} else {$('easy').show();$('power').hide()}" #{params[:power_user] ? 'checked' : ''} > detailed)|
-    else
-      name_and_context = detailed
-      power = %Q|<input id="power_user" type="hidden" name="power_user" value="1">|
-    end
-     <<-EOHTML
-   	<fieldset style="display: inline">
-   		<legend>#{entity_type} Info #{power}</legend>
-   		#{name_and_context}
-    <p>
-      <b>Description:</b><br />
-      #{ text_field_tag :description,params[:description] ,:size => 50 }
     </p>
-
     <p>
       <b>Access Credentials For New #{entity_type}:</b><br />
       ID: #{text_field_tag :tag,params[:tag] || default_tag }
       Password: #{password_field_tag :password,params[:password] }
     </p>
+
+    EOHTML
+    
+    # if there are some namespaces then we can show the easy interface
+    if context_select
+      name_and_context = <<-EOHTML
+      <div id="power" style="display: none">
+      #{advanced}
+      </div>
+      <div id="easy">
+      <b>#{entity_type} Name: </b> #{ text_field_tag :name,params[:name] } in #{context_select}
+      </div>
+      
+      EOHTML
+      power = %Q|(<input id="power_user" type="checkbox" name="power_user" value="1" onClick="if($F('power_user')) {$('easy').hide();$('power').show()} else {$('easy').show();$('power').hide()}" #{params[:power_user] ? 'checked' : ''} > advanced interface)|
+    else
+      # no namespaces = power user not optional
+      name_and_context = advanced
+      power = %Q|<input id="power_user" type="hidden" name="power_user" value="1">|
+    end
+    
+    extra = block_given? ? yield : ""
+    
+     @new_html = <<-EOHTML
+    <div id='create_entity'>
+   	<fieldset>
+   		<legend>#{entity_type} Info <span class="legend_option">#{power}</span></legend>
+   		#{name_and_context}
+    <p>
+      <b>Description:</b><br />
+      #{ text_field_tag :description,params[:description] ,:size => 50 }
+    </p>
     </fieldset>
+    #{extra}
+    </div>
     EOHTML
     
   end
