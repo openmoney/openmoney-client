@@ -395,6 +395,10 @@ p#rss a:hover {
 /* ------------------------------------------------------ */
 /* PLAY STYLES */
 
+#plays td, th{
+	padding-right: 4px;
+}
+
 .play
 {
 	font-size: 11px;
