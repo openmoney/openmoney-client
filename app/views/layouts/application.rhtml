@@ -43,7 +43,13 @@
           <div class='full_width' id='content_top'>
             <div id='content_bottom'>
               <div id='content_full'>
-			          <h1><%if @header %> <%= @header  %> <%else%> open money client <% end %></h1>
+			          <h1><%if @header %> <%= @header  %> <%else%> open money client <% end %>
+									<%if @sections %>
+										<span class="sections">
+										<%=@sections.collect { |s| html = link_to(s[:name],s[:url]); html = @current_section == s[:name] ? "&gt;#{html}&lt;" : html; html =  "<b>#{html}</b>" }.join(' | ')%>
+										</span>
+									<%end%>
+								</h1>
 			          <%= @subhead ? "<b>#{@subhead}</b>" : ''%>
 								<p style="color: green"><%= flash[:notice] %></p>
                 <p>

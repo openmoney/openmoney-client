@@ -1,3 +1,5 @@
+<%= link_to 'New project', new_node_path %>
+
 <% @i%>
 <% @node_list.each do |pair|
 	(node,links) = pair
@@ -18,9 +20,7 @@
   </div>
 <% end %>
 
-<br />
-
-<%= link_to 'New project', new_node_path %>
+<p style="clear: both">&nbsp;</p>
 
 <% javascript_tag do -%>
 function toggleContents(id) {

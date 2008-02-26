@@ -217,6 +217,12 @@ p#rss a:hover {
 #footer { clear:both;}
 #footer p {padding:7px; color:#999; margin:0; text-align:center;}
 
+/* SECTIONS */
+.sections {
+	font-size: 80%;
+}
+
+
 /* GETTING STARTED */
 #getting-started {
   padding-top: 15px;
