@@ -11,6 +11,23 @@ module ApplicationHelper
   include L8n
   
   require 'parsedate'
+    
+  DateFormats = [
+    # [storage value, interface title, format ]
+    [ 'us', "us", "%m-%d-%Y"],
+    [ 'euro', "European", '%d-%m-%y']
+  ]
+
+  def date_format_options
+    sample_date =  Time.local( 2008, 12, 25 )
+    DateFormats.map{|f| [ "#{f[1]}: #{sample_date.localtime.strftime(f[2])}", f[0]] }
+  end
+  
+  def user_date_format(user, datetime)
+    format_key = user.pref_date_format.blank? ? "us" : user.pref_date_format
+    format = DateFormats.find{|f| f[0]==format_key }[2]
+    datetime.localtime.strftime(format)
+  end
 
   def is_active?(controller)
     @controller.is_a?(controller) ? {:id => 'active'} : nil

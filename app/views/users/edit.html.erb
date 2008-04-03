@@ -44,6 +44,10 @@
 	  <%= f.text_field(:pref_items_per_page,"size" => 3) %>
 	</p>
 	<p>
+	  <b>Date Format</b>
+	  <%= f.select(:pref_date_format,date_format_options) %>
+	</p>
+	<p>
 	  <b>Default Account</b>
 	  <%= f.collection_select(:pref_default_account, @user.om_accounts, :omrl, :omrl) %>
 	</p>
