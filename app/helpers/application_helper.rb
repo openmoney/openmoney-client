@@ -14,8 +14,10 @@ module ApplicationHelper
     
   DateFormats = [
     # [storage value, interface title, format ]
-    [ 'us', "us", "%m-%d-%Y"],
-    [ 'euro', "European", '%d-%m-%y']
+    [ 'us', "US", "%b %d, %Y"],
+    [ 'us-time', "US with time", "%m/%d/%Y %H:%M"],
+    [ 'euro', "European", '%d/%m/%Y'],
+    [ 'euro-time', "European with time", '%d/%m/%Y %H:%M']
   ]
 
   def date_format_options
