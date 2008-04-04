@@ -13,26 +13,22 @@ There was an error: <%= @event_error %>
 	<%= render_summary(@currency_spec["summary_form"],@summary,:language => current_user.pref_language)%>
 <% end %>
 <h3><%=l 'History' %></h3>
-<% (@flows,@fields) = history(@account.omrl,@currency_omrl,@currency_spec,:sort_order => @sort_order,:language => current_user.pref_language) %>
+<% 
+(@flows,@fields) = render_history(history(@account.omrl,@currency_omrl,:language => current_user.pref_language),@account.omrl,@currency_spec)
+%>
 
 <% if @flows %>
   <table id ="history_table">
 	<tr>
-		<th> <%=l :Date %> </th>
-		<th> <%=l :Declarer %>  </th>
-		<th> <%=l :Accepter %>  </th>
-	<%for f in @fields.keys %>
-	<th> <%= h @fields[f] %> </th>
+	<%for f in @fields %>
+	<th> <%= h f.values[0] %> </th>
 	<% end %>
 	</tr>
 
 	<% for flow in @flows %>
 	<tr>
-		<td><%= h user_date_format(current_user, flow.created_at) %> </td>
-		<td><%= h flow.specification_attribute('declaring_account')%> </td>
-		<td><%= h flow.specification_attribute('accepting_account') %> </td>
-		<%for f in @fields.keys %>
-		<td> <%= h flow.specification_attribute(f)  %> </td>
+		<% for f in @fields.collect {|fld| flow[fld.keys[0].intern]}  %>
+		<td> <%= h f.instance_of?(Time) ? user_date_format(current_user, f) : f  %> </td>
 		<% end %>
 	<tr>
 	<% end %>
