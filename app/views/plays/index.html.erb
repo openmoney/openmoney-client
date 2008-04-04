@@ -1,18 +1,19 @@
 
 <% form_tag('/plays',:method => :get,:id=>'search_form') do -%>
 <%= hidden_field_tag 'search[type]',@search_params[:type] %>
-<div class="tabs">  
+<div id="tabs">  
 <ul>
 <li <%= (@search_params[:type]=='my_pending') ? 'id="current"' : '' %>><%= link_to_function '<span>my pending</span>', %Q|$('search_project').value=0;$("search[type]").value = "my_pending";$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'pending';$('search_form').submit()|%></li>
 
-<li <%= (@search_params[:type]=='my_approved') ? 'id="current"' : '' %>><%= link_to_function '<span>my approved</span>', %Q|$('search_project').value=0;$("search[type]").value = "my_pending";$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'approved';$('search_form').submit()|%></li>
+<li <%= (@search_params[:type]=='my_approved') ? 'id="current"' : '' %>><%= link_to_function '<span>my approved</span>', %Q|$('search_project').value=0;$("search[type]").value = "my_approved";$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'approved';$('search_form').submit()|%></li>
 
-<li <%= (@search_params[:type]=='custom') ? 'id="current"' : '' %>><%= link_to_function '<span>custom</span>', %Q|;$("search[type]").value = "custom";$("search").show()|%></li>
+<li <%= (@search_params[:type]=='custom') ? 'id="current"' : '' %>><%= link_to_function '<span>custom</span>', %Q|;$("search[type]").value = "custom";$("search_fieldset").show()|%></li>
 </ul>
 </div>
 <hr style="clear: both"/>
-<fieldset id='search' <% if @search_params[:type]!='custom' %>style="display:none"<%end%>>
-<legend>Advanced Search</legend>
+<div id='search_options'>
+<fieldset id='search_fieldset' <% if @search_params[:type]!='custom' %>style="display:none"<%end%>>
+<legend>Custom Plays Search</legend>
 
 	<%= select_tag('search[on]', options_for_select([
 		['--Any--',''],

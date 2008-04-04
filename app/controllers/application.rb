@@ -30,14 +30,18 @@ class ApplicationController < ActionController::Base
   end
   
   # Creates options for find for index pages
-  def search_options(search_name,field_map,order_map,default_order,joins=nil,associations=nil)
+  def search_options(search_name,field_map,order_map,default_fields,default_order,joins=nil,associations=nil)
     if !params[:search]
       # if the search params aren't in the actual params from the requst
-      # then look for them in the session
-  	  @search_params = session[search_name]
+      # then look for them in the session first, and if not there use the defaults
+      if session[search_name]
+  	    @search_params = session[search_name]
+	    elsif default_fields
+	      @search_params = default_fields
+      end
       params[:search] = @search_params if @search_params
     else
-      # otherwise store them in the session for later
+      # otherwise use the search parameters and store them in the session for later
       @search_params = params[:search]
       session[search_name] = @search_params
     end

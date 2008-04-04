@@ -18,7 +18,9 @@ class PlaysController < ApplicationController
   # GET /plays
   # GET /plays.xml
   def index
-		options = search_options(:plays,SearchFieldMap,OrderMap,'s',:player,:project)
+		options = search_options(:plays,SearchFieldMap,OrderMap,
+		{"project_id"=>"0", "order"=>"n", "type"=>"my_pending", "on"=>"u_is", "for"=>current_user, "on_s_is_n"=>"pending"},
+		's',:player,:project)
     @plays = Play.find(:all,options)
 
     if @search_params
