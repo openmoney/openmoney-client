@@ -324,6 +324,7 @@ p#rss a:hover {
 
 #tabs A:hover
 {
+ 	background: url(/images/tabsRight.gif) no-repeat right top;
    background-position: 100% -150px;
 }
 
@@ -349,6 +350,7 @@ p#rss a:hover {
 
 #tabs A:hover SPAN
 {
+  background       : url(/images/tabsLeft.gif) no-repeat left top;
    background-position: 0% -150px;
 }
 
@@ -391,6 +393,16 @@ p#rss a:hover {
 	color: black;
 	font-size: 10pt;
 }
+
+/* ------------------------------------------------------ */
+#search_options fieldset {
+	border: 1px solid #aaa8a8;
+	display: inline;
+	padding: 7px;
+	margin-bottom: 5px;
+	background-color: #eee;
+}
+
 
 /* ------------------------------------------------------ */
 /* PLAY STYLES */
