@@ -6,7 +6,7 @@
   @omrl = h om_context.omrl
 %>
   <tr>
-    <td><%= link_to @omrl, om_context, :html_options =>{:title => 'View details for '<< @omrl} %></td>
+    <td><%= @omrl %></td>
     <td><%= icon_link :pencil, edit_om_context_path(om_context), :title => 'Edit access parameters for '<< @omrl %></td>
     <td><%= icon_link :minus, om_context, :title => "Remove #{@omrl} from list of namespaces", :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
