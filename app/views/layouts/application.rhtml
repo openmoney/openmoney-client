@@ -20,7 +20,7 @@
 						<li><%=  link_to "accounts",om_accounts_url, is_active?(OmAccountsController)%></li>
 						<li><%= link_to "currencies",om_currencies_url, is_active?(OmCurrenciesController)%></li>
 						<li><%= link_to "namespaces",om_contexts_url, is_active?(OmContextsController)%></li>
-						<li><%= link_to "plays",plays_path, is_active?(PlaysController)%></li>
+						<li><%= link_to "weal",plays_path, is_active?(PlaysController)%></li>
 						<% if current_user.can?(:manage_users)%>
 						<li><%= link_to "users",users_url, (@controller.is_a?(UsersController) && params[:action] != 'edit') ? {:id => 'active'} : nil%></li>
 						<%end%>

@@ -19,7 +19,7 @@ class PlaysController < ApplicationController
   # GET /plays.xml
   def index
 		options = search_options(:plays,SearchFieldMap,OrderMap,
-		{"project_id"=>"0", "order"=>"n", "type"=>"my_pending", "on"=>"u_is", "for"=>current_user, "on_s_is_n"=>"pending"},
+		{"project_id"=>"0", "order"=>"n", "type"=>"my_proposed", "on"=>"u_is", "for"=>current_user, "on_s_is_n"=>"proposed"},
 		's',:player,:project)
     @plays = Play.find(:all,options)
 
@@ -79,11 +79,11 @@ class PlaysController < ApplicationController
   def create
     @play = Play.new(params[:play])
     @play.creator = current_user
-    @play.status = 'pending'
+    @play.status = 'proposed'
     @play.end_date = @play.start_date if !params[:date_range]
     respond_to do |format|
       if @play.save
-        flash[:notice] = 'Play was successfully created.'
+        flash[:notice] = 'Contribution was successfully created.'
         format.html { redirect_to( plays_url) }
         format.xml  { render :xml => @play, :status => :created, :location => @play }
       else
@@ -101,7 +101,7 @@ class PlaysController < ApplicationController
     @play.end_date = @play.start_date if !params[:date_range]
     respond_to do |format|
       if @play.save
-        flash[:notice] = 'Play was successfully updated.'
+        flash[:notice] = 'Contribution was successfully updated.'
         format.html { redirect_to(plays_url) }
         format.xml  { head :ok }
       else
@@ -118,7 +118,7 @@ class PlaysController < ApplicationController
     respond_to do |format|
       errors = @play.approve
       if errors.empty?
-        flash[:notice] = 'Play was successfully approved.'
+        flash[:notice] = 'Contribution was successfully approved.'
         format.html { redirect_to(plays_url) }
         format.xml  { head :ok }
       else
@@ -143,9 +143,9 @@ class PlaysController < ApplicationController
     
   protected
   def setup_sections
-    @header="open play" 
+    @header="" 
     @sections = SectionsOpenPlay
-    @current_section = 'plays'
+    @current_section = 'contributions'
     true
   end
   

@@ -134,7 +134,7 @@ class NodesController < ApplicationController
   
   protected
   def setup_sections
-    @header="open play" 
+    @header="" 
     @sections = SectionsOpenPlay
     @current_section = 'projects'
   end

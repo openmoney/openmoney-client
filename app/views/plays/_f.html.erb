@@ -1,12 +1,12 @@
 <p>
 		<%= f.label :player_id %> <%= users_select f,:player_id %>
-		<%= f.label :account_omrl, 'Acknowlege play to account:' %>
+		<%= f.label :account_omrl, 'Acknowlege contribution to account:' %>
 		<%= image_tag 'loading.gif', :id=>'account_spinner', :style=>"display:none;"%>
 		<%= f.collection_select(:account_omrl, @play.player.om_accounts, :omrl, :omrl, {:include_blank => true})%>
 		
 </p>
 	<p>
-			<%= f.label :project_id, "Play is part of project: " %>
+			<%= f.label :project_id, "Contribution is to project: " %>
 	  <%= f.select(:project_id,nested_set_options_for_select(Node,{})) %>
 		<%= f.label :currency_omrl, 'Currency'%>
 		<%= image_tag 'loading.gif', :id=>'currency_spinner', :style=>"display:none;"%>

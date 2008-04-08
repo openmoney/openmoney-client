@@ -3,9 +3,9 @@
 <%= hidden_field_tag 'search[type]',@search_params[:type] %>
 <div id="tabs">  
 <ul>
-<li <%= (@search_params[:type]=='my_pending') ? 'id="current"' : '' %>><%= link_to_function '<span>my pending</span>', %Q|$('search_project').value=0;$("search[type]").value = "my_pending";$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'pending';$('search_form').submit()|%></li>
+<li <%= (@search_params[:type]=='my_proposed') ? 'id="current"' : '' %>><%= link_to_function '<span>my proposed</span>', %Q|$('search_project').value=0;$("search[type]").value = "my_proposed";$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'proposed';$('search_form').submit()|%></li>
 
-<li <%= (@search_params[:type]=='my_approved') ? 'id="current"' : '' %>><%= link_to_function '<span>my approved</span>', %Q|$('search_project').value=0;$("search[type]").value = "my_approved";$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'approved';$('search_form').submit()|%></li>
+<li <%= (@search_params[:type]=='my_acknowledged') ? 'id="current"' : '' %>><%= link_to_function '<span>my acknowledged</span>', %Q|$('search_project').value=0;$("search[type]").value = "my_acknowledged";$("search[on]").value = "u_is";$("search[for]").value ="#{current_user.user_name}";$("search_status").value = 'acknowledged';$('search_form').submit()|%></li>
 
 <li <%= (@search_params[:type]=='custom') ? 'id="current"' : '' %>><%= link_to_function '<span>custom</span>', %Q|;$("search[type]").value = "custom";$("search_fieldset").show()|%></li>
 </ul>
@@ -13,13 +13,13 @@
 <hr style="clear: both"/>
 <div id='search_options'>
 <fieldset id='search_fieldset' <% if @search_params[:type]!='custom' %>style="display:none"<%end%>>
-<legend>Custom Plays Search</legend>
+<legend>Custom Contributions Search</legend>
 
 	<%= select_tag('search[on]', options_for_select([
 		['--Any--',''],
-		['Player name contains','p_c'],
-		['Player begins with','p_b'],
-		['Player user_name is','u_is'],
+		['Contributor name contains','p_c'],
+		['Contributor begins with','p_b'],
+		['Contributor user_name is','u_is'],
 		['Description contains','d_c'],
 		['Currency name contains','c_c']
 	],@search_params[:on]))%>
@@ -48,7 +48,7 @@ Order by: <%= select_tag('search[order]', options_for_select([
 <table id="plays">
   <tr>
     <th>Project</th>
-    <th>Player</th>
+    <th>Contributor</th>
     <th>Status</th>
     <th>Value</th>
     <th>Currency</th>
@@ -65,7 +65,7 @@ Order by: <%= select_tag('search[order]', options_for_select([
     <td><%= standard_date play.start_date %></td>
     <td><%= icon_link :pencil, edit_play_path(play), :title => 'Edit' %></td>
     <td><%= icon_link :minus, play, :title => 'Delete',:confirm => 'Are you sure?', :method => :delete %></td>
-    <%if play.status != 'approved'%><td><%= icon_link :check, approve_play_path(play), :title => 'Approve',:confirm => "Are you sure you want to approve this play and acknowledge #{play.value} to #{play.account_omrl}?", :method => :put %></td><%end%>
+    <%if play.status != 'acknowledged'%><td><%= icon_link :check, approve_play_path(play), :title => 'Approve',:confirm => "Are you sure you want to approve this contribution and acknowledge #{play.value} to #{play.account_omrl}?", :method => :put %></td><%end%>
   </tr>
  <tr><td colspan=6 class="play_description"><%=h play.description %></td></tr>
 <% end %>
@@ -73,4 +73,4 @@ Order by: <%= select_tag('search[order]', options_for_select([
 
 <br />
 
-<%= link_to 'New play', new_play_path %>
+<%= link_to 'New Contribution', new_play_path %>

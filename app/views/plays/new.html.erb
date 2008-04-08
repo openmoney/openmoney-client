@@ -1,8 +1,13 @@
-<h3>New play</h3>
+<h3>New Contribution</h3>
 
 <%= error_messages_for :play %>
 
 <% form_for(@play) do |f| %>
+	<p>
+			<%= f.label 'Contribution Status' %>
+	  <%= f.select :status, Play::StartingStatuses %>
+	</p>
+
 	<%= render(:partial => 'f', :object => f) %>
 
   <p>

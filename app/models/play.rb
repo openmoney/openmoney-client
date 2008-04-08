@@ -2,7 +2,8 @@ class Play < ActiveRecord::Base
   belongs_to :player, :class_name => "User", :foreign_key => "player_id"
   belongs_to :creator, :class_name => "User", :foreign_key => "creator_id"
   belongs_to :project, :class_name => "Node", :foreign_key => "project_id"
-  Statuses = %w(pending submitted approved retired)
+  Statuses = %w(proposed accepted completed acknowledged cleared)
+  StartingStatuses = %w(proposed completed)
 
   def project_name
     self.project.nil? ? '--' : self.project.long_name
@@ -27,7 +28,7 @@ class Play < ActiveRecord::Base
       "currency" => self.currency_omrl
     )
     if event.errors.empty?
-      self.status = 'approved'
+      self.status = 'acknowledged'
       self.save
       []
     else

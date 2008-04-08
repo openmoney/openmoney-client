@@ -3,12 +3,12 @@
 <%= error_messages_for :play %>
 
 <% form_for(@play) do |f| %>
-	<%= render(:partial => 'f', :object => f) %>
-
 	<p>
-			<%= f.label :status %>
+			<%= f.label 'Contribution Status' %>
 	  <%= f.select :status, Play::Statuses %>
 	</p>
+
+	<%= render(:partial => 'f', :object => f) %>
 
   <p>
     <%= f.submit "Update" %>
