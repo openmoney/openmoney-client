@@ -3,8 +3,6 @@
 # This software is distributed according to the license at 
 # http://openmoney.info/licenses/rubycc
 ######################################################################################
-require "config/omsite"
-
 module OMUtils
   class << self
     def set_server(server)

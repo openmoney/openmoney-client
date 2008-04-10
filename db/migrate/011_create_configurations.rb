@@ -24,6 +24,15 @@ class CreateConfigurations < ActiveRecord::Migration
       :notes => 'welcome header to show on the home page'
       )
     c.save
+    c = Configuration.new(:name => 'default_account_namespace',:configuration_type=>'text',:value => nil,
+      :notes => 'specify a namespace here for new profiles should auto-create an account'
+      )
+    c.save
+    c = Configuration.new(:name => 'default_account_currencies',:configuration_type=>'text',:value => nil,
+      :notes => 'list of currencies that the default account will be joined to (you must specify a namespace for default_account_namespace)'
+      )
+    c.save
+    
   end
 
   def self.down

@@ -67,4 +67,4 @@ end
 require "#{RAILS_ROOT}/lib/icons"
 require "#{RAILS_ROOT}/lib/om_classes"
 
-OMUtils.set_server(Configuration.get(:server))
+OMUtils.set_server(Configuration.get(:server)) if ActiveRecord::Base.connection.tables.include?('configurations')

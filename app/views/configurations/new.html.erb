@@ -10,12 +10,16 @@
 
   <p>
     <b>Configuration type</b><br />
-    <%= f.text_field :configuration_type %>
+    <%= f.text_field :configuration_type %> (choose one of: <%= Configuration::Types.join(',')%>)
   </p>
 
   <p>
     <b>Value</b><br />
     <%= f.text_area :value %>
+  </p>
+  <p>
+    <b>Notes:</b><br />
+    <%= f.text_area :notes %>
   </p>
 
   <p>

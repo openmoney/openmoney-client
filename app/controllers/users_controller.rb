@@ -63,6 +63,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if Rauth::Bridge.create_account(@user, :user_name => @user.user_name, :password => params[:password], :confirmation => params[:password_confirm])
         add_default_contexts(@user)
+        add_default_account(@user)
         flash[:notice] = l('Your profile was created.')
         self.current_user = @user if !logged_in?
         format.html { redirect_to(home_url) }
@@ -180,20 +181,39 @@ class UsersController < ApplicationController
   end
   
   def add_default_account(user)
-    if Configuration.get(:default_account) == 'yes'
-#      handle_do_make(
-#        OmAccount.new(),
-#        {:omrl => user.user_name,:tag => user.user_name, :password=>random_password}
-#        ,'account',:CreateAccount,om_accounts_url,['accepts']
-#        )
-      
-      currencies = Configuration.get(:default_account_currencies).split(/ *, */)
-      currencies.each do |c|
-        ctx = OmContext.new({:omrl => context_name})
-        ctx.user_id = user.id
-        ctx.credentials = {:tag => tag, :password=>password}.to_yaml
-        ctx.save
+    context = Configuration.get(:default_account_namespace)
+    if context
+      c = OmContext.find_by_omrl(context)
+      if c
+        name = user.user_name
+        name.gsub!(/[^a-z0-9]/i,'')
+        context_creds = YAML.load(c.credentials)
+        entity_password = random_password
+        act = OmAccount.new
+        act.omrl = "#{name}.#{context}"
+        act.user_id = user.id
+        act.credentials = {:tag => name, :password => entity_password}.to_yaml
+        spec = {"description" => params[:description]}
+        acl = {:tag => @entity_tag, :password => @entity_password, :authorities => '*'}
+        acl[:defaults] = ['accepts']
+        event = Event.churn(:CreateAccount,
+          "credentials" => {context => context_creds},
+          "access_control" => acl,
+          "parent_context" => context,
+          "name" => name,
+          "account_specification" => spec
+        )
+        if event.errors.empty?
+          act.save
+          currencies = Configuration.get(:default_account_currencies)
+          if currencies
+            currencies.gsub!(/ +/,'')
+            currencies.split(/[\n;,]/).each do |currency|
+              Event.churn(:JoinCurrency,"account" => act.omrl,"currency" => currency)
+            end
+          end
+        end
       end
     end
-  end  
+  end 
 end
