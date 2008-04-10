@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 11) do
 
   create_table "allowances", :force => true do |t|
     t.integer "role_id"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(:version => 9) do
   end
 
   add_index "allowances", ["role_id"], :name => "index_allowances_on_role_id"
+
+  create_table "configurations", :force => true do |t|
+    t.string   "name"
+    t.string   "configuration_type"
+    t.text     "value"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "nodes", :force => true do |t|
     t.integer  "parent_id"
@@ -76,7 +85,7 @@ ActiveRecord::Schema.define(:version => 9) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.string   "status"
-    t.integer  "value"
+    t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -116,6 +125,7 @@ ActiveRecord::Schema.define(:version => 9) do
     t.string   "pref_default_account", :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "pref_date_format",     :default => "", :null => false
   end
 
 end

@@ -20,11 +20,16 @@
 						<li><%=  link_to "accounts",om_accounts_url, is_active?(OmAccountsController)%></li>
 						<li><%= link_to "currencies",om_currencies_url, is_active?(OmCurrenciesController)%></li>
 						<li><%= link_to "namespaces",om_contexts_url, is_active?(OmContextsController)%></li>
-						<li><%= link_to "weal",plays_path, is_active?(PlaysController)%></li>
+						<% if Configuration.get(:show_weal) == 'yes'%>
+							<li><%= link_to "weal",plays_path, is_active?(PlaysController)%></li>
+						<%end%>
 						<% if current_user.can?(:manage_users)%>
 						<li><%= link_to "users",users_url, (@controller.is_a?(UsersController) && params[:action] != 'edit') ? {:id => 'active'} : nil%></li>
 						<%end%>
 						<li><%= link_to "profile",edit_user_url(current_user), (@controller.is_a?(UsersController) && params[:action] == 'edit') ? {:id => 'active'} : nil%></li>
+					<% end %>
+					<% if current_user.can?(:manage_users)%>
+					<li><%= link_to "config",configurations_path, is_active?(ConfigurationsController)%></li>
 					<% end %>
         </ul>
       </div>

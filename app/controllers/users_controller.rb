@@ -62,6 +62,7 @@ class UsersController < ApplicationController
     session[:rauth_after_login] = "/"
     respond_to do |format|
       if Rauth::Bridge.create_account(@user, :user_name => @user.user_name, :password => params[:password], :confirmation => params[:password_confirm])
+        add_default_contexts(@user)
         flash[:notice] = l('Your profile was created.')
         self.current_user = @user if !logged_in?
         format.html { redirect_to(home_url) }
@@ -162,5 +163,37 @@ class UsersController < ApplicationController
     @user.id == current_user.id || !current_user.can?(:manage_users)
   end
  
+  def add_default_contexts(user)
+    def_contexts = Configuration.get(:default_namespaces).split(/[;\n]/)
+    def_contexts.each do |x|
+      x.gsub!(/ +/,'')
+      if x =~ /(.*)\((.*),(.*)\)/
+        context_name = $1
+        tag = $2
+        password = $3
+        ctx = OmContext.new({:omrl => context_name})
+        ctx.user_id = user.id
+        ctx.credentials = {:tag => tag, :password=>password}.to_yaml
+        ctx.save
+      end
+    end
+  end
   
+  def add_default_account(user)
+    if Configuration.get(:default_account) == 'yes'
+#      handle_do_make(
+#        OmAccount.new(),
+#        {:omrl => user.user_name,:tag => user.user_name, :password=>random_password}
+#        ,'account',:CreateAccount,om_accounts_url,['accepts']
+#        )
+      
+      currencies = Configuration.get(:default_account_currencies).split(/ *, */)
+      currencies.each do |c|
+        ctx = OmContext.new({:omrl => context_name})
+        ctx.user_id = user.id
+        ctx.credentials = {:tag => tag, :password=>password}.to_yaml
+        ctx.save
+      end
+    end
+  end  
 end

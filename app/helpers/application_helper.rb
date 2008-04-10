@@ -19,7 +19,7 @@ module ApplicationHelper
     [ 'euro', "European", '%d/%m/%Y'],
     [ 'euro-time', "European with time", '%d/%m/%Y %H:%M']
   ]
-
+  
   def date_format_options
     sample_date =  Time.local( 2008, 12, 25 )
     DateFormats.map{|f| [ "#{f[1]}: #{sample_date.localtime.strftime(f[2])}", f[0]] }

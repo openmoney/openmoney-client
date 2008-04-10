@@ -87,7 +87,7 @@ caption, th, td {text-align: left;font-weight: normal; }
 #header img {margin-top:8px; float:left;}
 #header a {color:#fff; text-decoration:none;}
 #header a:hover {color:#000;}
-ul#nav {float:right;display:block;width:43.3em;margin-top:15px;}
+ul#nav {float:right;display:block;width:48.3em;margin-top:15px;}
 ul#nav li {display:block;float:left;}
 ul#nav li a {display:block;float:left;margin:0px 3px;padding:6px 7px 22px 7px;}
 ul#nav li a:hover {background:url(/images/header_hover.gif) repeat-x bottom center;}
@@ -288,7 +288,7 @@ p#rss a:hover {
 }
 
 #history td, th{
-	padding: 2px;
+	padding: 3px;
 }
 
 #tabs
@@ -401,6 +401,16 @@ p#rss a:hover {
 	padding: 7px;
 	margin-bottom: 5px;
 	background-color: #eee;
+}
+
+/* ------------------------------------------------------ */
+/* DEFAULT TABLE STYLES */
+#standard_table th {
+	font-weight: bold;
+}
+
+#standard_table td, th{
+	padding: 3px;
 }
 
 

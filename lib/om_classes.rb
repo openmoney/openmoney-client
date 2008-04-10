@@ -7,7 +7,7 @@ require "config/omsite"
 
 class Event < ActiveResource::Base
   include Specification
-  self.site = SITE_URL
+  self.site = Configuration.get(:server) if ActiveRecord::Base.connection.tables.include?(:configurations)
   
   def Event.churn(event_type,specification)
     event_spec = {
@@ -39,7 +39,7 @@ class Event < ActiveResource::Base
 end
 
 class OMResource < ActiveResource::Base
-  self.site = SITE_URL
+  self.site = Configuration.get(:server) if ActiveRecord::Base.connection.tables.include?(:configurations)
   include Specification
   def self.find_by_omrl(omrl,*args)
     omrl = CGI.escape(omrl).gsub(/\./,'%2E') if !omrl.nil?

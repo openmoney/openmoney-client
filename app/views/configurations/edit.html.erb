@@ -1,0 +1,23 @@
+<% @header="Edit Configuration" %>
+
+<%= error_messages_for :configuration %>
+
+<% form_for(@configuration) do |f| %>
+  <p>
+    <b><%=@configuration.name %>:</b>
+		<% if @configuration.configuration_type == 'text' %>
+			<br /><%= f.text_area :value %>
+		<% elsif @configuration.configuration_type =~ /options\((.*)\)/ %>
+			<%= f.select :value, $1.split(/,/) %>
+		<% else %>
+			<%= f.text_field :value %>
+		<%end%>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @configuration %> |
+<%= link_to 'Back', configurations_path %>

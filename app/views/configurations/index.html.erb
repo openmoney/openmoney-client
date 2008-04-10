@@ -1,0 +1,21 @@
+<%@header="Configurations" %>
+
+<table id="standard_table">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Notes</th>
+  </tr>
+
+<% for configuration in @configurations %>
+  <tr>
+    <td><%= link_to configuration.name, edit_configuration_path(configuration) %></td>
+    <td><%=h configuration.value %></td>
+    <td><%=h configuration.notes %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New configuration', new_configuration_path %>

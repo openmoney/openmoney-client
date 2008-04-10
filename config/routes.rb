@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :configurations
+
   map.resources :plays, :member => {:approve => :put}
   map.resources :nodes, :member => {:move => :put}
 
