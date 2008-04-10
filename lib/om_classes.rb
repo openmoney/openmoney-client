@@ -5,9 +5,22 @@
 ######################################################################################
 require "config/omsite"
 
+module OMUtils
+  class << self
+    def set_server(server)
+      Event.site = server
+  #    Entity.site = self.value
+  #    Context.site = self.value
+  #    Account.site = self.value
+  #    Currency.site = self.value
+  #    Flow.site = self.value
+      OMResource.site = server
+    end
+  end
+end
+
 class Event < ActiveResource::Base
   include Specification
-  self.site = Configuration.get(:server) if ActiveRecord::Base.connection.tables.include?(:configurations)
   
   def Event.churn(event_type,specification)
     event_spec = {
@@ -39,7 +52,6 @@ class Event < ActiveResource::Base
 end
 
 class OMResource < ActiveResource::Base
-  self.site = Configuration.get(:server) if ActiveRecord::Base.connection.tables.include?(:configurations)
   include Specification
   def self.find_by_omrl(omrl,*args)
     omrl = CGI.escape(omrl).gsub(/\./,'%2E') if !omrl.nil?

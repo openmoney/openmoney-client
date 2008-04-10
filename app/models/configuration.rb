@@ -7,13 +7,7 @@ class Configuration < ActiveRecord::Base
   
   def after_save
     if self.name == 'server'
-      Event.site = self.value
-      Entity.site = self.value
-      Context.site = self.value
-      Account.site = self.value
-      Currency.site = self.value
-      Flow.site = self.value
-      OMResource.site = self.value
+      OMUtils.reset_server(self.value)
     end
   end
 end

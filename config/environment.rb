@@ -65,3 +65,6 @@ end
 # Include your application configuration below
 
 require "#{RAILS_ROOT}/lib/icons"
+require "#{RAILS_ROOT}/lib/om_classes"
+
+OMUtils.set_server(Configuration.get(:server))
