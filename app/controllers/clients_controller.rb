@@ -5,6 +5,12 @@
 ######################################################################################
 
 class ClientsController < ApplicationController
+
+  # GET /clients
+  def index
+    redirect_to({:controller => 'clients', :action => 'show', :client => current_user.user_name}) if logged_in? && !current_user.om_accounts.empty?
+  end
+
   # GET /clients/:client/:account/:currency
   def show
     setup

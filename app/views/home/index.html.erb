@@ -11,47 +11,9 @@
    </ul>
  </div>
 <% end %>
-        
-<p>
-This site is for you to eXplore &amp; eXperiment with creating open money namespaces, accounts and currencies.
-</p>
-<p>
-Many, many features are yet to be implemented - however what's here is sufficient to demonstrate the basic architecture and functionality of open money systems.
-</p>
-
+   
 <% if logged_in? %>
-<div id="getting-started">
-Now that you have created a user profile, here's what you can do:
-
-<ul>
-  <li>
-	<%= link_to('name new accounts', om_accounts_url)%> (as many as you like) in the ".x" namespace, i.e. - <code>henry.x</code>, <code>mytown.x</code>, <code>31419.x</code>, etc. When you create accounts you set the credentials for the account which you can give to others to access it.
-	</li>
-  <li>
-	<%= link_to('join your accounts to currencies', '/join_currency')%> (whose names you know)
-	</li>
-  <li>
-		<%= link_to('record flows',"/clients/#{current_user.user_name}")%> to, and receive flows from other accounts (whose names you know)
-	</li>
-  <li>
-	<%= link_to('name new currencies', om_currencies_url)%>  (as many as you like) in the ".x" namespace, i.e. - <code>cc.x</code>, <code>game1.x</code>, etc.  When you create a currency you can set its properties using the templates provided (more to come) or directly in the currency specification language.  You also set the credentials for the currency which you can give to others to access it.
-	</li>
-  <li>
-	<%= link_to('open new namespaces',om_contexts_url)%> i.e. - <code>town.x</code>, <code>me.x</code> <br />
-	Once you open a new namespace you can then start  all over and:
-	<p class="indented_1">
-	name accounts in them  - <code>henry.town.x</code> <br />
-	name currencies / systems  - <code>cc.town.x</code> <br />
-	open new namespaces - <code>south.town.x</code>  <br />
-	</p>
- <p class="indented_2">
-	name accounts in them  - <code>pete.south.town.x</code> <br />
-	name currencies / systems  - <code>youth.south.town.x</code> <br />
-	open new namespaces - <code>bus.south.town</code> <br />
-	</p>
-	and so on, 
-	</p>
-	</li>
-</ul>
- </div>
-<%end%>
+	<%= Configuration.get(:home_page_logged_in)%>
+<% else %>
+	<%= Configuration.get(:home_page_public)%>
+<% end %>

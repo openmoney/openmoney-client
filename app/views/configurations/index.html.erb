@@ -10,7 +10,7 @@
 <% for configuration in @configurations %>
   <tr>
     <td><%= link_to configuration.name, edit_configuration_path(configuration) %></td>
-    <td><%=h configuration.value %></td>
+    <td><%=h configuration.value.to_s[0..50] %> <%= '...' if configuration.value.to_s.size>50 %></td>
     <td><%=h configuration.notes %></td>
   </tr>
 <% end %>
