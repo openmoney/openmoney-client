@@ -22,7 +22,10 @@ Quick Start
 		rake db:migrate
 		ruby script/server
 
-	Step 3: Try it out!
+	Step 3: Configuration
 		You should now have the client running an accessible at: localhost:3000
-
-Note: the client out of the box assumes that you have installed the rubyom server and have it running on port 3001 for rubycc to work out of the box. See the rubyom project for details. If you want to point the client at a different server, click on config, and edit the “server” configuration.
+		Point your browser at http://localhost:3000 and click on "new user profile"
+		The first profile that is created will be given admin privileges.  Click on the "config" menu to
+		configure the client options, most importantly which server the client should connect to.  The
+		default is http://localhost:3001.  Thus the assumption is that you have installed the rubyom server
+		and have it running on port 3001 . See the http://projects.openmoney.info/rubyom for details.
