@@ -194,7 +194,7 @@ class UsersController < ApplicationController
         act.user_id = user.id
         act.credentials = {:tag => name, :password => entity_password}.to_yaml
         spec = {"description" => params[:description]}
-        acl = {:tag => @entity_tag, :password => @entity_password, :authorities => '*'}
+        acl = {:tag => name, :password => entity_password, :authorities => '*'}
         acl[:defaults] = ['accepts']
         event = Event.churn(:CreateAccount,
           "credentials" => {context => context_creds},

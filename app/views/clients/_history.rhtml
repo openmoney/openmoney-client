@@ -17,7 +17,7 @@ There was an error: <%= @event_error %>
 (@flows,@fields) = render_history(history(@account.omrl,@currency_omrl),@account.omrl,@currency_spec,:language => current_user.pref_language)
 %>
 
-<% if @flows %>
+<% if @flows && @fields %>
   <table id ="history_table">
 	<tr>
 	<%for f in @fields %>
