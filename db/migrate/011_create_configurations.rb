@@ -12,7 +12,7 @@ class CreateConfigurations < ActiveRecord::Migration
       :notes => 'URL that points to the server this client talks to.'
       )
     c.save
-    c = Configuration.new(:name => 'default_namespaces',:configuration_type=>'text',:value => 'x(steward,fish)',
+    c = Configuration.new(:name => 'default_namespaces',:configuration_type=>'text',:value => '',
       :notes => 'list of namespaces(with id and password) to auto add to all users'
       )
     c.save
