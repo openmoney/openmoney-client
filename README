@@ -1,4 +1,4 @@
-== Welcome to rubycc
+== Welcome to openmoney-client
 
 Quick Start    
 	This quick-start is intended for developers and early adopters who want to get started running an open money client.
@@ -7,18 +7,20 @@ Quick Start
 		Ruby
 		Database: You can use any database that Rails supports. We’ve been developing on MySQL 5
 		Rails
-		Subversion
+		Git
+		An installed version of openmoney-server running on some host
 
 	Step 2: Install rubycc
-		Do an svn install from rubyforge with:
-		svn checkout http://openmoney.rubyforge.org/svn/rubycc/trunk rubyom
+		Clone the git repository with:
+		git clone git://github.com/openmoney/openmoney-client.git
 
 		Then do the standard rails set-up actions, i.e.
-		create a database “rubycc_development” (this will vary depending on which database you chose)
+		create a database “omclient_development” (this will vary depending on which database you chose)
+		cd config
+		cp database_example.yml database_yml
 		edit config/database.yml with the database passwords and and setup according to which database you chose.
 
 		Once you have set up the database then you can:
-		cd rubycc
 		rake db:migrate
 		ruby script/server
 
@@ -27,5 +29,5 @@ Quick Start
 		Point your browser at http://localhost:3000 and click on "new user profile"
 		The first profile that is created will be given admin privileges.  Click on the "config" menu to
 		configure the client options, most importantly which server the client should connect to.  The
-		default is http://localhost:3001.  Thus the assumption is that you have installed the rubyom server
-		and have it running on port 3001 . See the http://projects.openmoney.info/rubyom for details.
+		default is http://localhost:3001.  Thus the assumption is that you have installed the openmoney-server
+		and have it running on port 3001 . See the http://github.com/openmoney/openmoney-server for details.
