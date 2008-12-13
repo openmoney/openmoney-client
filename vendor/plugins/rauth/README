@@ -1,0 +1,105 @@
+= Rauth
+
+Rauth is yet another authentication/authorization plugin for Ruby on Rails.
+
+This plugin is different because it contains both an authentication system and
+an authorization system.  In addition, the authentication system has been
+built to support multiple authentication sources.  The default source is
+a table in your rails application's database.
+
+== Getting Started
+
+* Use the generator:
+
+ ./script/generate rauth
+
+* Add the code from example/routes.rb into your config/routes.rb file.
+
+* Look at example/createuser.rb for a example code for creating user accounts.
+
+== Sessions Controller
+
+Rauth includes a Sessions controller for performing login and logout.  You
+need to update your config/routes.rb file as described above.
+
+== Authentication
+
+Rauth includes a controller class method that you can use to control
+authentication.  If you wanted every action of every controller to require
+authentication you would place the following code in your
+ApplicationController:
+
+ require_authentication
+
+You can also call this on the specific controller that you require
+authentication for.  The require_authentication method creates a before_filter
+on the calling controller, passing any options you give it to the
+before_filter method.  Therefore you can do stuff like this:
+
+ require_authentication(:only => [:edit, :update, :destroy])
+
+You also have access to a method called current_user from your controllers and
+views.
+
+Authentication information is stored in a dedicated set of tables, instead of
+being mixed with your users table.  This makes it easy to switch to an
+external authentication source.
+
+The only requirements placed on your users table is that it has a column
+called account_id:
+
+ create_column(:users, :account_id, :integer)
+
+== Authorization
+
+Authorization is achieved through roles. Users are associated with roles, and
+roles have specific permissions.  Each user can optionally be assigned to
+a single role, and a role can have any number of permissions.
+
+Your user model should have a role_id column, and then declare the
+relationship to the role through the provided method:
+
+ # In your migration that creates the users table
+ t.column(:role_id, :integer)
+
+ # or when you already have a users table
+ create_column(:users, :role_id, :integer)
+
+ # In your model
+ class User < ActiveRecord::Base
+   belongs_to_role
+ end
+
+This gives you a few extra methods to find out if a user is allowed to do
+something.  For example:
+
+ if current_user.can?(:destroy_blogs)
+   # ...
+ end
+
+You can also use authorization at the controller level.  In your ApplicationController:
+
+ enable_authorization 
+
+And then in specific controllers:
+
+ # The current user must have the :destroy_blogs permission to call destroy
+ require_authorization(:destroy_blogs, :only => :destroy) 
+
+By default, permissions are boolean.  They can however be used in other ways.
+For example, to limit the number of blog articles a user is allowed to create:
+
+ if permission = current_user.authorize(:articles) and permission.allowance > 10
+   # ...
+ end
+
+== Building Roles
+
+ Permission.create(:name => 'create_users')
+ Permission.create(:name => 'delete_users')
+
+ r = Role.create(:name => 'Admin')
+ r.allowances.add('create_users')
+ r.allowances.add('delete_users')
+
+See the Role, Permission, and Allowance classes for more info.
