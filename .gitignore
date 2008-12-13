@@ -7,4 +7,3 @@ doc/plugins
 public/cache/**/*
 *.sqlite3.db
 *-bak.*
-db/schema.rb

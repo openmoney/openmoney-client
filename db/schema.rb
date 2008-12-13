@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 12) do
   create_table "om_accounts", :force => true do |t|
     t.integer  "user_id"
     t.string   "omrl"
-    t.text     "credentials",      :default => "", :null => false
+    t.text     "credentials",                      :null => false
     t.text     "currencies_cache"
     t.string   "default_currency", :default => "", :null => false
     t.datetime "created_at"
